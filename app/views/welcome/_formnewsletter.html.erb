@@ -1,0 +1,11 @@
+<%=form_with url: "/newsletter/", html:{id: "form_newsletter", name: "form_newsletter"} do |form|%>
+		 <div class="cel1">
+			 <input type="hidden" name="subaction" value="add" />
+			 <%=form.text_field "email", class: "button", style: "width:80%",value:"" %>&nbsp;
+			 <input type="image" src="https://www.saintlaurentdumaroni.fr/photo/ok.png?v=1349942074" alt="OK" title="OK" />
+			 <div class="texte" style="margin-top:5px">
+				 <input type="radio" name="html_texte" id="mode_html" value="html" checked="checked" /><label for="mode_html">HTML</label> 
+				 <input type="radio" name="html_texte" id="mode_texte" value="text" /><label for="mode_texte">Texte</label>
+			 </div>
+		 </div>
+	 <%end%>

@@ -1,0 +1,19 @@
+<div id="preview" class="pave_cell_form">						 <div class="pave_cell_preview">
+							 <div class="innersafe">
+							 <div class="pave_message_left">
+								 <div class="message_left">
+									 <div class="ctitre"><%=@subject.auteur%></div>
+									 <br>
+									 Aujourd'hui - <%=l(DateTime.now, format: :mytime)%><br><br>
+								 </div>
+							 </div>
+							 <div class="pave_message_right">
+								 <div class="message_right">
+									 <%=@subject.mess.html_safe%>
+									 <br>
+								 </div>
+							 </div>
+							 </div>
+							 </div>
+							 <div class="clear"></div>
+</div>

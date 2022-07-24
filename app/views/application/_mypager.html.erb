@@ -1,0 +1,27 @@
+<div class="pager">
+<%myurl ||= request.original_url.split('?').first%>
+MYPAGER
+<%if list.length <= 2 && params[:start].to_i <= 10%>
+                        <%([1.to_s]+(0.to_s..(list.length.round(-1, half: :down) - 10).to_s).step(10).to_a.without("0")).each_with_index do |h,k|%>
+			 <a <%if h == params[:start]%>class="sel"<%end%> href="<%=myurl%><%if k > 0%>?start=<%=h%><%end%>"><%=(k+1)%></a>
+                         <%end%>
+                    <%elsif params[:start].to_i <= 10%>
+                        <%([1.to_s]+(0.to_s..(list.length.round(-1, half: :down) - 10).to_s).step(10).to_a.without("0")).each_with_index do |h,k|%>
+			 <a <%if h == params[:start]%>class="sel"<%end%> href="<%=myurl%><%if k > 0%>?start=<%=h%><%end%>"><%=(k+1)%></a>
+                         <%end%>
+                    <%elsif params[:start].to_i < (list.length.round(-1, half: :down) - 10) %>
+                        <%((params[:start].to_i - 10).to_s..(params[:start].to_i + 10).to_s).step(10).to_a.each_with_index do |h,k|%>
+			 <a <%if h == params[:start]%>class="sel"<%end%> href="<%=myurl%><%if k > 0%>?start=<%=h%><%end%>"><%=(h.to_i/10)%></a>
+                         <%end%>
+
+                    <%end%>
+<!--
+			 <a class="sel" href="/social/">1</a>
+			 <a  href="/social/?start=30">2</a>
+			 <a  href="/social/?start=60">3</a>
+			 <a  href="/social/?start=90">4</a>
+			 <a  href="/social/?start=120">5</a>
+			 <a href="/social/?start=30">&raquo;</a>
+			 <span>...</span>
+			 <a  href="/social/?start=360">13</a>
+                             -->   </div>

@@ -1,0 +1,1 @@
+new Image().src='https://cm.g.doubleclick.net/pixel?google_nid=captify_dmp&google_cm&dsp=dbm&fid=0e311264-8451-45f0-baf2-1abe0a43ec73';new Image().src='https://pool.grid-data.bidswitch.net/sync?pid=42';

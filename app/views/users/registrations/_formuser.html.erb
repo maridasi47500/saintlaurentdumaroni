@@ -1,0 +1,115 @@
+<form class="form" action="/subscription/" method="post" enctype="multipart/form-data" id='form_subscription'>
+			 <input type="hidden" name="commande_a_regler" value="" />
+			 <input type="hidden" name="subaction" value="add" />
+			 <input type="hidden" name="esc_identity" value="" />
+			 <div class="inner">
+				<div class="sep"></div>
+<div class="break"></div>
+				<label style="">Login * :</label>
+<div class="inputrow" style="">
+	 <input class="button" onfocus="del_error(this.id)" type="text" id="a_login" name="a_login" value=""  />
+	 <div id="error_a_login" class="error"></div>
+</div>
+<div class="inforow">Entrez un nom d'utilisateur</div>
+<div class="break"></div>
+				<label style="">Mot de passe * :</label>
+<div class="inputrow" style="">
+	 <input class="button" onfocus="del_error(this.id)" type="password" id="a_password" name="a_password" value="" maxlength="30" onkeyup="passwordStrength(this.value)" />
+	 <div id="error_a_password" class="error"></div>
+</div>
+<div class="div-passwordquality" style="float:left; padding-right:10px; position:relative">
+<table id="passwordquality" class="passwordquality" cellpadding="0" cellspacing="0">
+<tr>
+<td style="width:16%"><div class="first"></div></td>
+<td style="width:16%"><div class="void"></div></td>
+<td style="width:16%"><div class="void"></div></td>
+<td style="width:16%"><div class="void"></div></td>
+<td style="width:16%"><div class="void"></div></td>
+<td style="width:16%"><div class="void"></div></td>
+</tr>
+</table>
+<span class="passwordqualitylabel" id="passwordquality_q0" style="display:none">Très faible</span>
+<span class="passwordqualitylabel" id="passwordquality_q1" style="display:none">Faible</span>
+<span class="passwordqualitylabel" id="passwordquality_q2" style="display:none">Moyen</span>
+<span class="passwordqualitylabel" id="passwordquality_q3" style="display:none">Bon</span>
+<span class="passwordqualitylabel" id="passwordquality_q4" style="display:none">Très bon</span>
+<span class="passwordqualitylabel" id="passwordquality_q5" style="display:none">Excellent</span>
+</div>
+<div class="info-passwordquality information">Niveau de sécurité</div>
+<div class="break"></div>
+				<label style="">Confirmez le mot de passe * :</label>
+<div class="inputrow" style="">
+	 <input class="button" onfocus="del_error(this.id)" type="password" id="a_password2" name="a_password2" value="" maxlength="30" />
+	 <div id="error_a_password2" class="error"></div>
+</div>
+<div class="break"></div>
+				<div class="sep"></div>
+<div class="break"></div>
+					<label>Visibilité du profil : </label>
+<div class="radiorow">
+		 <input type="radio" name="a_visibilite" id="a_visibilite_0" value="public" onfocus="del_error('a_visibilite')" checked="checked" />
+		 <label for="a_visibilite_0" class="champ" style="display:inline">Public</label>
+		 <br/>
+		 <input type="radio" name="a_visibilite" id="a_visibilite_1" value="prive" onfocus="del_error('a_visibilite')"  />
+		 <label for="a_visibilite_1" class="champ" style="display:inline">Privé</label>
+		 <br/>
+</div>
+<div class="break"></div>
+				<label style="">Pseudo :</label>
+<div class="inputrow" style="">
+	 <input class="button" onfocus="del_error(this.id)" type="text" id="a_pseudo" name="a_pseudo" value="" maxlength="200" />
+	 <div id="error_a_pseudo" class="error"></div>
+</div>
+<div class="break"></div>
+				<div class="radiorow">
+		 <input type="checkbox" name="a_abo_newsletter" id="a_abo_newsletter" value="oui"  /> <label for="a_abo_newsletter" class="champ" style="display:inline">Je souhaite recevoir la newsletter</label><br/>
+		 <div id="error_a_abo_newsletter" class="error"></div>
+</div>
+<div class="break"></div>
+				<div id="div_a_prenom" style="">
+<label style="">Prénom * :</label>
+<div class="inputrow" style="">
+	 <input class="button" onfocus="del_error(this.id)" type="text" id="a_prenom" name="a_prenom" value=""  />
+	 <div id="error_a_prenom" class="error"></div>
+</div>
+<div class="inforow"> </div>
+</div>
+<div class="break"></div>
+				<div id="div_a_nom" style="">
+<label style="">Nom * :</label>
+<div class="inputrow" style="">
+	 <input class="button" onfocus="del_error(this.id)" type="text" id="a_nom" name="a_nom" value=""  />
+	 <div id="error_a_nom" class="error"></div>
+</div>
+<div class="inforow"> </div>
+</div>
+<div class="break"></div>
+				<div id="div_a_email" style="">
+<label style="">Email :</label>
+<div class="inputrow" style="">
+	 <input class="button" onfocus="del_error(this.id)" type="text" id="a_email" name="a_email" value=""  />
+	 <div id="error_a_email" class="error"></div>
+</div>
+<div class="inforow"> </div>
+</div>
+<div class="break"></div>
+				 <div class="sep"></div>
+<div class="break"></div>
+			 </div>
+			 <div style="margin-bottom:50px"><input type="submit" value="S'INSCRIRE" class="button2" /></div>
+		 </form>
+<ul>
+<%user.errors.messages.to_a.select{|h,k|k.length > 0}.each do |y,m|%>
+<li><%=y%> : <%=m[0]%></li>
+<%end%>
+</ul>
+<%=content_for :mapgoogle do%>
+<script>
+window.onload=function(){
+<%user.errors.messages.to_a.select{|h,k|k.length > 0}.each do |y,m|%>
+$('#error_<%=y%>').html("<%=m[0]%>");
+$('#<%=y%>').attr('class','field_error');
+<%end%>
+}
+</script>
+<%end%>

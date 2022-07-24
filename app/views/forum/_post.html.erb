@@ -1,0 +1,47 @@
+<div class="cel1" style="background-color: <%=cycle("#F5F5F5","#FFFFFF")%>;">
+		 <div class="pave_cell_prem" id='message'>
+			 <div class="innersafe">
+				 <div class="pave_message_left">
+						 <div class="ctitre">&nbsp;<a href="/social/<%=post.user_id%>/"><%=post.user.pseudo%></a>
+</div>
+					 <div class="message_left">
+							 <%=post.user.pseudo%><br />
+						 <%if Date.today == post.created_at.to_date%>Aujourd'hui -<%end%> <%=l(post.created_at, format: (Date.today == post.created_at.to_date ? :mytime : (Date.today.year == post.created_at.year ? :madate : :mydatelastyear)))%><br /><br />
+			 
+
+
+<span class="img_rating" id="star<%=post.id%>" <%if post.dejanote%>style="cursor: default; width: 95px;" title="<%=post.dejanote%>"<%end%>>
+
+</span>
+
+ <span id="hint<%=post.id%>">
+<%if post.dejanote%>
+<b><%=post.notes.length%></b> vote(s), <b><%=post.dejanote%></b> sur 5
+
+<%else%>Notez<%end%></span>
+
+
+
+					 </div>
+				 </div>
+				 <div class="pave_message_right">
+					 <div class="message_right" id="mess_<%=post.id%>">
+						 <%=post.mess.html_safe%>
+					 </div>
+				 </div>
+				 <div class="clear"></div>
+			 </div>
+		 </div>
+	 </div>
+
+<script>
+$('#star<%=post.id%>').raty({start: <%=post.dejanote.to_i%>, 
+			path: '/_adminV5/css/images/', 
+			starOff: 'rating_star.png', 
+			starOn: 'star_f.png',
+			readOnly: <%=post.dejanote ? "true" : "false"%>,
+			hintList: ['1', '2', '3', '4', '5'],
+			size: 15,
+			click : function(rate) { $(this).raty('readOnly', true); $(this).next().html('Votre note : ' + rate); $.post('/', 'preaction=rating&action=rating&id_article=<%=post.id%>&rating_type=star&value=' + rate + '&objet_type=post');}
+			});
+</script>

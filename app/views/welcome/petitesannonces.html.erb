@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<meta name="robots" content="noindex" /></head>
+<body>
+	 <div class="cel1" style="position:static">
+			 <div class="tabs">
+				 <ul>
+					 <li id="li_wall" class="selected"><a href="https://www.megazap.fr/social/">Activités</a></li>
+					 <li id="li_membre"><a href="https://www.megazap.fr/social/list/">Membres</a></li>
+					 <li id="li_profil"><a href="https://www.megazap.fr/social/2042330/">Mon profil</a></li>
+					 <li class="li_search" style="float:right;margin:0;padding:0">
+						 <form action="https://www.megazap.fr/social/list/?order=" method="get" onsubmit="document.getElementById('snskey_safe_24606308').focus();this.removeChild(document.getElementById('snskey_safe_24606308'))">
+							 <input type="text" class="button search" style="" id="snskey_safe_24606308" name="snskey_safe_24606308" value="" onfocus="this.style.display='none'; document.getElementById('snskey_24606308').style.display='inline'; document.getElementById('snskey_24606308').focus()" />
+							 <input type="text" class="button search" style="display:none" id="snskey_24606308" name="snskey" value="" onblur="if (this.value == '') {this.style.display='none'; document.getElementById('snskey_safe_24606308').style.display='inline';}" />
+							 <input type="image" src="/_images/icones/ok_5.png?v=1213798463" alt="OK" title="OK" />
+						 </form>
+					 </li>
+				 </ul>
+				 <div class="clear"></div>
+			 </div>
+			 <div class="view-activite">
+		 <div class="inner_tabs" >
+			 <div class="bloc_bottom">
+			 <div class="titre"><a href="https://www.megazap.fr/social/">Activité générale</a></div>
+			 <div class="ssmenu left">
+				 <a  href="https://www.megazap.fr/social/wall/followed/">Personnes suivies</a>
+<span> | </span>				 <a href="/social/wall/comments/">Commentaires (<%=User.touscommentaireslength%>)</a>
+<span> | </span>				 <a href="/social/wall/forum/">Forum (1887)</a>
+<span> | </span>				 <a href="/social/wall/classifieds/">Petites annonces (<%=User.petitesannonceslength%>)</a>
+			 </div>
+			 <div class="ssmenu right">
+				 <a href="https://www.megazap.fr/social/" class="selected">Liste</a>
+				 <span> | </span>
+				 <a href="https://www.megazap.fr/social/?show=m" >Mosaique</a>
+			 </div>
+			 <div class="break"></div>
+			 </div>
+			 <div class="bloc">
+<%if @news.length > 0%>
+                         <%@news.each do |date, news|%>
+				 <div class="infos_generales" style="margin-top:0"><%=date%></div>
+				 <div class="sep"></div>
+                                 <%@myid=0%>
+                                 <%news.each do |mynews,item,record|%>
+                                 <%@myid+=1%>
+			 <%=render "mylayouts/"+mynews, :"#{item}" => record, classified_counter: @myid, comment_counter: @myid%>
+                         <%end%>
+                         <%end%><%end%>				 
+			 <div class="right">		 
+                        <%=render "mypager", list: @news %>
+</div>
+			 <div class="break"></div>
+		 </div>
+		 </div>
+			 </div>
+	 </div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<div id="z_colfull">
+<div class="z_colfull_inner">
+<div id="breads" class="breadcrump breadcrumbs">
+	 <a href="https://www.megazap.fr/">Accueil</a>
+	 <span class="sepbread">&nbsp;&gt;&nbsp;</span>
+	 <a href="/social/">Réseau social</a>
+	 <span class="sepbread">&nbsp;&gt;&nbsp;</span>
+	 <a href="/social/<%=@message.user.fullname%>/"><%=@message.user.fullname%></a>
+	 <span class="sepbread">&nbsp;&gt;&nbsp;</span>
+	 <a href="/social/archives/">Messagerie</a>
+	 <div class="clear separate"><hr /></div>
+</div>
+ <div id="mod_24606308" class="mod_24606308 wm-module fullbackground  module-page2_social">
+	 <div class="cel1" style="position:static">
+			 <div class="tabs">
+				 <ul>
+					 <li id="li_wall"><a href="/social/">Activités</a></li>
+					 <li id="li_membre"><a href="/social/list/">Membres</a></li>
+					 <li id="li_profil" class="selected"><a href="/social/<%=@message.user.fullname%>/">Mon profil</a></li>
+					 <li class="li_search" style="float:right;margin:0;padding:0">
+ <form action="/social/inbox/" method="get" onsubmit="document.getElementById('snskey_safe_24606308').focus();this.removeChild(document.getElementById('snskey_safe_24606308'))">
+	 <input type="text" class="button search" style="" id="snskey_safe_24606308" name="snskey_safe_24606308" value="" onfocus="this.style.display='none'; document.getElementById('snskey_24606308').style.display='inline'; document.getElementById('snskey_24606308').focus()" />
+	 <input type="text" class="button search" style="display:none" id="snskey_24606308" name="snskey" value="" onblur="if (this.value == '') {this.style.display='none'; document.getElementById('snskey_safe_24606308').style.display='inline';}" />
+	 <input type="image" src="/_images/icones/ok_5.png?v=1213798463" alt="OK" title="OK" />
+ </form>
+					 </li>
+				 </ul>
+				 <div class="clear"></div>
+			 </div>
+			 <div class="view-messagerie">
+		 <div class="inner_tabs display_pager">
+			 <div class="inner_tabs_membre">
+			 <div class="pave_membre">
+			 <div class="membre membre_photo">
+				 <%if current_user.image%><a id="profil_photo" href="javascript:void(0)" rel="nofollow" onclick="showIbox('/mymodule/24606308/?type=3&amp;ajax=true&amp;java=false&amp;iboxaction=photo');"> 				 <img src="/userfiles/<%=current_user.image%>?v=1649937189" width="180" height="180" alt="Cliquer ici pour recadrer la photo" title="Cliquer ici pour recadrer la photo" /> </a> <%else%>	<a id="profil_photo" href="javascript:void(0)" rel="nofollow" onclick="showIbox('/mymodule/5601793/?type=3&amp;ajax=true&amp;java=false&amp;iboxaction=photo');"><img src="/inconnu_ .jpg" width="180" height="180" alt="Ajoutez une photo à votre profil" title="Ajoutez une photo à votre profil"> </a><%end%>
+			
+			 </div>
+			 <div class="menu">
+				 <a href="/social/<%=@message.user.fullname%>/param/">Paramètres</a>
+				 <span>|</span>
+				 <a href="javascript:void(0)" rel="nofollow" onclick="showIbox('/mymodule/24606308/?type=3&amp;ajax=true&amp;java=false&amp;iboxaction=photo');" title="Ajoutez une photo à votre profil">Photo</a>
+			 </div>
+			 <div id="social_menu_special"></div>
+			 <div id="about_<%=current_user.id%>" class="membre membre_content">
+				 <%if current_user.description%><%=current_user.description%> <a href="javascript:void(0)" rel="nofollow" onclick="recharge('about_<%=current_user.id%>', '/mymodule/5601793/', 'document.getElementById(&quot;textarea_about_<%=current_user.id%>&quot;).focus()', 'ajax=true&amp;java=false&amp;edit_about=1')" title="Cliquer pour éditer" class="about texte">Editer...</a><%else%><a href="javascript:void(0)" rel="nofollow" onclick="recharge('about_<%=current_user.id%>', '/mymodule/5601793/', 'document.getElementById(&quot;textarea_about_<%=current_user.id%>&quot;).focus()', 'ajax=true&amp;java=false&amp;edit_about=1')" title="Cliquer pour éditer" class="about texte">Ecrivez quelque chose à propos de vous...</a><%end%>
+			 </div>
+                         <%if current_user.followedpeople.length > 0%>
+                         <div class="membre membre_content">
+				 <div class="menu">Personnes suivies (<%=current_user.followedpeople.length%>)</div>
+				 <div class="infos">
+<%=render partial: "userimage", collection: current_user.followedpeople, as: :user%>				 </div>
+			 </div>
+                         <%end%>
+
+			 </div>
+			 <div class="pave_membre_detail">
+			 <div class="bloc_bottom">
+			 <div class="left titre"><a href="/social/<%=@message.user.fullname%>/"><%=current_user.fullname%></a></div>
+			 <div class="right menu"><a href="/logout/">Se déconnecter</a></div>
+			 <div class="clear"></div>
+			 <div class="menu">
+				 <a class="menu" href="/social/<%=@message.user.fullname%>/">Activités</a>
+				 <span> | </span>
+				 <a class="menu" href="/social/<%=@message.user.fullname%>/info/">Infos</a>
+				 <span> | </span>
+				 <a class="menu selected" href="/social/inbox/">Messagerie</a>
+				 <span> | </span>
+				 <a class="menu" href="/social/<%=@message.user.fullname%>/bookmarks/">Favoris (0)</a>
+			 </div>
+			 <div class="sep2"></div>
+				 <div class="ssmenu left">
+				 <a  href="/social/inbox/">Mes messages (<%=current_user.nb_unread%>)</a>
+<span> | </span>				 <a class="selected" href="/social/archives/">Archives (<%=current_user.nb_read%>)</a>
+				 </div>
+				 <div class="ssmenu right"><a href="/social/compose/">Nouveau message</a></div>
+				 <div class="clear"></div>
+			 </div>
+			 <div class="bloc">
+				 <div class="clear"></div>
+					 <div class="titre"><%=@message.mythread.title%></div>
+				 <div class="clear"></div>
+				 <div class="avatar photo"><a href="/social/<%=@message.user.fullname%>/"><img width="48" height="48" src="/_images/social/inconnu_o_petit.jpg" alt="personne" /></a></div>
+				 <div class="legende">
+					 <div class="auteur_date"><a class="lien" href="/social/<%=@message.user.fullname%>/"><%=@message.reallogin(current_user)%></a> <%=l(@message.datedumessage, format: :usernow)%></div>
+					 <div class="texte" style="margin-top:2px"><%=@message.content%></div>
+<%if @message.attachment%>
+<div class="sep2"></div>
+<div class="lien"><img src="/_images/ext/unknown.gif" alt="" class="image" />&nbsp;<a href="/snsfile/<%=@message.id%>/"><%=@message.attachment%></a></div>	
+<%end%> 
+				 <div class="clear"></div>
+			 </div>
+                         <div class="sep"></div>
+                            <%=render collection: @othermsg, partial: "othermessage", as: :message%>
+			 
+				 <div class="clear"></div>
+		 <div class="formulaire" id="send">
+			 <form action="/social/#send" method="post" enctype="multipart/form-data">
+				 <input type="hidden"  name="envoyer_message" value="oui" />
+				 <input type="hidden"  name="id_thread" value="<%=@message.thread_id%>" />
+				 <input type="hidden"  name="fingerprint" id="fingerprint_24606308" value="0"/>
+					 <div class="area_board">
+						 <input type="button" style="display: inline; font: bold 12px Georgia; padding: 3px 8px; width: auto; text-align: center; background-color: #FFF; border: 1px solid #E1E1E1; color: #333;" onclick="bbstyle(0,'a_message')"  value="B" class="pointer" />
+						 <input type="button" style="font: italic 12px Georgia; padding: 3px 8px; width: auto; text-align: center; background-color: #FFF; border: 1px solid #E1E1E1; color: #333;" onclick="bbstyle(2,'a_message')"  value="I" class="pointer" />
+						 <input type="button" style="font: 12px Georgia; padding: 3px 8px; width: auto; text-align: center; text-decoration: underline; background-color: #FFF; border: 1px solid #E1E1E1; color: #333;" onclick="bbstyle(4,'a_message')"  value="U" class="pointer" />
+						 <input type="button" style="font: 12px Georgia; padding: 3px 8px; width: auto; text-align: center; background-color: #FFF; border: 1px solid #E1E1E1; color: #333;" onclick="bbstyle(28,'a_message')" value="&laquo;&raquo;" class="pointer" />
+						 <input type="button" style="font: 12px Georgia; padding: 3px 8px; width: auto; text-align: center;  background-color: #FFF; border: 1px solid #E1E1E1; color: #333;" onclick="bbstyle(18,'a_message')" value="URL" class="pointer" />
+						 <input type="button" style="font: 12px Georgia; padding: 3px 8px; width: auto; text-align: center; background-color: #FFF; border: 1px solid #E1E1E1; color: #333;" onclick="bbstyle(26,'a_message')" value="IMG" class="pointer" name="addbbcode26" />
+					 </div>
+				 <div class="textarea" style="width:100%"><textarea onkeypress="init_vide(this, 'field_error')" name="a_message" id="a_message" rows="12" cols="" class="inner button"></textarea>
+				 <br />
+						 <div class="texte">Pièce jointe : <input type="file" id="a_file" name="a_file" /></div>
+						 <br />
+				 <input type="button" class="left button2" value="Prévisualiser" onclick="preview_thread('')"/>
+				 <input type="submit" class="right button2" value="Envoyer" onclick="return test_vide('a_message', 1, 'field_error');" />
+				 <div class="clear"></div>
+			 </div>
+			 </form>
+			 <div  id="preview" style="display:none;"></div>
+		 </div>
+		 <div class="clear"></div>
+			 </div>
+			 </div>
+			 <div class="clear"></div>
+		 </div>
+		 <div class="clear"></div>
+		 </div>
+			 </div>
+	 </div>
+</div>
+<div class="ecart_colfull"><hr /></div>
+</div>
+</div>
+
+<%=content_for :overlay do%>
+<div class="overlay" id="overlay" style="visibility: visible; z-index: 1000; width: 400px; height: 250px; background-image: url(&quot;/_images/icones/ibox_loading.png&quot;); background-repeat: no-repeat; background-position: center center; top: 15px; left: 288px; position: fixed; display: none;"><span id="ibox_close_perso" class="close" style="display: none;"></span><img id="ibox_close" class="close" src="/_images/icones/ibox_close.png" style="display: none;"><div class="contentWrap" style="visibility: visible;"><img src="" alt="" width="144" height="205" onclick="hideIbox()"></div></div>
+<div id="overlay-opacity"></div>
+<a rel="#overlay"></a>
+<div   onclick="$(overlay).toggle();$(exposeMask).toggle();return false;" id="exposeMask" style="position: absolute; top: 0px; left: 0px; width: 1090px; height: 1441px; display: none; opacity: 0; z-index: 9998; background-color: rgb(0, 0, 0);"></div>
+<%end%>
+<%=content_for :mapgoogle do%>
+<script src="/js/compress_jquery.ibox.js"></script>
+<script src="/js/jquery.tools-1.2.7.min.js?v=1383207878" type="text/javascript"></script>
+
+<%end%>
+<%=content_for :myglider do%>
+if ($('#my-glider5601812').length) var my_glider5601812 = $('#my-glider5601812 div.content').bxSlider({pager: false,controls: false});
+
+<%end%>

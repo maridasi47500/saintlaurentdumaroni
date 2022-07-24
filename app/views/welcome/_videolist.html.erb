@@ -1,0 +1,23 @@
+<tr>
+		 <td id="video_item_<%=video.id%>" style="height:95px;">
+                        <div class="navigation" style="float: left; margin-right: 1ex">
+			 <div class="photo">
+						 <a href="<%=videorecent_path(sort: params[:sort],p: (video_counter.to_i + 1), start: params[:start])%>">
+						 <img style="cursor:pointer;" alt="<%=video.titre%>" title="<%=video.titre%>" src="https://www.saintlaurentdumaroni.fr<%=video.image%>">
+			 </a>
+			 </div>
+                            </div>
+			 <div class="titre">
+						 <a href="<%=videorecent_path(sort: params[:sort],p: (video_counter.to_i + 1), start: params[:start])%>"><%=video.titre%></a>
+			 </div>
+			 <div class="lien"> 
+						 <span> <%=distance_of_time_in_words(Time.new(1,1,1,0,0,0,0).utc.change(month: 1,year:2022,day:1),video.time.change(month: 1,year:2022,day:1))%></span>
+						 &nbsp;-&nbsp;
+						 <span>Vues : <%=video.vue%></span>
+			 </div>			 
+                    <div class="texte">
+                    <%=video.description.truncate(150,omission: "...")%>			 
+                        </div>
+			 <div class="clear"></div>
+		 </td>
+	 </tr>

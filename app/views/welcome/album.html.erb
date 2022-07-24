@@ -1,0 +1,135 @@
+<div class="z_colonne main-colonne" id="z_col2">
+<div class="z_col_median z_col2_inner z_col_fullheight">
+<div id="mod_5601812" class="mod_5601812 wm-module fullbackground  module-page2_galerie">
+	 <div class="entete"><div class="fullmod">
+		 <span>Galerie</span>
+	 </div></div>
+	 <div class="cel1">
+		 <div class="titre_page">
+		  <div><%=@album.titre%></div>
+			 <div class="navigation_titre_page">
+				 <span> <%=pluralize(@album.photos.length, "photo",plural: "photos")%></span>
+				 <span> | </span>
+				 <a href="/photos/"><span>Revenir à la liste d'albums</span></a>
+				 <span> | </span>
+				 <a rel="nofollow" href="/photos/submit/<%=@album.id_album%>/"><span>Soumettre une photo</span></a>
+				 <span> | </span><a href="/slideshow/<%=@album.id_album%>/"><span>Diaporama</span></a>
+			 </div>
+		 </div>
+	 </div>
+			 <div class="cel1">
+				 <table class="vignette nb-col-sections-3" cellpadding="0" cellspacing="0" style="margin-top:0">
+					 <tr>
+						 <td class="pager"><a href="javascript:void(0)" onclick="my_glider5601812.goToPrevSlide(); load_ajax_scroll_5601812();">&lt;</a></td>
+						 <td style="width:711px">
+							 <div id="my-glider5601812" class="scroller">
+								 <div class="content">
+											 
+											 
+					<%=render partial: "photodeck", as: :photodeck, collection: @album.photos.each_slice(3).to_a%>
+
+										 <div class="clear"></div>
+								 </div>
+							 </div>
+							 </td>
+							 <td class="pager"><a href="javascript:void(0)" onclick="my_glider5601812.goToNextSlide(); load_ajax_scroll_5601812();">&gt;</a></td>
+						 </tr>
+				 </table>
+			 </div>
+			 <div id="content_photo_galerie">
+	 <div class="cel1">
+		 <br class="titre_photo" />
+		 <div class="image">
+			 <a href="javascript:void(0)" rel="/index.php?preaction=galerie&amp;ibox&amp;id_photo=<%=@album.photos[0].id_photo%>&amp;noinfo=1&amp;autoclose=1"><img src="<%=@album.photos[0].grandeimage%>"  alt="113" title="113" /></a>
+			 		 </div>
+	 </div>
+			 </div>
+</div>
+<div id="ecart_after_5601812" class="ecart_col2"><hr /></div>
+<div class="homecrump center">
+	 <div class="clear separate"><hr /></div>
+	 <a href="https://www.saintlaurentdumaroni.fr/"><img src="https://www.saintlaurentdumaroni.fr/photo/bt_home.png?v=1349942074" class="image" alt="" title=""  /></a>
+</div>
+</div>
+</div>
+
+
+<%=content_for :mysheet do%>
+<link href="/style.5601812.css" rel="stylesheet" type="text/css">
+
+<%end%>
+<%=content_for :mapgoogle do%>
+<script src="/js/compress_jquery.ibox.js"></script>
+<script src="/js/jquery.tools-1.2.7.min.js?v=1383207878" type="text/javascript"></script>
+
+<%end%>
+<%=content_for :myglider do%>
+if ($('#my-glider5601812').length) var my_glider5601812 = $('#my-glider5601812 div.content').bxSlider({pager: false,controls: false});
+
+<%end%>
+<%=content_for :myscripthead do%>
+<script type="text/javascript">
+/*<![CDATA[*//*---->*/
+selected_page = ['galerie', ''];
+selected_page = ['galerie', '967787'];
+var deploye6810548 = true;
+
+function sfHover_6810548(id) {
+	var func = 'hover';
+	if ($('#css-responsive').length && parseInt($(window).width()) <= 800) { 
+		func = 'click';
+	}
+
+	$('#' + id + ' li' + (func == 'click' ? ' > a' : '')).on(func, 
+		function(e) { 
+			var obj  = (func == 'click' ? $(this).parent('li') :  $(this));
+			if (func == 'click') {
+				$('#' + id + ' > li').each(function(index) { 
+					if ($(this).attr('id') != obj.attr('id') && !$(this).find(obj).length) {
+						$(this).find(' > ul:visible').each(function() { $(this).hide(); });
+					}
+				});
+			}
+			if(func == 'click' || e.type == 'mouseenter') { 
+				if (obj.find('ul:first:hidden').length)	{
+					sfHoverShow_6810548(obj); 
+				} else if (func == 'click') {
+					sfHoverHide_6810548(obj);
+				}
+				if (func == 'click' && obj.find('ul').length)	return false; 
+			}
+			else if (e.type == 'mouseleave') { sfHoverHide_6810548(obj); }
+		}
+	);
+}
+function sfHoverShow_6810548(obj) {
+	obj.addClass('sfhover').css('z-index', 1000); obj.find('ul:first:hidden').each(function() { if ($(this).hasClass('lvl0')) $(this).show(); else $(this).show(); });
+}
+function sfHoverHide_6810548(obj) {
+	obj.find('ul:visible').each(function() { if ($(this).hasClass('lvl0')) $(this).hide(); else $(this).hide();});
+}
+
+function load_ajax_scroll_5601812() {
+	var index = my_glider5601812.getCurrentSlide();
+	var span, id;
+	
+	for (i=index*3; i<(index + 1)*3; i++)
+		{
+		span = document.getElementById('span_5601812_photo_' + i)
+		if (span)
+			{
+			id = span.innerHTML;
+			recharge('mod_5601812_photo_' + i, '/mymodule/5601812/', null, 'ajax=true&java=false&id_album=967787&id_photo=' + id + '&type=picasa&w=793');
+			}
+		}
+
+}
+ var GBRedirectionMode = 'IF_FOUND';
+/*--*//*]]>*/
+
+</script>
+<style type="text/css">
+.mod_5601812 .image { position: relative; }
+.mod_5601812 .pinit { position:absolute;text-align:left;top:-7px;right:-4px; }
+</style>
+<%end%>

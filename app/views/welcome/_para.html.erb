@@ -1,0 +1,16 @@
+		 <br id="sep_para_2" class="sep_para access">
+		 <div id="para_2" class="para_39829903 resize" style="">
+			 <div class="photo shadow top" style="margin-bottom: 10px">
+				 <a href="javascript:void(0)" rel="/assets/<%=para.photo%>" title="<%=para.article.titre%>"><img class="responsive" style="display:none" src="/assets/<%=para.photo%>" alt="<%=para.article.titre%>" title="<%=para.article.titre%>">
+<img class="not-responsive" src="/assets/<%=para.photo%>" alt="<%=para.article.titre%>" title="<%=para.article.titre%>" width="704.7"></a>
+			 </div>			 
+    <div class="texte">
+				 <div class="access firstletter">
+					<%=para.texte.html_safe%> 
+				 </div>
+			 </div>
+<%=render collection: para.pjs, as: :pj, partial: "pj"%>
+			 
+
+			 <div class="clear"></div>
+		 </div>

@@ -1,0 +1,29 @@
+<div id="mod_24606353" class="mod_24606353 wm-module fullbackground  module-social_login">
+		 <div class="left" id="social_login_custom"></div>
+		 <div class="liens left menu" onmouseover="document.getElementById('more_social').style.display='block'" onmouseout="document.getElementById('more_social').style.display='none'">
+			 <a href="javascript:void(0)" class="arrow">Réseau social</a>
+			 <div id="more_social" class="hiddenmenu" style="display:none">
+				 <a href="/social/">Activités</a>
+				 <a href="/social/list/"></a>
+			 </div>
+		 </div>
+		 <div id="social_login_addto" class="block left" style="display:none"></div>
+		 <div id="social_login_bookmarks" class="block left" style="display:none"></div>
+		 <div class="liens right">
+			 <a class="menuie6" href="/logout/">Déconnexion</a>
+		 </div>
+		 <div class="liens right bleft automenu" onmouseover="document.getElementById('more_profil').style.display='block'" onmouseout="document.getElementById('more_profil').style.display='none'">
+			 <a class="menuie6 arrow" href="/social/inbox/"><span><%=user.fullname%> (<%=current_user.allunread.length%>)</span></a>
+			 <div id="more_profil" class="hiddenmenu" style="display:none">
+				 <a href="/social/<%=user.id%>/">Mon profil</a>
+				 <a href="/social/<%=user.id%>/bookmarks/">Favoris</a>
+				 <a href="/social/inbox/">Messagerie (<%=current_user.allunread.length%>)</a>
+				 <a href="/social/<%=user.id%>/param/">Paramètres</a>
+			 </div>
+		 </div>
+		 <div id="social_login_perso" class="right" style="display:none"></div>
+		 <div class="clear"></div>
+</div>
+<div hidden="true" id="nbconnectes"></div>
+<div hidden="true" id="listusers"></div>
+<div id="ecart_after_24606353" class="ecart_col" style="display:none"><hr /></div>

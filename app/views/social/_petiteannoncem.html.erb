@@ -1,0 +1,7 @@
+<div class="encapse_membre clear-x2 clear-x4" style="display:inline-block;margin-top: 5px;width:25%;float:left;">
+				 <div class="membre" style="height: 180px;">
+					 <div class="activite_bloc"><a href="/classifieds/<%=classified.titre.gsub(' ','-')%>_pa<%=classified.id%>.html" class="lien"><strong><%=classified.titre%></strong></a><br><br><a style="float:left;clear:both;" href="/classifieds/<%=classified.titre.gsub(' ','-')%>_pa<%=classified.id%>.html"><%=classified.description%></a>
+					 <a style="display:inline-block;position:relative;float:left;clear:both;" class="opacity" href="/classifieds/<%=classified.titre.gsub(' ','-')%>_pa<%=classified.id%>.html"><span> <%=l(classified.created_at, format: :mytime)%> | <%=classified.user.fullname%> </span><br><strong>Commentaire</strong></a>
+</div>
+				 </div>
+			 </div>

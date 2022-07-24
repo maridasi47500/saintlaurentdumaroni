@@ -1,0 +1,5 @@
+<div id="about_<%=current_user.id%>" class="membre membre_content">	 <div class="about">
+		 <textarea id="textarea_about_<%=current_user.id%>" class="button" rows="4"><%=current_user.description%></textarea>
+		 <div style="padding-top:4px;text-align:right"><input type="button" class="button2" onclick="recharge('about_<%=current_user.id%>', '/mymodule/24606308/', '', 'ajax=true&amp;java=false&amp;save_about=1&amp;value=' + document.getElementById(&quot;textarea_about_<%=current_user.id%>&quot;).value)" value="Modifier"></div>
+	 </div>
+</div>

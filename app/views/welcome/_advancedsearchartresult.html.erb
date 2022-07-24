@@ -1,0 +1,18 @@
+<div class="result cel1 first">
+			 <h3 class="titre" style="margin-bottom:5px">
+				 <a  href="<%=article.myurl%>"><%=article.titre%></a>
+			 </h3>
+		 <div class="photo 16_9 shadow" >
+			 <a href="<%=article.myurl%>">
+				 <img src="<%=article.photo%>" alt="<%=article.titre%>" title="<%=article.titre%>"  />
+			 </a>
+		 </div>
+			 <div class="bloc-texte">
+			 <div class="rubrique">| <%=l(article.created_at.to_date)%><span class="sep seprub"> | </span><span class="rub"><%=article.artcat.try(:name)%></span></div>
+			 <div class="texte">
+				 <a href="<%=article.myurl%>"><%=strip_tags(article.texte).truncate(150,separator: " ",omission:"...")%></a>
+			 </div>
+			 </div>
+		 <div class="clear"></div>
+		 <br class="texte" />
+	 </div>

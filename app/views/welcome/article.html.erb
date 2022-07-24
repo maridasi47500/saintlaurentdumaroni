@@ -1,0 +1,89 @@
+
+<div class="z_colonne main-colonne" id="z_col2">
+<%=content_for :mysheet do %>
+<link href="/mysheetart.css" rel="stylesheet" type="text/css">
+
+<%end%>
+<div class="z_col_median z_col2_inner z_col_fullheight" style="height: 967px;">
+<div id="breads" class="breadcrump breadcrumbs">
+<%=render partial: "breadrubrique", collection: [@article.rubrique3,@article.rubrique2,@article.rubrique1,@article.artcat].select{|g|g}, as: :rubrique,spacer_template: "breadbetween"%>
+
+	 <div class="clear separate"><hr></div>
+</div>
+<div id="mod_5601801" class="mod_5601801 wm-module fullbackground  page2_article article-5790">
+	 <div class="cel1">
+		 <div class="inner">
+	 <div class="col_left" style="overflow:visible">
+		 <div class="boutons_colonne"><a class="bt-home" href="/"><img src="/photo/bt_home.png" class="image middle" alt="" title=""></a><br><a class="bt-mail" rel="nofollow" href="/send/<%=@article.artnb%>/"><img src="/photo/bt_mail.png" class="image middle" alt="" title=""></a><br><a class="bt-print" rel="nofollow" onclick="window.open(this.href,&#39;_blank&#39;, &#39;width=600, height=800, scrollbars=yes, menubar=yes, resizable=yes&#39;);return false;" href="/Festivites-Retrouvez-le-programme-des-arbres-de-Noel-dans-les-quartiers-de-Saint-Laurent-du-Maroni_a5790.html?print=1"><img src="/photo/bt_print.png" class="image middle" alt="" title=""></a><br><a class="bt-plus" href="javascript:void(0)" onclick="javascript:setSize(10, &#39;access&#39;)"><img src="/photo/bt_fontplus.png" class="image pointer middle" alt="" title=""></a><br><a class="bt-moins" href="javascript:void(0)" onclick="javascript:setSize(-10, &#39;access&#39;)"><img src="/photo/bt_fontmoins.png" class="image pointer middle" alt="" title=""></a><br><a class="bt-share" href="javascript:void(0)" id="share_article_5601801"><img src="/photo/bt_share.png" class="image middle" alt="" title=""></a>
+</div></div>
+<div class="col_right" style="overflow:visible">
+	 <div class="article">
+		 <div class="entete_liste">
+			 <div class="access"><%=@article.artcat.name%></div>
+		 </div>
+		 <div class="titre">
+			 <h1 class="access">
+				 <%=@article.titre%>
+			 </h1>
+		 </div>
+	 <div class="entry-content instapaper_body">
+		 <%=render collection: @article.paras, partial: 'para', as: :para%>
+	 </div>
+		 <br class="texte clear">
+		 <div class="auteur">
+			 <div class="access">Rédigé le <%=l(@article.created_at, format: :datelongue)%> - <%=@article.auteur%></div>
+		 </div>
+<iframe class="sharing" src="/myarticles_files/like.html" scrolling="no" frameborder="0" allowtransparency="true" style="float:left; border:none; overflow:hidden; width:105px; height:20px;"></iframe>
+<iframe class="sharing" allowtransparency="true" frameborder="0" scrolling="no" src="/myarticles_files/tweet_button.html" style="float:left;width:115px; height:20px;"></iframe>
+<div class="clear"></div>
+		 <%=render 'otherarticle', article: @article%>
+		 <br class="texte clear">
+		 <p class="boutons_ligne">
+			 <a class="access" href="/La-mairie_r2.html">La mairie</a>
+			 <span class="access"> | </span>
+			 <a class="access" href="/Vie-pratique_r16.html">Vie pratique</a>
+			 <span class="access"> | </span>
+			 <a class="access" href="/Culture-Patrimoine_r252.html">Culture/Patrimoine</a>
+			 <span class="access"> | </span>
+			 <a class="access" href="/Sport_r253.html">Sport</a>
+			 <span class="access"> | </span>
+			 <a class="access" href="/Amenagement-urbain_r242.html">Aménagement urbain</a>
+			 <span class="access"> | </span>
+			 <a class="access" href="/Economie-Emploi_r234.html">Economie/Emploi</a>
+			 <span class="access"> | </span>
+			 <a class="access" href="/Education_r254.html">Education</a>
+			 <span class="access"> | </span>
+			 <a class="access" href="/Citoyennete_r21.html">Citoyenneté</a>
+			 <span class="access"> | </span>
+			 <a class="access" href="/Associations_r28.html">Associations</a>
+		 </p>
+	 </div>
+</div>
+<div class="clear"></div>
+<div class="suite">
+			 <span class="img_rating" id="star64617338" style="cursor: pointer; width: 95px;"><img src="/css/images/rating_star.png" alt="1" title="1">&nbsp;<img src="/css/images/rating_star.png" alt="2" title="2">&nbsp;<img src="/css/images/rating_star.png" alt="3" title="3">&nbsp;<img src="/css/images/rating_star.png" alt="4" title="4">&nbsp;<img src="/css/images/rating_star.png" alt="5" title="5"><input type="hidden" name="score"></span> <span id="hint64617338">Notez</span>
+		 </div>
+         <%=render (user_signed_in? ? "formcommentarticlesignedin" : "formcommentarticle"), article: @article, comment: @comment%>
+
+
+		 </div>
+
+
+	 </div>
+</div>
+<div id="ecart_after_5601801" class="ecart_col2"><hr></div>
+</div>
+</div>
+
+
+<%=content_for :mapgoogle do%>
+<script src="/js/jquery.tools-1.2.7.min.js?v=1383207878" type="text/javascript"></script>
+<script src="/js/compress_jquery.ibox.js?v=1435566001" type="text/javascript"></script>
+<script src="/js/form.js?v=1291969975" type="text/javascript"></script>
+<script src="/js/compress_ibox_embed.js?v=1455033333" type="text/javascript"></script>
+
+<%end%>
+<%=content_for :mysheet do%>
+<link href="/style.5601814.css" rel="stylesheet" type="text/css">
+
+<%end%>

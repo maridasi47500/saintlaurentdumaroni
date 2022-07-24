@@ -1,0 +1,18 @@
+	 <div class="cel1 forpager">
+		 <div class="pager">
+                    <%if list.length <= 2 && params[:start].to_i <= 10%>
+                        <%([1.to_s]+(10.to_s..list.length.round(-1, half: :up).to_s).step(10).to_a).each_with_index do |h,k|%>
+			 <a <%if h == params[:start]%>class="sel"<%end%> href="<%=myurl%><%if k > 0%>?start=<%=h%><%end%>"><%=(k+1)%></a>
+                         <%end%>
+                    <%elsif params[:start].to_i <= 10%>
+                        <%([1.to_s]+(10.to_s..list.length.round(-1, half: :up).to_s).step(10).to_a).each_with_index do |h,k|%>
+			 <a <%if h == params[:start]%>class="sel"<%end%> href="<%=myurl%><%if k > 0%>?start=<%=h%><%end%>"><%=(k+1)%></a>
+                         <%end%>
+                    <%elsif params[:start].to_i < list.length.round(-1, half: :up) %>
+                        <%((params[:start].to_i - 10).to_s..(params[:start].to_i + 10).to_s).step(10).to_a.each_with_index do |h,k|%>
+			 <a <%if h == params[:start]%>class="sel"<%end%> href="<%=myurl%><%if k > 0%>?start=<%=h%><%end%>"><%=(h.to_i/10)%></a>
+                         <%end%>
+
+                    <%end%>
+                    </div>
+	 </div>

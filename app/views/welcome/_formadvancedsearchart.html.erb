@@ -1,0 +1,53 @@
+<%=form_with scope: "",model: article,url: "/search/",html:{method: "get"} do |form|%>
+                 <div class="cel1">
+                         <%=form.text_field "keyword", style: "width:50%", class: "button" %>
+                         <input type="image" src="/photo/mod-5601816-1.png?v=1349942077" alt="OK" />
+                         <br /><a id="adv_search_label" href="javascript:void(0)" onclick="document.getElementById('adv_search').style.display = (document.getElementById('adv_search').style.display == 'none' ? 'block' : 'none')" class="texte">Recherche avancée</a>
+                         <div id="adv_search" style="<%if @myadvancedparamslength > 0%>display:block<%else%>display:none<%end%>" class="advanced texte">
+                                 <div class="line"><strong>Filtres de recherche</strong></div>
+                                 <div class="line">
+                                         <label>Titre</label>
+                                         <%=form.text_field "titre", class: "button" %>
+                                         <div class="clear"></div>
+                                 </div>
+                                 <div class="line">
+                                         <label>Chapeau</label>
+                                         <%=form.text_field "chapeau", class: "button"%>
+                                         <div class="clear"></div>
+                                 </div>
+                                 <div class="line">
+                                         <label>Texte</label>
+                                         <%=form.text_field "texte", class: "button" %>
+                                         <div class="clear"></div>
+                                 </div>
+                                 <div class="line">
+                                         <label>Tags</label>
+                                         <%=form.text_field "tagsearch", class: "button"%>
+                                         <div class="clear"></div>
+                                 </div>
+                                 <div class="line"><strong>Plus d'options</strong></div>
+                                 <div class="line_menu">
+                                         <label>Periode</label>
+                                         <div class="select texte" style="z-index: 1000">
+                                                <%=form.select "periode",([["Depuis le début",0]]+("10".."90").step(30).to_a.collect{|h|[(h+" derniers jours"), h]})%>
+                                         </div>
+                                         <div class="clear"></div>
+                                 </div>
+                                 <div class="line_menu">
+                                 <label>Rubrique</label>
+                                         <div class="select texte" style="z-index: 999">
+                                                		 <%=form.select "id_rubrique", Artcat.catsform, {include_blank: "Toutes"},{id: "id_rubrique", class: "button", style: "width:200px"}%>
+                                                </div>
+                                         <div class="clear"></div>
+                                 </div>
+                                 <div class="line">
+                                         <label>Auteur</label>
+                                         <%=form.text_field "auteur", class: "button"%>
+                                         <div class="clear"></div>
+                                 </div>
+                                 <div class="submission">
+                         <input type="image" src="/photo/mod-5601816-1.png?v=1349942077" alt="OK" />
+                                 </div>
+                         </div>
+                 </div>
+         <%end%>

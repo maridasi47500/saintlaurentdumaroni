@@ -1,0 +1,25 @@
+<div class="z_colonne main-colonne" id="z_col2">
+<div class="z_col_median z_col2_inner z_col_fullheight">
+<div id="breads" class="breadcrump breadcrumbs">
+	 <a href="https://www.saintlaurentdumaroni.fr/">Accueil</a>
+	 <span class="sepbread">&nbsp;&gt;&nbsp;</span>
+	 <a href="/notes/">Brèves</a>
+	 <div class="clear separate"><hr /></div>
+</div>
+<div id="mod_5601807" class="mod_5601807 wm-module fullbackground  module-page2_breve">
+	 <div class="entete"><div class="fullmod">
+		 <span>Brèves</span>
+	 </div></div>
+	<%=render partial: "breve",collection: @notes, as: :breve%>
+	 <%=render "breveforpager", list: @notes, myurl: "/notes/"%>
+</div>
+<div id="ecart_after_5601807" class="ecart_col2"><hr /></div>
+<div class="homecrump center">
+	 <div class="clear separate"><hr /></div>
+	 <a href="https://www.saintlaurentdumaroni.fr/"><img src="https://www.saintlaurentdumaroni.fr/photo/bt_home.png?v=1349942074" class="image" alt="" title=""  /></a>
+</div>
+</div>
+</div>
+<%=content_for :mysheet do%>
+<link rel="stylesheet" href="/style.5601807.css?v=1356871045" type="text/css" />
+<%end%>

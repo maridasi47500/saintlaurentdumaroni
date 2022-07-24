@@ -1,0 +1,67 @@
+<div id="z_colfull">
+<div class="z_colfull_inner">
+<div id="breads" class="breadcrump breadcrumbs">
+	 <a href="/">Accueil</a>
+	 <span class="sepbread">&nbsp;&gt;&nbsp;</span>
+	 <a href="/videos/">Vidéos</a>
+	 <div class="clear separate"><hr /></div>
+</div>
+<div id="mod_5601793" class="mod_5601793 wm-module fullbackground  module-page2_video">
+	 <div class="entete"><div class="fullmod">
+		 <span>Video</span>
+	 </div></div>
+	 <div class="cel1">
+<div class="titre" style="">
+Toutes les vidéos
+<a href="/xml/videopodcast.xml">
+<img class="image middle" src="/_images/icones/rssmini.gif" alt="rss" />
+</a>
+<div style="margin:0;padding:0;position:relative;height:10px">&nbsp;</div>
+		<div class="tabs" style="">
+				<ul>
+						<li id="recent" <%if params[:sort] == "recent"%>class="selected"<%end%> style="float:left;"><a id="recent_a" href="<%=videorecent_path(sort: "recent", mylayout: params[:mylayout])%>" onclick="">Les plus récentes</a></li>
+						<li id="populaire" <%if params[:sort] == "popular"%>class="selected"<%end%> class="" style="float:left;"><a id="pop_a" href="<%=videorecent_path(sort: "popular", mylayout: params[:mylayout])%>" onclick="">Les plus populaires</a></li>
+						<li class="clear" style="display:none"></li>
+						<li id="liste" style="float:right;" ><a style="font-weight: <%= params[:mylayout] == "list" ? "bold" : "normal"%>;" href="<%=videorecent_path(sort: params[:sort], mylayout: "list")%>" >Liste</a></li>
+						<li id="mosaiq" style="float:right;" ><a style="font-weight: <%= params[:mylayout] == "grid" ? "bold" : "normal"%>;" href="<%=videorecent_path(sort: params[:sort], mylayout: "grid")%>"  >Mosaique</a></li>
+				</ul>
+		<div class="clear"></div>
+		</div>
+		<div  class="inner_tabs" style="width:100%;position:relative; height:auto;">
+<%if params[:mylayout] == "grid"%>		
+<div id="mod_5601793_zone_navigation" class="zone_navigation" style="margin:0;padding:0;width:100%;height:680px;position:relative;">
+		<div class="zone_navigation_inner" style="margin:0;padding:0;height:680px;_height:680px">
+	 <%=render partial: ("video"),collection: @videos, as: :video%>
+	 
+<div class="clear"></div>
+</div>		 
+</div>
+<%else%>
+<table class="inner" cellspacing="0" cellpadding="0">
+	 <tbody>
+	 <%=render partial: "videolist",collection: @videos, as: :video%>
+</tbody>
+</table>
+<%end%>
+						 <div class="clear"></div>
+</div>
+<!-- debut pager -->			 <div class="inner_tabs display_pager" style="position: relative">
+				 <div class="right">	 <div class="cel1 forpager">
+		 <div class="pager">
+    <%(0..((Video.all.count / 20)*20)).step(20).to_a.each_with_index do |p,l|%>
+			 <a <%if params[:start].to_i == p%>class="sel"<%end%> href="<%=videorecent_path(sort: params[:sort], mylayout: params[:mylayout], start: (p > 0 ? p : nil))%>"><%=l+1%></a>
+                            <%end%>
+		 </div>
+	 </div>
+</div>
+				 <div class="clear"></div>
+</div>
+<!-- fin pager --></div>
+</div>
+<div class="ecart_colfull"><hr /></div>
+<div class="homecrump center">
+	 <div class="clear separate"><hr /></div>
+	 <a href="/"><img src="/photo/bt_home.png?v=1349942074" class="image" alt="" title=""  /></a>
+</div>
+</div>
+</div>

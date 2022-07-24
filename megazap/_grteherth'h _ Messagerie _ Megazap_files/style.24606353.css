@@ -1,0 +1,96 @@
+/* social_login 24606353 */
+.mod_24606353 {
+	 position: relative;
+	 background-color: #FFFFFF;
+	 min-height: 13px;
+	 _height: 13px;
+	 z-index: 1001;
+	 width: 100%;
+	 top: 0;
+	 left: 0;
+	 position: fixed;
+	 _position: absolute;
+	 _top: expression(documentElement.scrollTop+body.scrollTop);
+}
+
+body{
+	 padding-top: 13px;
+	 _background-attachement: fixed;
+}
+
+.mod_24606353 .menu{
+	 width: 117px;
+}
+
+.mod_24606353 .menu .hiddenmenu a, .mod_24606353 .automenu .hiddenmenu a{
+	 padding-top: 5px;
+	 padding-bottom: 5px;
+	 position: relative;
+	 background-color: #FFFFFF;
+}
+
+.mod_24606353 .menu a.arrow, .mod_24606353 .menu a.arrow:hover, .mod_24606353 .automenu a.arrow span{
+	 background-image: url(/_images/social/arrows/arrow_292929.png);
+	 background-repeat: no-repeat;
+	 background-position: 97px center;
+}
+
+.mod_24606353 .automenu a.arrow span{
+	 background-position: right center;
+	 padding-right: 20px;
+}
+
+.mod_24606353 .menu a.arrow:hover, .mod_24606353 .automenu a.arrow:hover span{
+	 background-image: url(/_images/social/arrows/arrow_E56008.png);
+}
+
+.mod_24606353 .menu .hiddenmenu, .mod_24606353 .automenu .hiddenmenu{
+	 position: absolute;
+	 width: 117px;
+	 top: 17px;
+	 left: -1px;
+}
+
+.mod_24606353 .automenu .hiddenmenu{
+	 width: 100%;
+}
+
+.mod_24606353 .liens, .mod_24606353 .liens a{
+	 text-decoration: none;
+	 text-align: justify;
+	 color: #292929;
+	 font: bold  13px "Arvo", "Arial", sans-serif;
+}
+
+.mod_24606353 .liens a:hover{
+	 color: #E56008;
+	 text-decoration: underline;
+	 background: transparent;
+	 font-weight: bold;
+}
+
+.mod_24606353 .liens a, .mod_24606353 .block{
+	 display: block;
+	 padding: 0px 0px;
+	 height: 17px;
+}
+
+#social_login_addto img{
+	 margin-left: 5px;
+}
+
+.mod_24606353 .left{
+	 float: left;
+	 position: relative;
+}
+
+.mod_24606353 .right{
+	 float: right;
+	 position: relative;
+}
+
+.mod_24606353 a.menuie6{
+	 _display: inline;
+	 _line-height: 17px;
+}
+

@@ -1,0 +1,55 @@
+<%=form_with url: "/social/<%=current_user.id%>/param/",model: user,html: {enctype: "multipart/form-data", class: "profile_form"} do |form|%>
+					 <input type="hidden" name="modifier_password" id="action_password" value="oui" />
+					 <input type="hidden" name="fingerprint_password_5601793" id="fingerprint_password_5601793" value="0" />
+					<div id="div_a_login" style="">
+<label style="">Login * :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_login", class: "button", onfocus: "del_error(this.id)", id: "a_login", disabled: "disabled"%>
+	 <div id="error_a_login" class="error"></div>
+</div>
+<div class="inforow"> </div>
+</div>
+<div class="break"></div>
+					<label style="">Mot de passe actuel * :</label>
+<div class="inputrow" style="">
+	 <%=form.password_field "a_cur_password", class: "button", onfocus: "del_error(this.id)", id: "a_cur_password"%>
+	 <div id="error_a_cur_password" class="error"></div>
+</div>
+<div class="break"></div>
+					<label style="">Nouveau mot de passe * :</label>
+<div class="inputrow" style="">
+	 <%=form.password_field "a_new_password", class: "button", onfocus: "del_error(this.id)", id: "a_new_password", onkeyup: "passwordStrength(this.value)", maxlength: "30" %>
+	 <div id="error_a_new_password" class="error"></div>
+</div>
+<div class="div-passwordquality" style="float:left; padding-right:10px; position:relative">
+<table id="passwordquality" class="passwordquality" cellpadding="0" cellspacing="0">
+<tr>
+<td style="width:16%"><div class="first"></div></td>
+<td style="width:16%"><div class="void"></div></td>
+<td style="width:16%"><div class="void"></div></td>
+<td style="width:16%"><div class="void"></div></td>
+<td style="width:16%"><div class="void"></div></td>
+<td style="width:16%"><div class="void"></div></td>
+</tr>
+</table>
+<span class="passwordqualitylabel" id="passwordquality_q0" style="display:none">Très faible</span>
+<span class="passwordqualitylabel" id="passwordquality_q1" style="display:none">Faible</span>
+<span class="passwordqualitylabel" id="passwordquality_q2" style="display:none">Moyen</span>
+<span class="passwordqualitylabel" id="passwordquality_q3" style="display:none">Bon</span>
+<span class="passwordqualitylabel" id="passwordquality_q4" style="display:none">Très bon</span>
+<span class="passwordqualitylabel" id="passwordquality_q5" style="display:none">Excellent</span>
+</div>
+<div class="info-passwordquality information"></div>
+<div class="break"></div>
+					<label style="">Confirmez le nouveau mot de passe * :</label>
+<div class="inputrow" style="">
+	 <%=form.password_field "a_confirmnew_password", class: "button", onfocus: "del_error(this.id)", id: "a_confirmnew_password" %>
+	 <div id="error_a_confirmnew_password" class="error"></div>
+</div>
+<div class="break"></div>
+					 <div class="sep"></div>
+<div class="break"></div>
+					 <input type="button" value="Annuler" class="button2 left" onclick="document.getElementById('div_param_password').style.display='none';"/>
+					 <input type="submit" value="Modifier" class="button2 right" />
+					 <div class="clear"></div>
+				 <%end%>

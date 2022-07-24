@@ -1,0 +1,9 @@
+<td class="bloc_liste" style="padding-right:5px;">
+		 <div class="titre_liste bloc">
+			 <div class="not-responsive" style="position: relative; background: transparent url(/assets/<%=article.photo%>) center center no-repeat; display:block; padding-top: 163px; cursor:pointer" onclick="location.href = '<%=article.myurl%>'"></div>
+			 <div class="responsive" style="display:none; background: transparent url(/assets/<%=article.photo%>) center center no-repeat; cursor:pointer" onclick="location.href = '<%=article.myurl%>'"></div>
+			 <h3 class="access">
+			 <span class="date"><%=l(article.created_at, format: :myformatarticle)%></span>			 <a class="access" href="<%=article.myurl%>"><%=article.titre%></a>
+			 </h3>
+		 </div>
+		 </td>

@@ -1,0 +1,25 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html lang="fr">
+<head>
+<title><%=@album.titre%> | Galerie | Site de la Ville de Saint-Laurent du Maroni</title>
+<meta http-equiv="Content-Type" content="text/html; Charset=UTF-8">
+<script src="/js/jquery-1.8.3.min.js?v=1374829427" type="text/javascript"></script>
+<script src="/js/compress_facebook.js?v=1429174222" type="text/javascript"></script>
+<script src="/js/galleria-1.2.9.min.js?v=1371809960" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="/css/galleria.fullscreen.css?v=1384336464" />
+<script type="text/javascript" src="/js/galleria.fullscreen.min.js?v=1381159517"></script>
+</head>
+<body style="padding:0;margin:0;background:white;">
+                                 <div class="article-diaporama" id="galleria955536" style="margin: 0 auto; width:fullscreenpx; height: 0px;">
+<%@nbphotos=@album.photos.count%>                                 
+<%@album.photos.each_with_index do |photo,index|%>
+<a href="<%=photo.grandeimage%>"><img src="<%=photo.petiteimage%>" data-title="<%=@nbphotos - index%> | &lt;a id=&quot;backto955536&quot; href=&quot;<%=photo.album.myurl%>&quot;&gt;Retour à l'album &lt;/a&gt;" data-description="" /></a>
+<%end%>
+                                 </div>
+<script type="text/javascript">
+Galleria.run('#galleria955536', {imageCrop: false, autoplay:true});
+$(window).keydown(function(e) {if(e.keyCode==27) { document.location.href='<%=@album.myurl%>'; return false;}});
+</script>
+</body>
+</html>

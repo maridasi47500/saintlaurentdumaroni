@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+<table width=100% cellpadding=12 cellspacing=0 border=0><tr><td><div style="overflow: hidden;"><font size=-1>Cet article vous est suggéré par : <%=@email.nom%> (<a href="mailto:<%=@email.email%>"><%=@email.email%></a>)<br />
+<br />
+<a href="<%=@email.event.myfullurl(3000)%>" data-saferedirecturl="https://www.google.com/url?hl=fr&amp;q=<%=@email.event.myfullurl(3000)%>&amp;source=gmail&amp;ust=1647868825264000&amp;usg=AOvVaw1w7bNV26xS1xn7ristSgSF" rel="noreferrer" target="_blank"><%=@email.event.myfullurl(3000)%></a><br />
+<br />
+<%=@email.message%><br />
+</font></div></table>
+
+  </body>
+</html>

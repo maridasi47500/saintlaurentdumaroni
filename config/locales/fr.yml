@@ -1,0 +1,267 @@
+fr:
+  activerecord:
+    errors:
+      models:
+        article:
+          attributes:
+            a_email:
+              invalid: "E-mail non valide"      
+            a_cp:
+              invalid: "Code postal non valide"      
+        event:
+          attributes:
+            a_auteur:
+              invalid: "E-mail non valide"      
+        
+      messages:
+        blank: "Champ obligatoire"  
+        record_invalid: 'La validation a échoué : %{errors}'
+        restrict_dependent_destroy:
+          has_one: Vous ne pouvez pas supprimer l'enregistrement car un(e) %{record}
+            dépendant(e) existe
+          has_many: Vous ne pouvez pas supprimer l'enregistrement parce que les %{record}
+            dépendants existent
+  date:
+    abbr_day_names:
+    - dim
+    - lun
+    - mar
+    - mer
+    - jeu
+    - ven
+    - sam
+    abbr_month_names:
+    - 
+    - jan.
+    - fév.
+    - mar.
+    - avr.
+    - mai
+    - juin
+    - juil.
+    - août
+    - sept.
+    - oct.
+    - nov.
+    - déc.
+    day_names:
+    - dimanche
+    - lundi
+    - mardi
+    - mercredi
+    - jeudi
+    - vendredi
+    - samedi
+    formats:
+      jour1: "%d" 
+      moiscourtannee: "%b %y" 
+      mydatefrench: "%d/%m/%Y"
+      mydate: "%Y-%m-%d"
+      default: "%d/%m/%Y"
+      long: "%e %B %Y"
+      titrecalendrier: "%B %Y"
+      short: "%e %b"
+      begindate: "%A %-d %B %Y"
+      listmydate: "%A %-d %B %Y"
+      jourcalendrier: "%Y/%-m/%-d/"
+    month_names:
+    - 
+    - janvier
+    - février
+    - mars
+    - avril
+    - mai
+    - juin
+    - juillet
+    - août
+    - septembre
+    - octobre
+    - novembre
+    - décembre
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: environ une heure
+        other: environ %{count} heures
+      about_x_months:
+        one: environ un mois
+        other: environ %{count} mois
+      about_x_years:
+        one: environ un an
+        other: environ %{count} ans
+      almost_x_years:
+        one: presqu'un an
+        other: presque %{count} ans
+      half_a_minute: une demi‑minute
+      less_than_x_seconds:
+        zero: moins d'une seconde
+        one: moins d'une seconde
+        other: moins de %{count} secondes
+      less_than_x_minutes:
+        zero: moins d'une minute
+        one: moins d'une minute
+        other: moins de %{count} minutes
+      over_x_years:
+        one: plus d'un an
+        other: plus de %{count} ans
+      x_seconds:
+        one: 1 sec
+        other: "%{count} sec"
+      x_minutes:
+        one: 1 min
+        other: "%{count} min"
+      x_days:
+        one: 1 jour
+        other: "%{count} jours"
+      x_months:
+        one: 1 mois
+        other: "%{count} mois"
+      x_years:
+        one: 1 an
+        other: "%{count} ans"
+    prompts:
+      second: Seconde
+      minute: Minute
+      hour: Heure
+      day: Jour
+      month: Mois
+      year: Année
+    formats:
+      mytimecomment: "%H:%M"        
+      dispdatetime: "%H:%M %d/%m/%Y" 
+      commentdate: "le %d/%m/%Y %H:%M"
+      usernow: "%d %B %Y |  %H:%M"  
+      myformatarticle: "%A %d %B %Y - %H:%M" 
+      publiee: "%A %d %B %Y" 
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: doit être accepté(e)
+      blank: "Champ obligatoire" 
+      confirmation: ne concorde pas avec %{attribute}
+      empty: "Champ obligatoire" 
+      equal_to: doit être égal à %{count}
+      even: doit être pair
+      exclusion: n'est pas disponible
+      greater_than: doit être supérieur à %{count}
+      greater_than_or_equal_to: doit être supérieur ou égal à %{count}
+      inclusion: n'est pas inclus(e) dans la liste
+      invalid: "Champ invalide"
+      less_than: doit être inférieur à %{count}
+      less_than_or_equal_to: doit être inférieur ou égal à %{count}
+      model_invalid: 'Validation échouée : %{errors}'
+      not_a_number: n'est pas un nombre
+      not_an_integer: doit être un nombre entier
+      odd: doit être impair
+      other_than: doit être différent de %{count}
+      present: doit être vide
+      required: doit exister
+      taken: est déjà utilisé(e)
+      too_long:
+        one: est trop long (pas plus d'un caractère)
+        other: est trop long (pas plus de %{count} caractères)
+      too_short:
+        one: est trop court (au moins un caractère)
+        other: est trop court (au moins %{count} caractères)
+      wrong_length:
+        one: ne fait pas la bonne longueur (doit comporter un seul caractère)
+        other: ne fait pas la bonne longueur (doit comporter %{count} caractères)
+    template:
+      body: 'Veuillez vérifier les champs suivants : '
+      header:
+        one: 'Impossible d''enregistrer ce(tte) %{model} : 1 erreur'
+        other: 'Impossible d''enregistrer ce(tte) %{model} : %{count} erreurs'
+  helpers:
+    select:
+      prompt: Veuillez sélectionner
+    submit:
+      create: Créer un(e) %{model}
+      submit: Enregistrer ce(tte) %{model}
+      update: Modifier ce(tte) %{model}
+  number:
+    currency:
+      format:
+        delimiter: " "
+        format: "%n %u"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "€"
+    format:
+      delimiter: " "
+      precision: 3
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: milliard
+          million: million
+          quadrillion: million de milliards
+          thousand: millier
+          trillion: billion
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: octet
+            other: octets
+          eb: Eo
+          gb: Go
+          kb: ko
+          mb: Mo
+          pb: Po
+          tb: To
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: " et "
+      two_words_connector: " et "
+      words_connector: ", "
+  time:
+    am: am
+    formats:
+      madate: "%A %-d %B"
+      mydatelastyear: "%A %-d %B %Y"
+        
+      memberat: "%d/%m/%Y" 
+      jour1: "%d" 
+      moiscourtannee: "%b %y" 
+      moisjourannee: "%d %B %Y" 
+      moisjour: "%d %B" 
+      publiee: "%A %d %B %Y" 
+      mytimecomment: "%H:%M"        
+      commentdate: "le %d/%m/%Y %H:%M"
+      usernow: "%d %B %Y |  %H:%M"  
+      disptime: "%H:%M"        
+      mytime: "%H:%M"        
+      dispdatetime: "%H:%M %d/%m/%Y"  
+      mydatetime: "le %d/%m/%Y %H:%M"
+      default: "%d %B %Y %Hh %Mmin %Ss"
+      long: "%A %d %B %Y %Hh%M"
+      short: "%d %b %Hh%M"
+      begintime: "%H:%M"
+      timeform: "%H:%M"
+      myformatarticle: "%A %d %B %Y - %H:%M" 
+      datelongue: "%A %d %B %Y" 
+
+    pm: pm

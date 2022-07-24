@@ -1,0 +1,16 @@
+<div class="item">
+				 <div class="avatar photo"><a href="/social/<%=post.user_id%>/"><img src="<%if post.user.image%><%=post.user.image%><%else%>/_images/social/inconnu_o_petit.jpg?v=<%end%>" width="48" height="48" alt="<%=post.user.fullname%>" title="<%=post.user.fullname%>"></a></div>
+				 <div class="legende">
+					 <div class="auteur_date">
+						 <span class="auteur_date"> 15:31 | <a class="lien" href="/social/<%=post.user_id%>/"><%=post.user.fullname%></a> a écrit un message dans le forum </span>
+						 <a class="lien" href="<%=post.is_a?(Subject) ? voirsujet_path(title: post.titre.gsub(' ','-'),rubrique: "_m", id: post.id) : voirsujet_path(title: post.subject.titre.gsub(' ','-'),rubrique: "_m", id: post.subject_id, id_message: post.id)%>"><%=post.is_a?(Post) ? post.subject.titre : post.titre%></a>
+							 <div class="sep2"></div>
+							 <div class="auteur_date">
+								 <a href="javascript:void(0)" onclick="view_full(this, '<%="fullactivity"+post.model_name.to_s+post.id.to_s%>');"><img src="/_images/icones/forum_chambre.png" alt="" class="left" style="margin-right:5px"><span>Plus de détails</span></a>
+								 | <a href="javascript:void(0)" rel="nofollow" onclick="recharge_async('mod_24606308', '/mymodule/24606308/', 'ajax=true&amp;java=false&amp;subaction=&amp;start=0&amp;recharge_all=1&amp;follow=<%=post.user_id%>&amp;REQUEST_URI=%2Fsocial%2Fwall%2Fforum%2F')">Suivre</a>
+				 | <a href="/social/compose/?send_to=<%=post.user_id%>">Contacter</a>
+							 </div>
+						 <div id="<%="fullactivity"+post.model_name.to_s+post.id.to_s%>" class="texte fullactivity" style="display:none;"><%=post.mess.html_safe%></div>
+				 </div>
+				 <div class="clear"></div>
+			 </div>

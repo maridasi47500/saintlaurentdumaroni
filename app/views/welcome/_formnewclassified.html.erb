@@ -1,0 +1,161 @@
+<%=form_with scope:"", model: product, url: "/classifieds/submit/18791/",html:{ enctype:"multipart/form-data", id: "formulaire_submit"} do |form|%>
+	 <%=form.hidden_field :user_id %>
+
+					 <input type="hidden" name="id_soum" value="18791">
+					 <input type="hidden" name="subaction" value="add">
+					 <div class="champ">
+					 <input type="hidden" id="fingerprint" name="fingerprint" value="525535">
+					<div class="titre">Détaillez votre annonce</div>
+
+<div class="break"></div>
+				<label style="">Catégorie :</label>
+<div class="inputrow" style="">
+		 <select name="a_id_soum" id="a_id_soum" class="button" style="width:25%" onchange="document.location.href='/classifieds/submit/' + $(this).val()">
+			<option value="18791">Produit</option>
+			<option value="18793">Emploi</option>
+		</select>
+</div>
+<div class="break"></div>
+				<label style="">Titre * :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_titre", class: (product.errors[:a_titre].blank? ? "button" : " field_error"), onfocus: "del_error(this.id)", id: "a_titre", maxlength: "250"%>
+	 <div id="error_a_titre" class="error"><%=product.errors.messages[:a_titre][0]%></div>
+</div>
+<div class="break"></div>
+				<div class="encapse" style="float:left;position:relative;width:33%;">
+<div id="div_a_46601" style="">
+<label style="">Prix :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_46601", id: "a_46601", class: "button", size:"", onfocus: "del_error('a_46601')", style:"width: 60%"%> €	 <div id="error_a_46601" class="error"></div>
+</div>
+</div>
+</div>
+				<div class="break"></div>
+<div id="div_a_description" style="">
+<label style="">Description * :</label>
+<div class="inputrow" style="">
+<%=form.text_area "a_description", class: (product.errors[:a_description].blank? ? "button" : " field_error"), onfocus: "del_error(this.id)", id: "a_description", rows: "10"%>
+
+	 <div id="error_a_description" class="error"><%=product.errors.messages[:a_description][0]%></div>
+</div>
+</div>
+				<label style="">Adresse :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_lieu", class: "button", onfocus: "del_error(this.id)", id: "a_lieu", maxlength: "100"%>
+	 <div id="error_a_lieu" class="error"></div>
+</div>
+<div class="break"></div>
+				<div class="encapse" style="float:left;position:relative;width:120px">
+<label style="">Code Postal :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_cp", class: "button", onfocus: "del_error(this.id)", id: "a_cp",style: "width:100px", maxlength:"10"%>
+	 <div id="error_a_cp" class="error"></div>
+</div>
+</div>
+				<div class="encapse" style="float:left;position:relative;width:220px">
+<label style="">Ville :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_ville", class: "button", onfocus: "del_error(this.id)", id:"a_ville", style: "width:200px"%>
+	 <div id="error_a_ville" class="error"></div>
+</div>
+</div>
+				<div class="encapse" style="float:left;position:relative;width:auto">
+<label style="">Pays :</label>
+<div class="inputrow">
+	 <%=form.select "a_pays", Country.order(:name).findbythreetypes('euro','RDM',"japon").collect{|h|[h.name,h.countryid, {class: h.mytype}]}, {},{id: "a_pays", class: "button", class: "button", style: "width:auto", autocomplete: "off"}%>
+
+</div>
+</div>
+				<div class="clear"></div>
+					<div class="titre">Ajoutez des photos</div>
+
+<div class="break"></div>
+				<div id="inputrowuploader_photo" class="inputrowuploader"><div id="div_uploader_photo" class="description">
+<%=form.file_field "upload_photo", class: "basic-uploader", id: "upload_photo"%>
+</div></div>
+
+<div class="thum">
+<img class="annonce-photo <%=!product.a_photo_1.blank? ? "ok" : ""%>" id="photo_1" src="<%=!product.a_photo_1.blank? ? product.a_photo_1 : "/_images/annonce-defaut.png"%>" alt="" />
+<div id="label_photo_1" class="description" style="<%=!product.a_photo_1.blank? ? "" : "display:none"%>"><a href="javascript:void(0)" onclick="myfuncdelete($(this).parent().parent().find('img.ok').attr('id'));">Supprimer</a></div>
+<%=form.hidden_field :a_photo_1, id: "a_photo_1"%>
+</div>
+<div class="thum">
+<img class="annonce-photo <%=!product.a_photo_2.blank? ? "ok" : ""%>" id="photo_2" src="<%=!product.a_photo_2.blank? ? product.a_photo_2 : "/_images/annonce-defaut.png"%>" alt="" />
+<div id="label_photo_2" class="description" style="<%=!product.a_photo_2.blank? ? "" : "display:none"%>"><a href="javascript:void(0)" onclick="myfuncdelete($(this).parent().parent().find('img.ok').attr('id'));">Supprimer</a></div>
+<%=form.hidden_field :a_photo_2, id: "a_photo_2"%>
+
+</div>
+<div class="thum">
+<img class="annonce-photo <%=!product.a_photo_3.blank? ? "ok" : ""%>" id="photo_3" src="<%=!product.a_photo_3.blank? ? product.a_photo_3 : "/_images/annonce-defaut.png"%>" alt="" />
+<div id="label_photo_3" class="description" style="<%=!product.a_photo_3.blank? ? "" : "display:none"%>"><a href="javascript:void(0)" onclick="myfuncdelete($(this).parent().parent().find('img.ok').attr('id'));">Supprimer</a></div>
+<%=form.hidden_field :a_photo_3, id: "a_photo_3"%>
+
+</div>
+<div class="clear"></div>
+<div class="break"></div>
+					 <input type="hidden" id="a_idup_photo" name="a_idup_photo" value="">
+					<div class="titre">Vos coordonnées</div>
+
+<div class="break"></div>
+				<label style="">Email * :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_email", class: (product.errors[:a_email].blank? ? "button" : " field_error"), onfocus: "del_error(this.id)", id: "a_email", readonly: "readonly", style: "width:50%"%>
+	 <div id="error_a_email" class="error"><%=product.errors.messages[:a_email][0]%></div>
+</div>
+<div class="break"></div>
+				<div id="div_a_telephone" style="">
+<label style="">Téléphone :</label>
+<div class="inputrow" style="float:left;width:35%">
+	 <%=form.text_field "a_telephone", class: "button", onfocus: "del_error(this.id)", id: "a_telephone", style: "width:90%"%>
+	 <div id="error_a_telephone" class="error"></div>
+</div>
+<div class="inforow">A remplir si vous souhaitez qu'il soit affiché dans l'annonce</div>
+</div>
+<div class="break"></div>
+<div class="clear"></div>
+					 <div class="left submit">
+						 <input name="annul" type="button" value="Revenir aux annonces" class="button2" onclick="document.location.href='/classifieds/Produit_pc18791.html'">
+					 </div>
+					 <div class="right submit">
+						 <input type="submit" value="Envoyer" class="button2">
+					 </div>
+					 <div class="clear"></div>
+					 </div>
+		 <%end%>
+	 </div>
+</div>
+<div id="ecart_after_24606331" class="ecart_col2"><hr></div>
+</div>
+</div>
+<!-- ********************************************** FIN COLONNE 1 ****************************************** -->
+
+<!-- ********************************************** COLONNE 2 ********************************************** -->
+<div class="z_colonne" id="z_col2" style="height: auto !important; min-height: 0px !important;"><div class="google-auto-placed" style="width: 100%; height: auto; clear: none; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-8886723913145864" data-adsbygoogle-status="done" style="display: block; margin: 10px auto; background-color: transparent; height: 0px;" data-ad-status="unfilled"><ins id="aswift_1_expand" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 0px; width: 720px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;"><ins id="aswift_1_anchor" style="border: none; height: 0px; width: 720px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block; overflow: hidden; opacity: 0;"><iframe id="aswift_1" name="aswift_1" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 720px; height: 0px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="720" height="0" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="https://googleads.g.doubleclick.net/pagead/ads?gdpr=1&amp;us_privacy=1---&amp;gdpr_consent=CPWo2nBPWo2nBAKAnAENCICsAP_AAH_AACIgIqNd_X__bX9j-_5_f_t0eY1P9_r3_-QzjhfNt-8F3L_W_L0X42E7NF36pq4KuR4Eu3LBIQNlHMHUTUmwaokVrzHsak2cpyNKJ7LEmnMZO2dYGHtPn9lDuYKY7_5___bz3j-v_t_-39T378Xf3_d5_2---vCfV599jLv9f___39nP___9v-_8_______BFMAkw1LyALsyxwZNo0qhRAjCsJCqBQAUUAwtEVgA4OCnZWAT6ghYAIBUhGBECDEFGDAIABBIAkIiAkALBAIgCIBAACABEAhAARMAgsALAwCAAUA0LEAKAAQJCDI4IjlMCAqRKKCWysQSgr2NMIAyzwIoFEZFQAIkmgBYGQkLBzHAEgJeLJA0xQvkAIwAAAAA.YAAAAAAAAAAA&amp;client=ca-pub-8886723913145864&amp;output=html&amp;h=280&amp;adk=2138813738&amp;adf=559885495&amp;pi=t.aa~a.625829932~rp.2&amp;w=720&amp;fwrn=4&amp;fwrnh=100&amp;lmt=1648688729&amp;rafmt=1&amp;to=qs&amp;pwprc=4077715195&amp;psa=0&amp;format=720x280&amp;url=https%3A%2F%2Fwww.megazap.fr%2Fclassifieds%2Fsubmit%2F&amp;fwr=0&amp;pra=3&amp;rpe=1&amp;resp_fmts=3&amp;wgl=1&amp;fa=40&amp;uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjkwLjAuNDQzMC43MiIsW10sbnVsbCxudWxsLCIiLFtdLGZhbHNlXQ..&amp;dt=1648688728472&amp;bpp=100&amp;bdt=20174&amp;idt=107&amp;shv=r20220329&amp;mjsv=m202203230101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D3682ead1188c18f2-222d782002d20009%3AT%3D1648593568%3ART%3D1648593568%3AS%3DALNI_MaIl1NdQj8Vg_YetgbkCJz28P_7RQ&amp;prev_fmts=0x0&amp;nras=2&amp;correlator=8066063634332&amp;frm=20&amp;pv=1&amp;ga_vid=1154852245.1648593544&amp;ga_sid=1648688727&amp;ga_hid=1999610344&amp;ga_fc=1&amp;u_tz=-180&amp;u_his=6&amp;u_h=600&amp;u_w=800&amp;u_ah=576&amp;u_aw=735&amp;u_cd=24&amp;u_sd=1&amp;dmc=4&amp;adx=0&amp;ady=1328&amp;biw=720&amp;bih=472&amp;scr_x=0&amp;scr_y=0&amp;eid=44759875%2C44759926%2C44759837%2C44761044%2C44760494&amp;oid=2&amp;pvsid=2271935134487717&amp;pem=234&amp;tmod=253737130&amp;uas=1&amp;nvt=1&amp;ref=https%3A%2F%2Fwww.megazap.fr%2Fclassifieds%2Fsubmit%2F&amp;eae=0&amp;fc=1920&amp;brdim=65%2C24%2C65%2C24%2C735%2C24%2C735%2C576%2C735%2C472&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=128&amp;bc=31&amp;ifi=2&amp;uci=a!2&amp;btvi=1&amp;fsb=1&amp;xpc=oXAsuFhMOU&amp;p=https%3A//www.megazap.fr&amp;dtd=766" data-google-container-id="a!2" data-google-query-id="CJbFwpCU7_YCFZHc3godSp8EcQ" data-load-complete="true"></iframe></ins></ins></ins></div>
+<div class="z_col_median z_col2_inner z_col_fullheight">
+
+<!-- login 24606383 -->
+<div id="mod_24606383" class="mod_24606383 wm-module fullbackground module-responsive  module-login type-3">
+	 <div class="entete"><div class="fullmod">
+		 <span>S'identifier</span>
+	 </div></div>
+	 <div class="cel1">
+		 <div class="liens"><a href="/social/inbox/"><%=current_user.try(:pseudo)%> (0)</a> | <a href="/logout/">Se déconnecter</a></div>
+	 </div>
+</div>
+<div id="ecart_after_24606383" class="ecart_col2"><hr></div>
+
+<!-- recherche 24631131 -->
+<div id="ecart_before_24631131" class="ecart_col2 responsive" style="display:none"><hr></div>
+<div id="mod_24631131" class="mod_24631131 wm-module fullbackground  recherche type-2">
+	 <form id="form_24631131" action="/search/" method="get" enctype="application/x-www-form-urlencoded">
+		 <div class="cel1">
+			 			 <span><span class="cel">
+<input type="text" style="width:200px" id="keyword_safe_24631131" name="keyword_safe_24631131" value="Recherche" class="button" onfocus="this.style.display='none'; document.getElementById('keyword_24631131').style.display='inline'; document.getElementById('keyword_24631131').focus()"><input type="text" style="display:none;width:200px" id="keyword_24631131" name="keyword" value="" class="button" onblur="if (this.value == '') {this.style.display='none'; document.getElementById('keyword_safe_24631131').style.display='inline';}">			 </span><span class="cel">
+<input type="image" src="/photo/mod-24631131-1.png?v=1538159461" alt="OK">
+			 </span></span>
+			 <div class="avance" style="margin-top:5px">
+				 <a href="/search/?avance=1">Recherche avancée</a>
+			 </div>
+		 </div>
+	 </form>
+

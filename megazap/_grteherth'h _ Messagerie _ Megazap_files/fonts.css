@@ -1,0 +1,466 @@
+@font-face {
+  font-family: American Typewriter Condensed Bold;
+  src: url("../fonts/AmericanTypewriterCondensedBold.eot");
+  src: url("../fonts/AmericanTypewriterCondensedBold.eot?#iefix") format('embedded-opentype'), url("../fonts/AmericanTypewriterCondensedBold.ttf") format('truetype');
+}
+@font-face {
+  font-family: American Typewriter Medium;
+  src: url("../fonts/AmericanTypewriterMedium.eot");
+  src: url("../fonts/AmericanTypewriterMedium.eot?#iefix") format('embedded-opentype'), url("../fonts/AmericanTypewriterMedium.ttf") format('truetype');
+}
+@font-face {
+  font-family: Amiri;
+  src: url("../fonts/Amiri.eot");
+  src: url("../fonts/Amiri.eot?#iefix") format('embedded-opentype'), url("../fonts/Amiri.ttf") format('truetype');
+}
+@font-face {
+  font-family: Courier Bold;
+  src: url("../fonts/CourierBold.eot");
+  src: url("../fonts/CourierBold.eot?#iefix") format('embedded-opentype'), url("../fonts/CourierBold.ttf") format('truetype');
+}
+@font-face {
+  font-family: Droid;
+  src: url("../fonts/Droid.eot");
+  src: url("../fonts/Droid.eot?#iefix") format('embedded-opentype'), url("../fonts/Droid.ttf") format('truetype');
+}
+@font-face {
+  font-family: Droid Kufi;
+  src: url("../fonts/DroidKufi.eot");
+  src: url("../fonts/DroidKufi.eot?#iefix") format('embedded-opentype'), url("../fonts/DroidKufi.ttf") format('truetype');
+}
+@font-face {
+  font-family: Futura;
+  src: url("../fonts/Futura.eot");
+  src: url("../fonts/Futura.eot?#iefix") format('embedded-opentype'), url("../fonts/Futura.ttf") format('truetype');
+}
+@font-face {
+  font-family: Gill Sans;
+  src: url("../fonts/GillSans.eot");
+  src: url("../fonts/GillSans.eot?#iefix") format('embedded-opentype'), url("../fonts/GillSans.ttf") format('truetype');
+}
+@font-face {
+  font-family: Gill Sans Bold;
+  src: url("../fonts/GillSansBold.eot");
+  src: url("../fonts/GillSansBold.eot?#iefix") format('embedded-opentype'), url("../fonts/GillSansBold.ttf") format('truetype');
+}
+@font-face {
+  font-family: Helvetica neue Condensed Bold;
+  src: url("../fonts/HelveticaNeueCondensedBold.eot");
+  src: url("../fonts/HelveticaNeueCondensedBold.eot?#iefix") format('embedded-opentype'), url("../fonts/HelveticaNeueCondensedBold.ttf") format('truetype');
+}
+@font-face {
+  font-family: Helvetica neue Light;
+  src: url("../fonts/HelveticaNeueLight.eot");
+  src: url("../fonts/HelveticaNeueLight.eot?#iefix") format('embedded-opentype'), url("../fonts/HelveticaNeueLight.ttf") format('truetype');
+}
+@font-face {
+  font-family: Helvetica neue Ultra Light;
+  src: url("../fonts/HelveticaNeueUltraLight.eot");
+  src: url("../fonts/HelveticaNeueUltraLight.eot?#iefix") format('embedded-opentype'), url("../fonts/HelveticaNeueUltraLight.ttf") format('truetype');
+}
+@font-face {
+  font-family: Helvetica neue Medium;
+  src: url("../fonts/HelveticaNeueMedium.eot");
+  src: url("../fonts/HelveticaNeueMedium.eot?#iefix") format('embedded-opentype'), url("../fonts/HelveticaNeueMedium.ttf") format('truetype');
+}
+@font-face {
+  font-family: Helvetica neue;
+  src: url("../fonts/HelveticaNeue.eot");
+  src: url("../fonts/HelveticaNeue.eot?#iefix") format('embedded-opentype'), url("../fonts/HelveticaNeue.ttf") format('truetype');
+}
+@font-face {
+  font-family: Hoefler Bold Italic;
+  src: url("../fonts/HoeflerBoldItalic.eot");
+  src: url("../fonts/HoeflerBoldItalic.eot?#iefix") format('embedded-opentype'), url("../fonts/HoeflerBoldItalic.ttf") format('truetype');
+}
+@font-face {
+  font-family: Hoefler;
+  src: url("../fonts/Hoefler.eot");
+  src: url("../fonts/Hoefler.eot?#iefix") format('embedded-opentype'), url("../fonts/Hoefler.ttf") format('truetype');
+}
+@font-face {
+  font-family: Segoe;
+  src: url("../fonts/Segoe.eot");
+  src: url("../fonts/Segoe.eot?#iefix") format('embedded-opentype'), url("../fonts/Segoe.ttf") format('truetype');
+}
+@font-face {
+  font-family: Marathi Vakra;
+  src: url("../fonts/MarathiVakra.eot");
+  src: url("../fonts/MarathiVakra.eot?#iefix") format('embedded-opentype'), url("../fonts/MarathiVakra.ttf") format('truetype');
+}
+@font-face {
+  font-family: Noto Sans Hebrew;
+  src: url("../fonts/NotoSansHebrew.eot");
+  src: url("../fonts/NotoSansHebrew.eot?#iefix") format('embedded-opentype'), url("../fonts/NotoSansHebrew.ttf") format('truetype');
+}
+/* ICON-FONTS ---------------------------------------------------------*/
+@font-face {
+  font-family: 'gbbackoffice-v3-icon';
+  src: url('../fonts/gbbackoffice-v3-icon.eot?yhubo7');
+  src: url('../fonts/gbbackoffice-v3-icon.eot?#iefixyhubo7') format('embedded-opentype'), url('../fonts/gbbackoffice-v3-icon.woff2?yhubo7') format('woff2'), url('../fonts/gbbackoffice-v3-icon.ttf?yhubo7') format('truetype'), url('../fonts/gbbackoffice-v3-icon.woff?yhubo7') format('woff'), url('../fonts/gbbackoffice-v3-icon.svg?yhubo7#gbbackoffice-v3-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.gbbackoffice-v3-icon {
+  font-family: 'gbbackoffice-v3-icon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-ipad-pro:before {
+  content: "\e935";
+}
+.icon-cloud-download:before {
+  content: "\e938";
+}
+.icon-cloud-upload:before {
+  content: "\e939";
+}
+.icon-couponing:before {
+  content: "\e936";
+}
+.icon-appstore:before {
+  content: "\e910";
+}
+.icon-award:before {
+  content: "\e911";
+}
+.icon-backup:before {
+  content: "\e912";
+}
+.icon-beacons:before {
+  content: "\e913";
+}
+.icon-comments:before {
+  content: "\e914";
+}
+.icon-delivery:before {
+  content: "\e915";
+}
+.icon-messenger:before {
+  content: "\e916";
+}
+.icon-picture:before {
+  content: "\e917";
+}
+.icon-playstore:before {
+  content: "\e918";
+}
+.icon-products:before {
+  content: "\e919";
+}
+.icon-promote:before {
+  content: "\e91a";
+}
+.icon-push:before {
+  content: "\e91b";
+}
+.icon-search:before {
+  content: "\e91c";
+}
+.icon-seo:before {
+  content: "\e91d";
+}
+.icon-social:before {
+  content: "\e91e";
+}
+.icon-star:before {
+  content: "\e91f";
+}
+.icon-trash:before {
+  content: "\e920";
+}
+.icon-users:before {
+  content: "\e921";
+}
+.icon-huawei-p20pro .path1:before {
+  content: "\e906";
+  color: #000000;
+}
+.icon-huawei-p20pro .path2:before {
+  content: "\e907";
+  margin-left: -0.4765625em;
+  color: #000000;
+}
+.icon-huawei-p20pro .path3:before {
+  content: "\e908";
+  margin-left: -0.4765625em;
+  color: #000000;
+  opacity: 0.25;
+}
+.icon-huawei-p20pro .path4:before {
+  content: "\e909";
+  margin-left: -0.4765625em;
+  color: #000000;
+  opacity: 0.25;
+}
+.icon-iphone-5:before {
+  content: "\e90a";
+}
+.icon-iphone-8plus:before {
+  content: "\e90b";
+}
+.icon-lg-g7:before {
+  content: "\e90c";
+}
+.icon-galaxy-s9plus:before {
+  content: "\e90d";
+}
+.icon-iphone-xs:before {
+  content: "\e90e";
+}
+.icon-iphone-xsmax:before {
+  content: "\e90f";
+}
+.icon-picto-services-collectionslist:before {
+  content: "\e937";
+}
+.icon-picto-services-squarespace:before {
+  content: "\e624";
+}
+.icon-picto-services-facebookphoto:before {
+  content: "\e626";
+}
+.icon-picto-services-gigatools:before {
+  content: "\e623";
+}
+.icon-picto-services-etsy:before {
+  content: "\e600";
+}
+.icon-picto-services-shopify:before {
+  content: "\e601";
+}
+.icon-picto-services-kml:before {
+  content: "\e602";
+}
+.icon-picto-services-songkick:before {
+  content: "\e603";
+}
+.icon-picto-services-amazon:before {
+  content: "\e604";
+}
+.icon-picto-services-mcms:before {
+  content: "\e605";
+}
+.icon-picto-services-mcmsvideo:before {
+  content: "\e606";
+}
+.icon-picto-services-mcmsarticle:before {
+  content: "\e607";
+}
+.icon-picto-services-mcmsevent:before {
+  content: "\e608";
+}
+.icon-picto-services-mcmspodcast:before {
+  content: "\e609";
+}
+.icon-picto-services-mcmsphoto:before {
+  content: "\e60a";
+}
+.icon-picto-services-fhpx:before {
+  content: "\e60b";
+}
+.icon-picto-services-bliptv:before {
+  content: "\e60c";
+}
+.icon-picto-services-soundcloud:before {
+  content: "\e60d";
+}
+.icon-picto-services-wm:before {
+  content: "\e60e";
+}
+.icon-picto-services-wmarticle:before {
+  content: "\e60f";
+}
+.icon-picto-services-wmevent:before {
+  content: "\e610";
+}
+.icon-picto-services-wmpodcast:before {
+  content: "\e611";
+}
+.icon-picto-services-wmphoto:before {
+  content: "\e612";
+}
+.icon-picto-services-wmvideo:before {
+  content: "\e613";
+}
+.icon-picto-services-googlecalendar:before {
+  content: "\e614";
+}
+.icon-picto-services-facebookevents:before {
+  content: "\e615";
+}
+.icon-picto-services-vcalendar:before {
+  content: "\e616";
+}
+.icon-picto-services-dailymotion:before {
+  content: "\e617";
+}
+.icon-picto-services-videopodcast:before {
+  content: "\e618";
+}
+.icon-picto-services-podcast:before {
+  content: "\e619";
+}
+.icon-picto-services-pinterest:before {
+  content: "\e61a";
+}
+.icon-picto-services-picasa:before {
+  content: "\e61b";
+}
+.icon-picto-services-ooyala:before {
+  content: "\e61c";
+}
+.icon-picto-services-wordpress:before {
+  content: "\e61d";
+}
+.icon-picto-services-wordpressdotcom:before {
+  content: "\e61e";
+}
+.icon-picto-services-typepad:before {
+  content: "\e61f";
+}
+.icon-picto-services-drupal:before {
+  content: "\e620";
+}
+.icon-picto-services-blogger:before {
+  content: "\e621";
+}
+.icon-picto-push-reward-reminder:before {
+  content: "\e900";
+}
+.icon-picto-push-reward-welcome:before {
+  content: "\e901";
+}
+.icon-picto-push-action:before {
+  content: "\e622";
+}
+.icon-picto-push-anytime:before {
+  content: "\e625";
+}
+.icon-picto-push-devices:before {
+  content: "\e627";
+}
+.icon-picto-push-deweling:before {
+  content: "\e628";
+}
+.icon-picto-push-entering:before {
+  content: "\e629";
+}
+.icon-picto-push-geofence:before {
+  content: "\e62a";
+}
+.icon-picto-push-ibeacon:before {
+  content: "\e62b";
+}
+.icon-picto-push-openinghours:before {
+  content: "\e62c";
+}
+.icon-picto-push-sortering:before {
+  content: "\e62d";
+}
+.icon-picto-push-timespans:before {
+  content: "\e62e";
+}
+.icon-picto-push-users:before {
+  content: "\e62f";
+}
+.icon-loading1:before {
+  content: "\e000";
+}
+.icon-loading2:before {
+  content: "\e001";
+}
+.icon-loading3:before {
+  content: "\e002";
+}
+.icon-loading4:before {
+  content: "\e003";
+}
+.icon-loading5:before {
+  content: "\e004";
+}
+.icon-loading6:before {
+  content: "\e005";
+}
+.icon-loading7:before {
+  content: "\e006";
+}
+.icon-settings-json:before {
+  content: "\e933";
+}
+.icon-settings-shop-shipping:before {
+  content: "\e934";
+}
+.icon-settings-shop-infos:before {
+  content: "\e922";
+}
+.icon-settings-files:before {
+  content: "\e923";
+}
+.icon-settings-shop-payment:before {
+  content: "\e924";
+}
+.icon-settings-shop-taxes:before {
+  content: "\e925";
+}
+.icon-settings-shop-checkout:before {
+  content: "\e926";
+}
+.icon-settings-shop-email:before {
+  content: "\e927";
+}
+.icon-settings-shop-email1:before {
+  content: "\e928";
+}
+.icon-settings-team:before {
+  content: "\e929";
+}
+.icon-settings-preference:before {
+  content: "\e92a";
+}
+.icon-settings-error404:before {
+  content: "\e92b";
+}
+.icon-settings-connexions:before {
+  content: "\e92c";
+}
+.icon-settings-confidential:before {
+  content: "\e92d";
+}
+.icon-settings-textes:before {
+  content: "\e92e";
+}
+.icon-settings-backup:before {
+  content: "\e92f";
+}
+.icon-settings-headtag:before {
+  content: "\e930";
+}
+.icon-settings-apidoc:before {
+  content: "\e931";
+}
+.icon-settings-cookies:before {
+  content: "\e932";
+}
+.icon-pwa:before {
+  content: "\e905";
+}
+.icon-icon-section:before {
+  content: "\e904";
+}
+.icon-icon-header:before {
+  content: "\e903";
+}
+.icon-business:before {
+  content: "\e902";
+}
+.icon-stats:before {
+  content: "\e630";
+}

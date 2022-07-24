@@ -1,0 +1,99 @@
+<div id="z_colfull">
+<div class="z_colfull_inner">
+<div id="breads" class="breadcrump breadcrumbs">
+	 <a href="https://www.megazap.fr/">Accueil</a>
+	 <span class="sepbread">&nbsp;&gt;&nbsp;</span>
+	 <a href="/social/">Réseau social</a>
+	 <span class="sepbread">&nbsp;&gt;&nbsp;</span>
+	 <a href="/index.php?action=social_membre"></a>
+	 <div class="clear separate"><hr /></div>
+</div>
+ <div id="mod_5601793" class="mod_5601793 wm-module fullbackground  module-page2_social">
+	 <div class="cel1" style="position:static">
+			 <div class="tabs">
+				 <ul>
+					 <li id="li_wall"><a href="/social/">Activités</a></li>
+					 <li id="li_membre" class="selected"><a href="/social/list/">Membres</a></li>
+					 <li id="li_profil"><a href="/social/<%=current_user.id%>/">Mon profil</a></li>
+					 <li class="li_search" style="float:right;margin:0;padding:0">
+						 <form action="/social/list/?order=" method="get" onsubmit="document.getElementById('snskey_safe_5601793').focus();this.removeChild(document.getElementById('snskey_safe_24606308'))">
+							 <input type="text" class="button search" style="" id="snskey_safe_5601793" name="snskey_safe_5601793" value="" onfocus="this.style.display='none'; document.getElementById('snskey_5601793').style.display='inline'; document.getElementById('snskey_5601793').focus()" />
+							 <input type="text" class="button search" style="display:none" id="snskey_5601793" name="snskey" value="" onblur="if (this.value == '') {this.style.display='none'; document.getElementById('snskey_safe_5601793').style.display='inline';}" />
+							 <input type="image" src="/_images/icones/ok_5.png?v=1213798463" alt="OK" title="OK" />
+						 </form>
+					 </li>
+				 </ul>
+				 <div class="clear"></div>
+			 </div>
+			 <div class="view-membre">
+		 <div class="inner_tabs">
+			 <div class="inner_tabs_membre">
+			 <div class="pave_membre">
+			 <div class="membre membre_photo">
+				 <%if current_user.image%><a id="profil_photo" href="javascript:void(0)" rel="nofollow" onclick="showIbox('/mymodule/5601793/?type=3&amp;ajax=true&amp;java=false&amp;iboxaction=photo');"> 				 
+<img src="/userfiles/<%=current_user.image%>?v=1649937189" width="180" height="180" alt="Cliquer ici pour recadrer la photo" title="Cliquer ici pour recadrer la photo" /> 
+<img src="<%if @user.image%>/userfiles/<%=@user.image%>?v=<%else%>/_images/social/inconnu_o.jpg<%end%>" width="180" height="180" alt="<%=@user.fullname%>" title="Cliquer ici pour recadrer la photo" />
+</a> <%else%>	<a id="profil_photo" href="javascript:void(0)" rel="nofollow" onclick="showIbox('/mymodule/5601793/?type=3&amp;ajax=true&amp;java=false&amp;iboxaction=photo');"><img src="./_grteherth&#39;h _ Messagerie _ Megazap_files/inconnu_ .jpg" width="180" height="180" alt="Ajoutez une photo à votre profil" title="Ajoutez une photo à votre profil"> </a><%end%>
+
+				 
+                                 
+			 </div>
+			 <div class="menu left" id="follow_me_<%=@user.id%>">
+		 <%if user_signed_in? && !@user.followers.include?(current_user)%>
+			 <a href="javascript:void(0)" rel="nofollow" onclick="recharge_async('follow_me_<%=@user.id%>', '/mymodule/5601793/', 'ajax=true&amp;java=false&amp;start=0&amp;follow=<%=@user.id%>&amp;REQUEST_URI=url')">Suivre</a>
+&nbsp;|
+                                                 <%elsif user_signed_in?%>
+			 <a href="javascript:void(0)" rel="nofollow" onclick="recharge_async('follow_me_<%=@user.id%>', '/mymodule/5601793/', 'ajax=true&amp;java=false&amp;start=0&amp;unfollow=<%=@user.id%>v&amp;REQUEST_URI=url')">Ne plus suivre</a>
+					 &nbsp;|
+                                                 <%end%>
+</div>
+				 <div class="menu">
+
+ 
+
+<a href="/social/compose/?send_to=<%=@user.id%>">Me contacter</a></div>
+			 
+<div class="clear"></div>
+<%if current_user.followers.length > 0%>
+                         <div class="membre membre_content">
+				 <div class="menu">Suivi(e) par (<%=current_user.followedpeople.length%>)</div>
+				 <div class="infos">
+<%=render partial: "userimage", collection: current_user.followers, as: :user%>				 </div>
+			 </div>
+                         <%end%>
+			 </div>
+			 <div id="pave_membre_detail" class="pave_membre_detail">
+			 <div class="bloc_bottom">
+			 <div class="left titre"><a href="/social/<%=@user.id%>/"><%=@user.fullname%></a></div>
+			 <div class="clear"></div>
+			 <div class="menu">
+				 <a class="menu" href="/social/<%=@user.id%>/">Activités</a>
+				 <span> | </span>
+				 <a class="selected" href="/social/<%=@user.id%>/info/">Infos</a>
+			 </div>
+			 </div>
+			 <div class="bloc">
+				 <div class="infos_generales" style="margin-top:0">Informations générales</div>
+				 <div class="sep"></div>
+				 <div class="infos">Membre depuis le : <span class="texte"><%=l(@user.created_at, format: :memberat)%></span></div>
+				 <%if @user.last_sign_in_at%><div class="infos">Dernière connexion : <span class="texte"><%=distance_of_time_in_words(@user.last_sign_in_at, Time.now)%></span></div><%end%>
+			 <div class="bloc-stats">
+				 <div class="infos_generales">Statistiques</div>
+				 <div class="sep"></div>
+				 <div class="infos">Articles publiés : <span class="texte"><%=@user.articles.length%></span></div>
+				 <div class="infos">Commentaires postés : <span class="texte"><%=@user.comments.length%></span></div>
+				 <div class="infos">Évènements : <span class="texte"><%=@user.events.length%></span></div>
+				 <div class="infos">Petites annonces : <span class="texte"><%=@user.jobs.length+@user.products.length%></span></div>
+				 <div class="infos">Messages dans le forum : <span class="texte"><%=@user.posts.length + @user.subjects.length%></span></div>
+			 </div>
+			 </div>
+			 </div>
+			 <div class="clear"></div>
+			 </div>
+		 </div>
+			 </div>
+	 </div>
+</div>
+<div class="ecart_colfull"><hr /></div>
+</div>
+</div>

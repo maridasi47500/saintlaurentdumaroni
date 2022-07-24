@@ -1,0 +1,8 @@
+<div class="alternate" id="preview" style="height: 100%;">				 <div class="avatar photo"><a href="social/<%=message.user.id%>/"><img width="48" height="48" src="/_images/social/inconnu_o_petit.jpg" alt="">
+</a></div>
+				 <div class="legende">
+					 <div class="auteur_date"><a class="lien" href="social/<%=message.user_id%>/"><%=message.user.fullname%></a> <%=l(DateTime.now, format: :usernow)%></div>
+					 <div class="texte" style="margin-top:2px"><%=message.viewcontent.html_safe%></div>
+				 <div class="clear"></div>
+			 </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="z_colonne main-colonne" id="z_col2">
+<div class="z_col_median z_col2_inner z_col_fullheight">
+<div id="mod_5601789" class="mod_5601789 wm-module fullbackground  module-page2_newsletter">
+	 <div class="entete"><div class="fullmod">
+		 <span>Inscription Newsletter</span>
+	 </div></div>
+	 <div class="cel1">
+		 <div class="titre">Abonnez-vous à notre newsletter</div>
+		 <div class="texte">Pour recevoir notre newsletter, saisissez votre mail dans le champs ci-dessous</div>
+	<%if @abo.errors.messages.length > 0%>
+        <div class="texte">* <%=@abo.errors.messages[:email][0]%></div>
+        <%end%>
+        </div>
+	 <%=render "formnewsletter", abo: @abo%>
+</div>
+<div id="ecart_after_5601789" class="ecart_col2"><hr /></div>
+<div class="homecrump center">
+	 <div class="clear separate"><hr /></div>
+	 <a href="https://www.saintlaurentdumaroni.fr/"><img src="https://www.saintlaurentdumaroni.fr/photo/bt_home.png?v=1349942074" class="image" alt="" title=""  /></a>
+</div>
+</div>
+</div>
+<!-- ********************************************** FIN COLONNE 2 ****************************************** -->

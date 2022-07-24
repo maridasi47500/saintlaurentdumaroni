@@ -1,0 +1,35 @@
+<div id="mod_5601793_zoneplayer" style="margin:0px; padding:0px;">
+				<div id="titre_video" class="titre" style="position:relative; margin-bottom:10px;width:100%;margin-right:2px;"><%=@video.titre%>
+</div>
+		<div id="video_player" style="margin-bottom:15px; align: left;height:auto;">
+				<div id='video_5601793' class="center video-wrapper" style="float:left;margin-right : 15px;">
+<iframe class="wmvid" src="https://www.saintlaurentdumaroni.fr<%=playvideo_path(id: @video.myvideoid, id2:@video.playid)%>?autostart=1&embed=true&share=true&playlist=true&subscribe=true&fromWm=1&preload=none&" width="640" height="360" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe>				</div>		<div id="detail_video_une">
+				<div class="lien" style="margin-bottom:5px;;">
+Durée&nbsp;:&nbsp;<span class="texte"> <%=distance_of_time_in_words(Time.new(1,1,1,0,0,0,0).utc.change(month: 1,year:2022,day:1),@video.time.change(month: 1,year:2022,day:1))%></span>
+</div>
+				<div class="lien" style="margin-bottom:5px;;">
+Vues&nbsp;:&nbsp;<span class="texte"><%=@video.vue%></span></div>
+				<div id="video_div_buzz">
+						<img class="image" style="float:left;margin-right:3px;;" src="/_images/icones/buzz_video.png" alt="buzzImg" />
+						<select onchange="window.open(document.getElementById('video_select_buzz').value);" id="video_select_buzz" class="button" style="float:left;margin-right:3px;;width:96px;">
+								<option value="">Sélectionnez</option>
+								<option value="/send/50197238/">Email</option>
+								<option value="http://meneame.net/submit.php?url=<%=u(@video.article.try(:myurl))%>">Meneame</option>
+								<option value="http://digg.com/submit?phase=2&amp;url=<%=u(@video.article.try(:myurl))%>&amp;title=<%=u(@video.titre.gsub(' ','%'))%>">Digg</option>
+								<option value="http://www.google.com/bookmarks/mark?op=edit&amp;bkmk=<%=u(@video.article.try(:myurl))%>">Google</option>
+								<option value="http://www.linkedin.com/shareArticle?mini=true&amp;url=<%=u(@video.article.try(:myurl))%>&amp;title=<%=u(@video.titre.gsub(' ','%'))%>&amp;source=&amp;summary=">LinkedIn</option>
+								<option value="http://pinterest.com/pin/create/button/?url=<%=u(@video.article.try(:myurl))%>&amp;description=<%=u(@video.titre.gsub(' ','%'))%>">Pinterest</option>
+								<option value="http://reddit.com/submit?url=<%=u(@video.article.try(:myurl))%>&amp;title=<%=u(@video.titre.gsub(' ','%'))%>">Reddit</option>
+								<option value="http://www.tapemoi.com/submit.php?lien=<%=u(@video.article.try(:myurl))%>">Tape-moi</option>
+								<option value="http://twitter.com/intent/tweet?text=<%=u(@video.article.try(:myurl))%>">Twitter</option>
+								<option value="http://www.viadeo.com/shareit/share/?url=<%=u(@video.article.try(:myurl))%>">Viadeo</option>
+						</select>
+</div>
+						 <div class="clear"></div>
+</div>
+						 <div class="clear"></div>
+		</div>						 <div class="clear"></div>
+		<div class="texte infos-video" style="margin-top:0px; width:600px">				<p><%=@video.description%></p>		</div></div>
+<script id="script_after" type="text/javascript">
+</script>
+

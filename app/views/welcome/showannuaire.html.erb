@@ -1,0 +1,63 @@
+<div class="z_colonne main-colonne" id="z_col2">
+<div class="z_col_median z_col2_inner z_col_fullheight">
+<div id="breads" class="breadcrump breadcrumbs">
+	 <a href="https://www.saintlaurentdumaroni.fr/">Accueil</a>
+	 <span class="sepbread">&nbsp;&gt;&nbsp;</span>
+	 <a href="/links/">Annuaire</a>
+	 <span class="sepbread">&nbsp;&gt;&nbsp;</span>
+	 <a href="/links/Divers_ai11841.html">Divers</a>
+	 <div class="clear separate"><hr /></div>
+</div>
+<div id="mod_5601818" class="mod_5601818 wm-module fullbackground  module-page2_annuaire type-2">
+	 <div class="entete"><div class="fullmod">
+		 <span>Annuaire</span>
+	 </div></div>
+		 <div class="cel1">
+			 <h3 class="annuaire">
+				 Divers
+			 </h3>
+		 </div>
+<div class="cel1safe nb-col-4">
+			<%@i=0%>	 
+<%@links.each_slice(4).to_a.each do |links|%>
+<%links.each_with_index do |link,i|%>
+<%@i=@i+1%>
+				 <div class="left col col-<%=@i+1%>" style="float:left;padding:0 5px;width:188px">
+					 <div style="width:155px; margin:auto;">
+						 <div class="photo"><a href="<%=link.url%>" target="_blank"><img src="https://www.saintlaurentdumaroni.fr<%=link.image%>" style="width:145px;height:107px" alt="<%=link.titre%> " title="<%=link.titre%> " /></a></div>
+			 <div class="titre titre_margin">
+				 <a href="<%=link.url%>" target="_blank"><%=link.titre%> </a>
+			 </div>
+					 </div>
+				 </div>
+<%end%>
+				 <div class="clear"></div>
+<%end%>
+</div>
+<%if (@links[0].total.to_i / 6)> 1%>
+	 <div class="cel1 forpager">
+		 <div class="pager">
+                        <%(0..(@links[0].total.to_i / 6)).to_a.each do |i|%>
+			 <a <%if params[:start].to_i == (i*6) %>class="sel"<%end%> href="<%=myannuaire_path(title: params[:title], rubrique: "ai", id: params[:id], start: (i > 0 ? (i*6) : nil))%>"><%=i+1%></a>
+                         <%end%>
+		 </div>
+	 </div>
+<%end%>
+		 <div class="cel1">
+			 <div class="navi">
+				 <a rel="nofollow" href="/links/submit/11841/">Soumettre un lien</a>
+			 </div>
+		 </div>
+</div>
+<div id="ecart_after_5601818" class="ecart_col2"><hr /></div>
+<div class="homecrump center">
+	 <div class="clear separate"><hr /></div>
+	 <a href="https://www.saintlaurentdumaroni.fr/"><img src="https://www.saintlaurentdumaroni.fr/photo/bt_home.png?v=1349942074" class="image" alt="" title=""  /></a>
+</div>
+</div>
+</div>
+
+<%=content_for :mysheet do%>
+<link href="/css/style_7.css" rel="stylesheet" type="text/css">
+
+<%end%>

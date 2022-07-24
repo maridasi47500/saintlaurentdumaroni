@@ -1,0 +1,27 @@
+<div class="cel1 forpager">
+		 <div class="pager">
+                    <%@id=nil%>
+                    <%@myid=1%>
+<%@idd=6%>
+<%@counter=8%>
+                    <%myparams={order: nil, start: nil}%>
+                        <%@pages=(rubrique.articles.length / @counter)%>
+                        <%@times=(@pages < @idd ? @pages :  @idd)%>
+                    <%@times.times do%>
+                         <%if @myid==(@idd - 1) && @times == @idd%>
+			 <a href="<%=rubrique.url%>?start=<%=params[:start].to_i + 1%>&amp;order=">»</a>
+			 <span>...</span>
+                         <%elsif @myid==@idd && @times == @idd%>
+			 <a href="<%=rubrique.url%>?start=<%=params[:start].to_i + 1%>&amp;order="><%=@pages%></a>
+			<%else%>
+			 <a <%if params[:start] == @id%> class="sel" <%end%> href="<%=rubrique.url%><%if @id%>?<%=myparams.merge(start: (@id)).to_query%><%end%>"><%=@myid%></a>
+
+			 <%end%>
+			<%@id||=0%> 
+			<%@id+=@counter%> 
+
+                        <%@myid+=1%>
+
+<%end%>
+		 </div>
+	 </div>

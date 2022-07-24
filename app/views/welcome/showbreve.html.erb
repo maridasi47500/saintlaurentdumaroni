@@ -1,0 +1,44 @@
+<div class="z_colonne main-colonne" id="z_col2">
+<div class="z_col_median z_col2_inner z_col_fullheight">
+<div id="breads" class="breadcrump breadcrumbs">
+	 <a href="/">Accueil</a>
+	 <span class="sepbread">&nbsp;&gt;&nbsp;</span>
+	 <a href="/notes/">Brèves</a>
+	 <div class="clear separate"><hr /></div>
+</div>
+<div id="mod_5601807" class="mod_5601807 wm-module fullbackground  module-page2_breve">
+	 <div class="entete"><div class="fullmod">
+		 <span>Brèves</span>
+	 </div></div>
+	 <div class="cel1">
+		 <h3 class="titre">
+			 <span class="titre_a">
+				 <%=@note.titre%>
+			 </span><span class="date">&nbsp;<%=l(@note.date)%></span>
+		 </h3>
+		 <div class="texte">
+			 <%=@note.content.html_safe%>
+		 </div>
+		 <div class="clear"></div>
+			<%=render collection: @note.noteattachments, as: :pj, partial: "pj"%>
+
+		 <br class="clear" />
+	 </div>
+         <%=render (user_signed_in? ? "formcommentnotesignedin" : "formcommentnote"), note: @note, comment: @comment%>
+	 <div class="cel1">
+		 <div class="pager">
+			 <a href="/notes/<%=@note.mypage%>">Retour à la liste des brèves</a>
+		 </div>
+	 </div>
+</div>
+<div id="ecart_after_5601807" class="ecart_col2"><hr /></div>
+<div class="homecrump center">
+	 <div class="clear separate"><hr /></div>
+	 <a href="/"><img src="/photo/bt_home.png?v=1349942074" class="image" alt="" title=""  /></a>
+</div>
+</div>
+</div>
+<!-- ********************************************** FIN COLONNE 2 ****************************************** -->
+<%=content_for :mysheet do%>
+<link rel="stylesheet" href="/style.5601807.css?v=1356871045" type="text/css" />
+<%end%>

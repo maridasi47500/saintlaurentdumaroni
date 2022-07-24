@@ -1,0 +1,38 @@
+ <%=form_with scope: "", model: link, url:"/links/submit/#{link.id_soum}/", html: { id: 'formulaire_submit'} do |form|%>
+				 <div class="champ">
+					 <%=form.hidden_field "id_soum",value: link.id_soum %>
+					 <input type="hidden" name="subaction" value="add" />
+					 <input type="hidden" id="fingerprint" name="fingerprint" value="fingerprint" />
+				<label style="">URL * :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_url", class: (link.errors[:a_url].blank? ? "button" : " field_error"), onfocus:"del_error(this.id)", id:"a_url"%>
+	 <div id="error_a_url" class="error"><%=link.errors.messages[:a_url][0]%></div>
+</div>
+<div class="break"></div>
+				<label style="">Titre * :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_titre", class: (link.errors[:a_titre].blank? ? "button" : " field_error"), onfocus: "del_error(this.id)", id: "a_titre", maxlength: "120" %>
+	 <div id="error_a_titre" class="error"><%=link.errors.messages[:a_titre][0]%></div>
+</div>
+<div class="break"></div>
+				<label style="">Description :</label>
+<div class="inputrow" style="">
+	 <%=form.text_area "a_description", class: (link.errors[:a_description].blank? ? "button" : " field_error"), onfocus: "del_error(this.id)", id: "a_description" , rows: "4"%>
+	 <div id="error_a_description" class="error"><%=link.errors.messages[:a_description][0]%></div>
+</div>
+<div class="break"></div>
+				<label style="">Email * :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_auteur", class: (link.errors[:a_auteur].blank? ? "button" : " field_error"), onfocus: "del_error(this.id)", id: "a_auteur", style: "width:200px" %>
+	 <div id="error_a_auteur" class="error"><%=link.errors.messages[:a_auteur][0]%></div>
+</div>
+<div class="break"></div>
+					 <div class="left submit">
+						 <input name="annul" type="button" value="Revenir à l'annuaire" class="button2" onclick="document.location.href='/links/Administration-Institution_ai45788.html'" />
+					 </div>
+					 <div class="right submit">
+						 <input type="submit" value="Soumettre" class="button2" />
+					 </div>
+					 <div class="clear"></div>
+				 </div>
+		 <%end%>

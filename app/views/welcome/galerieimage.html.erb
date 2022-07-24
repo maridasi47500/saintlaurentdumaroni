@@ -1,0 +1,14 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; Charset=UTF-8">
+</head>
+<body>
+<div style="position:relative">
+<img id="ibox_picture" src="<%=@photo.grandeimage%>" alt="96" onclick="hideIbox();" width="425" height="639" /></div>
+<script type="text/javascript">
+prevIbox = "showIbox('/index.php?preaction=galerie&id_album=<%=@photo.album_id%>&id_photo=<%=@photo.id_prev_photo%>&noinfo=1&ibox&autoclose=1');";
+nextIbox = "showIbox('/index.php?preaction=galerie&id_album=<%=@photo.album_id%>&id_photo=<%=@photo.id_next_photo%>&noinfo=1&ibox&autoclose=1');";
+</script>
+</body>
+</html>rail

@@ -1,0 +1,29 @@
+
+<div class="bloc">
+				 <div class="clear"></div>
+			 <div onmouseover="dei('thread_<%=message.thread_id%>').style.display = 'block'" onmouseout="dei('thread_<%=message.thread_id%>').style.display = 'none'">
+				 <div class="avatar photo"><a href="/social/<%=current_user.id%>/"><img width="48" height="48" src="/_images/social/inconnu_o_petit.jpg" alt="<%=message.user.fullnamesmall%>" /></a></div>
+				 <div class="legende">
+					 <div class="left" style="width: 150px;">
+						 <div class="auteur_date" style="text-align:left; font-weight:normal"><a style="font-weight:normal" href="/social/<%=message.user_id%>/"><%= message.reallogin(current_user)%></a> &gt; <%=render collection: message.contacts.take(1), partial: "destinatairelien", as: :user%> <%if message.contacts.length > 1%>et <%=message.contacts.length - 1%> autre(s)<%end%><br/> <%if message.datedumessage.to_date == Date.today%><%=l(message.datedumessage.to_time, format: :disptime)%><%else%><%=l(message.datedumessage, format: :dispdatetime)%><%end%></div>
+					 </div>
+<div id="thread_<%=message.thread_id%>" class="right" style="display:none"><a href="javascript:void(0)" onclick="del_thread('<%=message.thread_id%>')"><img class="delete" src="/_images/social/del.png" alt="Supprimer" title="Supprimer" /></a></div>
+					 
+<div>
+						 <a class="lien" href="/social/archives/<%=message.thread_id%>/" style="display:block;margin-left:160px">
+						 <span class="lien" style="font-weight:normal"><%=message.mythread.title%> (<%=message.mythread.messages.length%>)</span><br/>
+						 <span class="texte" style="margin-top:2px"><%=strip_tags(message.viewcontent).truncate(150,omission: "...")%></span>
+						 </a>
+					 </div>
+					 <div class="clear"></div>
+				 </div>
+				 <div class="clear"></div>
+			 </div>
+							 <form id="form_<%=message.thread_id%>" action="/social/" method="post">
+								 <input type="hidden" name="del_thread" value="oui" />
+								 <input type="hidden" name="id_thread" value="<%=message.thread_id%>" />
+								 <input type="hidden" name="fingerprint" id="fingerprint_<%=message.thread_id%>" value="0" />
+							 </form>
+				 <div class="clear"></div>
+			 </div>
+

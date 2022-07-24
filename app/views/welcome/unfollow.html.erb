@@ -1,0 +1,4 @@
+<%if @user.followers.length > 0 && !params[:REQUEST_URI]%><div class="auteur_date">Suivi(e) par <%=@user.followers.length%> personne(s)</div><%end%>
+			 <a href="javascript:void(0)" rel="nofollow" onclick="recharge_async('follow_me_<%=@user.id%>', '/mymodule/5601793/', 'ajax=true&amp;java=false&amp;start=0&amp;follow=<%=@user.id%><%if params[:REQUEST_URI]%>&amp;REQUEST_URI=uri<%end%>')">Suivre</a>
+				 | <a href="/social/compose/?send_to=<%=@user.id%>">Contacter</a>
+					 

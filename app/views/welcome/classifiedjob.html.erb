@@ -1,0 +1,58 @@
+<div class="z_colonne main-colonne" id="z_col2">
+<div class="z_col_median z_col2_inner" style="height: auto;">
+<div id="mod_24606312" class="mod_24606312 wm-module fullbackground  module-page2_annonce">
+	 <div class="detail cel1">
+		 <div class="recherche">
+			 <div class="date_new"><%if !@job.salaire.blank?%><div class="titre"><%=@job.monsalaire%> €</div><%end%><div class="description">Ref : <%=@job.id%></div></div>
+			 <div class="titre"><%=@job.titre%></div>
+			 <div class="description">Publiée le <%=l(@job.created_at, format: :publiee)%> dans <a class="reference" href="<%=myclassifiedjob_path(title: "Emploi", rubrique: "_jo", id: @job.id)%>">Emploi</a></div>
+			 <div class="clear"></div>
+		 </div>
+                 <%if !@job.salaire.blank?%>
+		 <div class="description margin left" style="width: 50%">
+			 Salaire : 			 <b><%=@job.salaire%> €</b>
+		 </div>
+                 <%end%>
+		 <div class="description margin left">
+Ville : <b> </b><a href="https://www.megazap.fr/gmap/?id_annonce=259415" style="margin-left:10px"><img src="/Cherche%20emploi%20informatique%20Petites%20annonces%20Megazap_fichiers/icn_agenda_map.png"></a>
+</div>
+		 <div class="clear"></div>
+		 <div class="description margin left" style="width: 50%">
+			 Durée : 			 <b><%=@job.duree%></b>
+		 </div>
+		 <div class="description margin left">
+			 Type : 			 <b><%=@job.fonction%></b>
+		 </div>
+		 <div class="clear"></div>
+		 <div class="description margin"><%=simple_format(@job.description)%></div>
+	 </div>
+	 <div class="cel1">
+		 <div class="left">
+
+<div class="clear"></div>
+		 </div>
+<%if current_user.try(:id) == @job.user_id%>
+
+	 <div class="post right"><a onclick="if (!confirm('Voulez-vous réellement supprimer cette annonce ? Cette action est irréversible.')) return false;" href="<%=myclassifiedjob_path(title: "Emploi", rubrique: "_jo", id: @job.id, subaction: "del", delid: @job.id)%>">Supprimer l'annonce</a></div>
+	 <div class="clear"></div>
+<%elsif @answer.persisted?%>
+<div class="recherche margin"><div class="titre" style="text-align:center">Votre réponse à l'annonce a été enregistrée.</div></div>
+<div class="clear"></div>
+<%else%>
+<div style="text-align: center; margin: 30px;">
+		 <input type="button" value="Répondre à l'annonce" class="button2" onclick="$('#div_reponse').toggle(); resize_height()" "="">
+	 </div>
+<div class="margin" id="div_reponse" style="<%if @answer.errors.messages.empty?%>display: none;<%end%>">
+			 <%=render "formanswerjob", job: @job, answer: @answer%>
+	 </div>
+<%end%>
+				 <div class="margin description"><%=@job.visite%> Visite(s) - <%=@job.answers.length%> Réponse(s)</div>
+		 <div class="clear"></div>
+	 </div>
+	 <div class="cel1 infos navi">
+		 <a href="<%=myclassifiedjob_path(title: "Emploi", rubrique: "_jo", id: @job.id)%>">Emploi</a>
+	 </div>
+</div>
+<div id="ecart_after_24606312" class="ecart_col2"><hr></div>
+</div>
+</div>

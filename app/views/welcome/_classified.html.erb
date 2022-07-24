@@ -1,0 +1,11 @@
+<div class="cel1">
+			 <div class="photo shadow">
+				 <a href="<%=classified.is_a?(Job) ? myclassifiedjob_path(id: classified.id, rubrique: "_jo", title: classified.titre.gsub(' ','')) : myclassifiedproduct_path(rubrique: "_pr", title: classified.titre.gsub(' ',''), id: classified.id) %>"><img src="/_images/annonce-defaut.png" alt="<%=classified.titre%>"></a>
+			 </div>
+			 <div class="description <%=(classified.created_at - DateTime.now) < 24.hours ? "date_new" : ""%>"><%if classified.created_at.to_date == Date.today%><div class="new">NEW</div> <%=l(classified.created_at, format: :mytime)%><%elsif classified.created_at.year == Date.today.year%><%=l(classified.created_at, format: :moisjour)%><%else%><%=l(classified.created_at, format: :moisjourannee)%><%end%></div>
+			 <div class="desc">
+				 <div class="titre"><a href="<%=classified.is_a?(Job) ? myclassifiedjob_path(id: classified.id, rubrique: "_jo", title: classified.titre.gsub(' ','')) : myclassifiedproduct_path(rubrique: "_pr", title: classified.titre.gsub(' ',''), id: classified.id) %>"><%=classified.titre%></a></div>
+				 <div class="description"><%= classified.try(:price) ? classified.price.to_s + " €" : ""%><%=classified.description%></div>
+			 </div>
+			 <div class="clear"></div>
+			 </div>

@@ -1,0 +1,15 @@
+<div class="cel1">
+		 <div class="photo shadow">
+			 <a href="<%=result.myurl%>"><img src="/assets/<%=result.photo%>" alt="<%=result.title%>" title="<%=result.title%>"></a>
+		 </div>
+		 <div class="details mleft">
+			 <div class="date">10/04/2021</div>
+			 <h3 class="titre bloc">
+				 <a href="<%=result.myurl%>"><%=result.title%></a>
+			 </h3>
+			 <div class="bloc">
+				 <a class="description" href="<%=result.myurl%>"><%=result.description.truncate(151, separator: " ", omission: '...')%>...</a>
+			 </div>
+		 </div>
+		 <div class="clear"></div>
+	 </div>

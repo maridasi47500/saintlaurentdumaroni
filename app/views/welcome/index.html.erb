@@ -1,0 +1,44 @@
+<div class="z_colonne main-colonne" id="z_col2">
+<div class="z_col_median z_col2_inner z_col_fullheight" style="height: 1681px;">
+
+<!-- une 5601838 -->
+<div id="mod_5601838" class="mod_5601838 wm-module fullbackground module-responsive  module-une type-8">
+	 <div class="entete"><div class="fullmod">
+		 <span>A la Une</span>
+	 </div></div>
+	 <div class="cel1">
+		 <div id="my-glider5601838" class="scroller">
+			 <div class="bx-wrapper" style="max-width: 100%; margin: 0px auto;"><div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 483px;"><div class="content" style="width: auto; position: relative;">
+<%=render collection: @mostrecentarticlesmairie, as: :article, partial: "affiche",locals: {mostrecentarts: @mostrecentarticlesmairie}%>
+
+
+
+			 </div></div></div>
+		 </div>
+	 </div>
+</div>
+<div id="ecart_after_5601838" class="ecart_col2"><hr></div>
+
+<!-- eau 5601864 -->
+<div id="ecart_before_5601864" class="ecart_col2 responsive" style="display:none"><hr></div>
+<div id="mod_5601864" class="mod_5601864 wm-module fullbackground module-responsive  module-eau type-3 nb-col-3 nb_sections-4">
+	 <div class="entete"><div class="fullmod">
+		 <span>ACTUALITES </span>
+	 </div></div>
+	 <div class="eau">
+	 <table class="inner" cellspacing="0" cellpadding="0">
+		 <tbody><tr>
+		 
+		
+		<%=render partial: "articlebythree",collection: @mostrecentarticles, spacer_template: "ligne", as: :articles%>
+		
+	
+		 
+		 
+		
+		 </tr>
+	 </tbody></table>
+	 </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; Charset=UTF-8">
+</head>
+<body>
+<div id="ibox_login" style="background:#FFFFFF;width:390px;height:240px;position:relative">
+		 <div class="titre"><a href="/subscription/">Connectez-vous à votre compte</a>
+		 </div>
+		 <div class="description">Si vous n'êtes pas encore membre de notre communauté, rejoignez-nous! Votre compte personnel vous permettra d'accéder à de nombreux services supplémentaires. </div><br>
+		 <%=form_with url:"/index.php", html:{ id:"login_formajax", onsubmit: "return false;"} do |form|%>
+			 <input type="hidden" name="preaction" value="ajax">
+			 <input type="hidden" name="iboxaction" value="login">
+			 <input type="hidden" name="ABSOLUTE_HREF" value="/subscription/">
+			 <input type="hidden" name="rident" value="true">
+			 <div class="pave_left larg4p">
+				 <div class="texte enter_ident"><b>Entrez vos identifiants de connexion</b></div>
+				 <div class="texte info_champ">Login :</div>
+				 <%=form.text_field :r_login, id: "r_loginajax", class:"button ", onfocus: "del_error('r_loginajax');del_error('r_passwordajax')"%>
+				 <div class="texte info_champ">Mot de passe :</div>
+				 <%=form.password_field "r_password", id: "r_passwordajax", class: "button ", onfocus: "del_error('r_login');del_error('r_password')"%>
+				 <div id="error_r_loginajax" class="error"><%=(user && !user.valid_password?(params[:r_password])) ? "Mot de passe incorrect" : ""%><%=!user ? "Login ou mot de passe incorrects" : ""%></div>
+					 <div class="liens passperdu"><a href="/members/pass/">Mot de passe perdu ?</a></div>
+				 <div class="submit">
+					 <input type="submit" class="button2" value="Se connecter" onclick="this.disabled = true; showIbox('/index.php?action=restriction', '', '', getPostValues('login_formajax', true))">
+					 <input type="checkbox" id="r_retainajax" name="r_retain" value="1"><label for="r_retainajax" class="inline texte">Se souvenir de moi</label>
+				 </div>
+			 </div>
+			 <div class="sep_bottom"></div>
+			 <div class="left resume_center larg3p">
+				 <div class="liens resume_center"></div>
+				<div class="resume_top10">			 <input type="button" class="button2" value="S'inscrire" onclick="window.location='/subscription/'">
+</div>
+			 </div>
+			 <div class="clear"></div>
+		 <%end%>
+		 </div>
+
+</body>
+</html>

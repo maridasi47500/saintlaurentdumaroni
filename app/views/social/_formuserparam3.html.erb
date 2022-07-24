@@ -1,0 +1,20 @@
+<%=form_with model: user, url:"/social/<%=current_user.id%>/param/", html: {enctype: "multipart/form-data", class: "profile_form"} do |form|%>
+					 <input type="hidden" name="modifier_notif" id="action_notif" value="oui" />
+					 <input type="hidden" name="fingerprint_notif_5601793" id="fingerprint_notif_5601793" value="0" />
+<div class="ssmenu item">Recevez un mail pour les actions ou les évènements suivants :</div>
+					<div class="radiorow">
+		 <%=form.check_box "a_notify_message", id: "a_notify_message"%> <label for="a_notify_message" class="champ" style="display:inline">J'ai reçu un nouveau message</label><br/>
+		 <div id="error_a_notify_message" class="error"></div>
+</div>
+<div class="break"></div>
+					<div class="radiorow">
+		 <%=form.check_box "a_notify_follower", id: "a_notify_follower" %> <label for="a_notify_follower" class="champ" style="display:inline">Une personne suit mon activité</label><br/>
+		 <div id="error_a_notify_follower" class="error"></div>
+</div>
+<div class="break"></div>
+					 <div class="sep"></div>
+<div class="break"></div>
+					 <input type="button" value="Annuler" class="button2 left" onclick="document.getElementById('div_param_notif').style.display='none';"/>
+					 <input type="submit" value="Modifier" class="button2 right"/>
+					 <div class="clear"></div>
+				 <%end%>

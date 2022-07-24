@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; Charset=UTF-8" />
+
+<style type="text/css">
+ @-o-viewport { width: device-width; }
+ @-moz-viewport { width: device-width; }
+ @-ms-viewport { width: device-width; }
+ @-webkit-viewport { width: device-width; }
+ @viewport { width: device-width; }
+
+body
+{ background-color:#000;
+  color:#fff;
+  height:100%;
+  width:100%;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+  position:absolute; }
+
+a, a:visited
+{
+  border: none;
+}
+
+.full-frame
+{
+	position: absolute;
+	top:0;
+	left : 0;
+	bottom:0;
+	right: 0;
+	z-index: 1;
+	width:100%;
+	background-color:#000;
+	height:100%;
+	-moz-transition: left 300ms ease,right 300ms ease;
+	-ms-transition: left 300ms ease,right 300ms ease;
+	-o-transition: left 300ms ease,right 300ms ease;
+	-webkit-transition: left 300ms ease,right 300ms ease;
+	transition: left 300ms ease,right 300ms ease;
+	background: transparent;
+	display: block;
+	overflow: hidden;
+}
+
+.full-frame video, .full-frame img.vjs-poster
+{
+	height: 100% !important;
+	width: 100% !important;
+}
+
+.embed_problem_msgwrapper
+	{
+	display: table;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	position: relative;
+
+	}
+
+.embed_problem_msgwrapper .embed_problem_message
+{
+
+display: table-cell;
+vertical-align: middle;
+-webkit-box-sizing: border-box;
+font-style:normal;
+font-family: Helvetica, Arial;
+}
+</style>
+
+<script src="/js/jquery-1.8.3.min.js?v=1374829427" type="text/javascript"></script>
+<script src="/js/compress_fonctions.js?v=1556804585" type="text/javascript"></script>
+	<script type="text/javascript">
+		function showIbox(url, title, params, paramPost) {
+			parent.showIbox(url, title, params, paramPost);
+		}
+		function linkPlaylist(url) {
+			parent.document.location.href = url;
+		}
+	</script>
+<script src="/js/polyfill.js" type="text/javascript" ></script><script src="/js/fetch-polyfill.js" type="text/javascript" ></script><script src="/js/custom-polyfill.js?v=1587386563" type="text/javascript" ></script>
+<script src="/js/videojs.7.6.6.js" type="text/javascript" ></script><script src="/js/videojs-ad-contrib.6.6.5.min.js" type="text/javascript" ></script><script src="/js/new_player.js?v=1588164696" type="text/javascript" ></script>
+<script src="/js/chromecast-controller.js?v=1587386563" type="text/javascript" ></script><script async src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script><link href="/js/videojs.7.6.6.css" rel="stylesheet" /><link rel="stylesheet" href="/css/new_player.css?v=1588164696" type="text/css" media="screen" />
+</head>
+<body>
+<div id='player-1648081226' class='full-frame'><div id='player_0' style='width:100%; height:100%;'></div><script type="text/javascript">function html5_player_0() {
+	 if(!document.getElementById('player_0'))	return;
+	 var div_embed_0 = document.createElement('div');
+	 div_embed_0.setAttribute('class', 'video-js-box wmaker-css');
+	 var embed_0 = document.createElement('video')
+	 embed_0.setAttribute('class', 'video-js vjs-wmaker-skin');
+	 embed_0.setAttribute('id', 'playerHTML5_player_0');
+	 embed_0.setAttribute('width', '100%');
+	 embed_0.setAttribute('height', '100%');
+	 embed_0.setAttribute('controls', 'controls');
+	 embed_0.setAttribute('controlsList', 'nodownload');
+	 embed_0.setAttribute('preload', 'none');
+	 embed_0.setAttribute('data-preroll', '');
+	 embed_0.setAttribute('data-midroll', '');
+	 embed_0.setAttribute('data-midroll-delay', '');
+	 embed_0.setAttribute('data-postroll', '');
+	 embed_0.setAttribute('poster', '<%=@video.image%>');
+	 div_embed_0.appendChild(embed_0);
+	 document.getElementById('player_0').appendChild(div_embed_0);
+		 $(document).ready(function () {
+<%@video.titre.encode!('utf-16')%>
+			 var player_0 = vjs('playerHTML5_player_0', {"isLiveVid":"false","vidName":"<%=@video.filename%>","startHD":"undefined","vidHDName":"undefined","streamMode":"lighttpd","autostart":"false","urlSite":"https:\/\/www.saintlaurentdumaroni.fr","start":0,"idvideo":"<%=@video.videoid%>","urlVideo":"<%=@video.myurl.try(:gsub,"/videos","").try(:gsub,'/', '\\/')%>","stats":"https:\/\/www.saintlaurentdumaroni.fr\/index.php?preaction=stat_video-2448295","ratio":"0.57","lang":"fr","preview":"<%=@video.image.try(:gsub,'/', '\\/')%>","enableEmbed":"true","enablePlaylist":"true","enableShare":"true","enableSubscribe":"true","logo":"undefined","position":"1","duration":"130","enablePub":"false","urlPub":"undefined","preroll":"undefined","prerollRatio":"1.33","prerollLink":"undefined","prerollStop":"0","controlBarColor":"#666666","bufferBarColor":"#FFFFFF","iconsColor":"#F5BB0C","progressBarColor":"#F5BB0C","urlToBlock":"\/_public\/player\/ads\/list.json","template":"1","slice":10,"vidTitle":"undefined","from":"undefined","embedIbox":"true","urlEmbed":"<%=playvideo_path(id: @video.videoid, id2:@video.playid).gsub('/','\\/')%>\/","fromWm":1,"enableDynamicUrl":"true","shortURL":"<%=@video.titre.inspect%> http:\/\/xfru.it\/gljn2Z","embeded":"false","postview":"undefined","rtmp":"false","srcGA":"","preload":"none","remainingadtext":"Votre vid\u00e9o commence dans [sec] secondes ","enableairtv":true,"id_param":"player_0","poster":"<%=@video.image.try(:gsub,'/', '\\/')%>","randomid":1648081226,"shorturl":"<%=@video.titre.inspect%> http:\/\/xfru.it\/gljn2Z"});
+		 });
+}
+html5_player_0();
+</script></div>
+	<script type="text/javascript">
+		 $('video.video-js').each(function() {
+				var height = $(window).height();	
+				$(this).attr('height', height);
+			});
+	</script>
+</body>
+</html>

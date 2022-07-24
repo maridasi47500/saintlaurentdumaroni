@@ -1,0 +1,235 @@
+<%=form_with scope:"",model: event, url: "/agenda/submit/", html: {enctype: "multipart/form-data", id:"formulaire_submit" } do |form|%>
+	<%=form.hidden_field :user_id%>
+			 <div class="champ">
+					 <input type="hidden" name="subaction" value="add">
+				<label style="">Catégorie * :</label>
+<div class="inputrow" style="">
+		 <%=form.select "a_id_soum", Agendacat.all.collect{|h|[h.name,h.catid]}, {},{id: "a_id_soum", class: "button", style: "width:140px"}%>
+</div>
+<div class="break"></div>
+					 <input type="hidden" id="fingerprint" name="fingerprint" value="12356">
+				<label style="">Titre * :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_titre", class: "button", onfocus: "del_error(this.id)", id: "a_titre"%>
+	 <div id="error_a_titre" class="error"></div>
+</div>
+<div class="break"></div>
+				 <label>Date * :</label>
+				<div class="encapse" style="float:left;position:relative;margin-bottom: 15px">
+<div class="radiorow" style="">
+<%=form.text_field "", class: "pointer button hasDatepicker", size: "10", maxlength: "10", id: "a_date_debut",value:l(event.a_date_debut,format: :mydatefrench)%>
+<%=form.hidden_field "a_date_debut",value:l(event.a_date_debut,format: :mydate), id: "hidden_a_date_debut"%>
+<span id="bloc_a_heure_date_debut" style="position:relative">
+<%=form.text_field "a_heure_date_debut", class: "pointer button", size: "5", maxlength: "5", id: "text_a_heure_date_debut"%>
+<%=form.select "", (0..1430).step(10).to_a.collect{|h|[I18n.l((Time.now.beginning_of_day+h.minute),format: :timeform), h]},{}, {class: "hourpicker", id: "pickup_heure_a_heure_date_debut", style: "display:none;", size: "10"}%>
+
+</span>
+</div>
+</div>
+				<div class="encapse" style="float:left;position:relative;">
+<label style="display: inline">Au :</label>
+<div class="radiorow" style="float: none; display: inline-block">
+<%=form.text_field "", class: "pointer button hasDatepicker", size: "10", maxlength: "10", id: "a_date_fin",value:l(event.a_date_fin,format: :mydatefrench)%>
+<%=form.hidden_field "a_date_fin", id: "hidden_a_date_fin",value:l(event.a_date_fin,format: :mydate)%>
+<span id="bloc_a_heure_date_fin" style="position:relative">
+<%=form.text_field "a_heure_date_fin", class: "pointer button", size: "5", maxlength: "5", id: "text_a_heure_date_fin"%>
+<%=form.select "", (0..1430).step(10).to_a.collect{|h|[I18n.l((Time.now.beginning_of_day+h.minute),format: :timeform), h]},{}, {class: "hourpicker", id: "pickup_heure_a_heure_date_fin", style: "display:none;", size: "10"}%>
+
+</span>
+</div>
+</div>
+				<div class="radiorow">
+		 <%=form.check_box "a_allday", id:"a_allday", onclick:"$(&#39;#bloc_a_heure_date_debut&#39;).toggle(); $(&#39;#bloc_a_heure_date_fin&#39;).toggle();"%> 
+<label for="a_allday" class="champ" style="display:inline">Toute la journée</label><br>
+		 <div id="error_a_allday" class="error"></div>
+</div>
+<div class="break"></div>
+				<div class="clear"></div>
+				<label style="">Description * :</label>
+<div class="inputrow" style="">
+	 <%=form.text_area "a_description", class: "button", onfocus: "del_error(this.id)", id: "a_description", rows: "4"%>
+	 <div id="error_a_description" class="error"></div>
+</div>
+<div class="break"></div>
+				<label style="">URL :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_url", class: "button", onfocus: "del_error(this.id)", id: "a_url", style: "width:300px"%>
+	 <div id="error_a_url" class="error"></div>
+</div>
+<div class="break"></div>
+				<label style="">Photo optionnelle :</label>
+<div class="inputrow" style="">
+	 <%=form.file_field "a_photo", class: "button", onfocus: "del_error(this.id)", id: "a_photo", style: "width:200px"%>
+	 <div id="error_a_photo" class="error"></div>
+</div>
+<div class="break"></div>
+				<label style="">Adresse :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_lieu", class: "button", onfocus: "del_error(this.id)", id:"a_lieu", maxlength: "250"%>
+	 <div id="error_a_lieu" class="error"></div>
+</div>
+<div class="break"></div>
+				<div class="encapse" style="float:left;position:relative;width:120px">
+<label style="">Code Postal * :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_cp", class: "button", onfocus: "del_error(this.id)", id: "a_cp", style: "width:100px", maxlength: "10"%>
+	 <div id="error_a_cp" class="error"></div>
+</div>
+</div>
+				<div class="encapse" style="float:left;position:relative;width:220px">
+<label style="">Ville * :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_ville", class: "button", onfocus: "del_error(this.id)", id: "a_ville", style: "width:200px", maxlength: "255"%>
+	 <div id="error_a_ville" class="error"></div>
+</div>
+</div>
+				<div class="encapse" style="float:left;position:relative;width:160px">
+<label style="">Pays * :</label>
+<div class="inputrow">
+	 <%=form.select "a_pays", Country.findbytwotypes('euro','RDM').collect{|h|[h.name,h.countryid, {class: h.mytype}]}, {},{id: "a_pays", class: "button", onchange: "changeEtat(this, new Array(38,224,108,246))", style: "width:140px", autocomplete: "off"}%>
+	 </div>
+	 <div class="break break_etat1"></div>
+<div id="div_a_pays_etat38" style="display:none">
+	 <div class="break break_etat2" style="height:0"></div>
+	 <label class="for_etat">&nbsp;</label>
+	 <div class="inputrow inputrow-etat">
+		 <%=form.select "a_pays_etat38", Country.findbytype('etat38').collect {|h|[h.name,h.countryid]}, {},{id: "a_pays_etat38", class: "button select_etat", style: "width:140px"}%>
+		 
+	 </div>
+</div>
+<div id="div_a_pays_etat224" style="display:none">
+	 <div class="break break_etat2" style="height:0"></div>
+	 <label class="for_etat">&nbsp;</label>
+	 <div class="inputrow inputrow-etat">
+		 <%=form.select "a_pays_etat224", Country.findbytype('etat224').collect {|h|[h.name,h.countryid]}, {},{id: "a_pays_etat224", class: "button select_etat", style: "width:140px"}%>
+	 </div>
+</div>
+<div id="div_a_pays_etat108" style="display:none">
+	 <div class="break break_etat2" style="height:0"></div>
+	 <label class="for_etat">&nbsp;</label>
+	 <div class="inputrow inputrow-etat">
+		 <%=form.select "a_pays_etat108", Country.findbytype('etat108').collect {|h|[h.name,h.countryid]}, {},{id: "a_pays_etat108", class: "button select_etat", style: "width:140px"}%>
+		 
+	 </div>
+</div>
+<div id="div_a_pays_etat246" style="display:none">
+	 <div class="break break_etat2" style="height:0"></div>
+	 <label class="for_etat">&nbsp;</label>
+	 <div class="inputrow inputrow-etat">
+		 <%=form.select "a_pays_etat246", Country.findbytype('etat246').collect {|h|[h.name,h.countryid]},{},{id: "a_pays_etat246", class: "button select_etat", style: "width:140px"}%>
+		 
+	 </div>
+</div>
+</div>
+</div>
+				<div class="clear"></div>
+				<div class="encapse" style="float:left;position:relative;width:220px">
+<label style="">Email * :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_auteur", class: "button", onfocus: "del_error(this.id)", id: "a_auteur", style: "width:200px"%>
+	 <div id="error_a_auteur" class="error"></div>
+</div>
+</div>
+				<div class="encapse" style="float:left;position:relative;width:200px">
+<label style="">Téléphone :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_telephone", class: "button", onfocus: "del_error(this.id)", id: "a_telephone", style: "width:200px"%>
+	 <div id="error_a_telephone" class="error"></div>
+</div>
+</div>
+				<div class="clear"></div>
+					 <div class="left submit">
+						 <input name="annul" type="button" value="Revenir à l&#39;agenda" class="button2" onclick="document.location.href=&#39;/agenda/&#39;">
+					 </div>
+					 <div class="right submit">
+						 <input type="submit" value="Soumettre cet événement" class="button2">
+					 </div>
+					 <div class="clear"></div>
+				 </div>
+		 <%end%>
+<%=content_for :mapgoogle do%>
+
+<script>
+window.onload=function(){
+<%event.errors.messages.to_a.select{|h,k|k.length > 0}.each do |y,m|%>
+$('#error_<%=y%>').html("<%=m[0]%>");
+$('#<%=y%>').attr('class','field_error');
+<%end%>
+}
+</script>
+<script src="/js/form.js"></script>
+<script src="/js/jqueryui.js"></script>
+<script src="/js/datepicker.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*//*---->*/
+
+$(function() {
+    var ok_search = false;
+    var search = document.location.pathname.replace(/^(.*)\/search\/([^\/]+)\/?(.*)$/, '$2');
+    if (search != '' && search != document.location.pathname)	{ 
+        ok_search = true;
+    } else {
+        search = document.location.search.replace(/^\?(.*)&?keyword=([^&]*)&?(.*)/, '$2');
+        if (search != '' && search != document.location.search)	{
+            ok_search = true;
+        }
+    }
+    if (ok_search) {
+        $('#icon-search-23406349').trigger('click');
+        $('#keyword_safe_23406349').hide(); 
+        $('#keyword_23406349').val(decodeURIComponent(search).replace('+', ' ')).show();
+    }
+});
+
+	var date = document.location.pathname.replace(/^(.*)\/agenda\/([0-9]+)\/([0-9]+)\/?(.*)$/, '$2/$3');
+	if (date != '' && date != document.location.pathname)	{ d = date.split('/'); recharge('mod_23406954', 'https://www.saintlaurentdumaroni.fr/mymodule/23406954/', '', 'java=false&ajax=true&mo=' + d[1] + '&yr=' + d[0], true); }
+	
+    //Events Section
+    $(document).on('click', '#mod_23406954 .eventDate', function(e) {
+        var items = $('.expandableEvent');
+        var li = $(e.currentTarget).parent();
+      
+        //Backdoors Expandable Mode 
+        items.not(li).removeClass('selected').addClass('notSelected').find('.evenement').slideUp();
+        li.toggleClass('selected').toggleClass('notSelected').find('.evenement').toggle('slide');
+        
+    });
+    
+facebook_load('fr');
+function change_date_fin() {
+	if (parseInt($('#hidden_a_date_debut').val().replace(/[^0-9]/g, '')) > parseInt($('#hidden_a_date_fin').val().replace(/[^0-9]/g, '')))
+		{
+		$('#hidden_a_date_fin').val($('#hidden_a_date_debut').val());
+		$('#a_date_fin').val($('#a_date_debut').val());
+		if($('#a_date_fin').find('.ui-datepicker-inline').length)	$('#a_date_fin').datepicker().datepicker('setDate', $('#a_date_debut').val());
+		}
+}
+$.datepicker.setDefaults($.datepicker.regional["fr"]);
+$('#a_date_debut').datepicker({dateFormat: 'dd/mm/yy', defaultDate: '2022-03-21', altFormat: 'yy-mm-dd', altField: '#hidden_a_date_debut', onSelect: change_date_fin });
+$('#a_date_debut').keypress( function(e) { if (e.keyCode == 13) { $(this).blur(); return false;} });
+$(window).click( function(e) { var clicked = e.target || e.srcElement; if ($(clicked).attr('id') != 'text_a_heure_date_debut' && $('#pickup_heure_a_heure_date_debut').is(':visible')) $('#pickup_heure_a_heure_date_debut').hide();});
+$('#text_a_heure_date_debut').click(function() { $('#pickup_heure_a_heure_date_debut option').each( function(index) { var tmp = $('#text_a_heure_date_debut').val().split(':'); var val_min = parseInt(tmp[0].replace(/^0/, '')*60) + parseInt(tmp[1].replace(/^0/, '')); if (val_min == $(this).val()) { $('#pickup_heure_a_heure_date_debut').val(val_min);} }); $('#pickup_heure_a_heure_date_debut').show().focus();  });
+$('#text_a_heure_date_debut').keypress( function(e) { if (e.keyCode == 13) return false;});
+$('#pickup_heure_a_heure_date_debut').keypress( function(e) { if (e.keyCode == 13) $(this).click();});
+$('#pickup_heure_a_heure_date_debut').click(function() { $('#text_a_heure_date_debut').val($(this).find('option:selected').text());  $(this).hide(); });
+function change_date_fin() {
+	if (parseInt($('#hidden_a_date_debut').val().replace(/[^0-9]/g, '')) > parseInt($('#hidden_a_date_fin').val().replace(/[^0-9]/g, '')))
+		{
+		$('#hidden_a_date_fin').val($('#hidden_a_date_debut').val());
+		$('#a_date_fin').val($('#a_date_debut').val());
+		if($('#a_date_fin').find('.ui-datepicker-inline').length)	$('#a_date_fin').datepicker().datepicker('setDate', $('#a_date_debut').val());
+		}
+}
+$.datepicker.setDefaults($.datepicker.regional["fr"]);
+$('#a_date_fin').datepicker({dateFormat: 'dd/mm/yy', defaultDate: '2022-03-21', altFormat: 'yy-mm-dd', altField: '#hidden_a_date_fin', onSelect: change_date_fin });
+$('#a_date_fin').keypress( function(e) { if (e.keyCode == 13) { $(this).blur(); return false;} });
+$(window).click( function(e) { var clicked = e.target || e.srcElement; if ($(clicked).attr('id') != 'text_a_heure_date_fin' && $('#pickup_heure_a_heure_date_fin').is(':visible')) $('#pickup_heure_a_heure_date_fin').hide();});
+$('#text_a_heure_date_fin').click(function() { $('#pickup_heure_a_heure_date_fin option').each( function(index) { var tmp = $('#text_a_heure_date_fin').val().split(':'); var val_min = parseInt(tmp[0].replace(/^0/, '')*60) + parseInt(tmp[1].replace(/^0/, '')); if (val_min == $(this).val()) { $('#pickup_heure_a_heure_date_fin').val(val_min);} }); $('#pickup_heure_a_heure_date_fin').show().focus();  });
+$('#text_a_heure_date_fin').keypress( function(e) { if (e.keyCode == 13) return false;});
+$('#pickup_heure_a_heure_date_fin').keypress( function(e) { if (e.keyCode == 13) $(this).click();});
+$('#pickup_heure_a_heure_date_fin').click(function() { $('#text_a_heure_date_fin').val($(this).find('option:selected').text());  $(this).hide(); });
+$('#fingerprint').val('12356');
+
+/*--*//*]]>*/
+</script>
+<%end%>

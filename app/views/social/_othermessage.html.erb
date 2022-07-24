@@ -1,0 +1,11 @@
+<div class="avatar photo"><a href="/social/<%=message.thread_id%>/"><img width="48" height="48" src="/_images/social/inconnu_o_petit.jpg" alt="personne" /></a></div>
+				 <div class="legende">
+					 <div class="auteur_date"><a class="lien" href="/social/<%=message.thread_id%>/"><%=message.reallogin(current_user)%></a> <%=l(message.datedumessage, format: :usernow)%></div>
+					 <div class="texte" style="margin-top:2px"><%=message.content%></div>
+<%if message.attachment%>
+<div class="sep2"></div>
+<div class="lien"><img src="/_images/ext/unknown.gif" alt="" class="image" />&nbsp;<a href="/snsfile/<%=message.id%>/"><%=message.attachment%></a></div>	
+<%end%>                                        
+				 <div class="clear"></div>
+			 </div>
+			 <div class="sep"></div>

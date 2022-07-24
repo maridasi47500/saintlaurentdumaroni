@@ -1,0 +1,14 @@
+<div class="col video_box clear-x2 clear-x3 clear-x4" style="margin-bottom:18px;width:20%;">
+		<div class="videoCell" style="width:180px;">
+					 <div class="inner" style="height:137px;padding:0;margin:0;background-color:#000;">
+					 <a style="margin:0px;" href="javascipt:void(0)" rel="nofollow" onclick="readVideo('mod_5601793_zoneplayer', 'preaction=mymodule&amp;java=false&amp;ajax=true&amp;ajax_subaction=read&amp;tri=recent&amp;id_mep=7&amp;id_param=5601793&amp;id=<%=video.article_id%>'); return false;">
+						 <img alt="<%=video.filename%>" style="border:0px;width:180px;height:135px;margin:0px;padding:0px;" src="http://www.saintlaurentdumaroni.fr<%=video.image%>"  />
+					 </a>
+					 </div>
+						 <a class="opacity opacity_4_3" href="javascript:void(0)"  rel="nofollow" onclick="readVideo('mod_5601793_zoneplayer', 'preaction=mymodule&amp;java=false&amp;ajax=true&amp;ajax_subaction=read&amp;tri=recent&amp;id_mep=7&amp;id_param=5601793&amp;id=<%=video.article_id%>'); return false;">
+						 <span class="lien titre_article" style="color:#FFF;font-style:normal;font-weight: bold;"><%=video.titre%></span><br />
+						 <span class="lien" style="color:#FFF;font-weight: normal;"><%=distance_of_time_in_words(Time.new(1,1,1,0,0,0,0).utc.change(month: 1,year:2022,day:1),video.time.change(month: 1,year:2022,day:1))%></span>
+						 <span>&nbsp;-&nbsp;Vues : <%=video.vue%></span>
+						 </a>
+		 </div>
+	 </div>

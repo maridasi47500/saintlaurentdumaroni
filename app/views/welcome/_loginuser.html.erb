@@ -1,0 +1,14 @@
+<!-- login 24606383 -->
+<div id="mod_24606383" class="mod_24606383 wm-module fullbackground module-responsive  module-login type-3">
+	 <div class="entete"><div class="fullmod">
+		 <span>S'identifier</span>
+	 </div></div>
+	 <div class="cel1">
+<%if user_signed_in?%>
+		 <div class="liens"><a href="/social/inbox/"><%=user.login%> (0)</a> | <a href="/logout/">Se déconnecter</a></div>
+<%else%>
+		 <div class="liens"><a href="javascript:void(0)" onclick="showIbox('/index.php?preaction=ajax&amp;action=restriction&amp;iboxaction=login&amp;ABSOLUTE_HREF=/shop/')">Se connecter</a> | <a href="/subscription/">S'inscrire</a></div>
+<%end%>
+	 </div>
+</div>
+<div id="ecart_after_24606383" class="ecart_col2"><hr /></div>

@@ -1,0 +1,18 @@
+<div class="z_colonne main-colonne" id="z_col2">
+<div class="z_col_median z_col2_inner" style="height: auto;">
+<div id="mod_24606312" class="mod_24606312 wm-module fullbackground  module-page2_annonce">
+<div class="cel1">
+	 <div class="recherche">
+		 <%=render "formsearchproduct", product: @product%>
+	 </div>
+<div class="left description"><a href="/xml/annonce.rss?r=18791" target="_blank"><img src="/_images/icones/rss_min.png" alt=""></a> <%if @classifieds.length == 0%>
+Aucune annonce<%else%><%=@classifieds.length%> <%="annonce".pluralize(@classifieds.length)%><%end%></div>
+			 <input type="button" value="Poster une annonce" class="right button2" onclick="window.location='/classifieds/submit/18791/'">
+<div class="clear"></div>
+</div>
+</div>
+<%=render partial: "classified", as: :classified, collection: @product.all1%>
+
+<div id="ecart_after_24606312" class="ecart_col2"><hr></div>
+</div>
+</div>

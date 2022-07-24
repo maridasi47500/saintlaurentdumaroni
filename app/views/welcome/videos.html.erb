@@ -1,0 +1,73 @@
+<div id="z_colfull">
+<div class="z_colfull_inner">
+<div id="breads" class="breadcrump breadcrumbs">
+	 <a href="/">Accueil</a>
+	 <span class="sepbread">&nbsp;&gt;&nbsp;</span>
+	 <a href="/videos/">Vidéos</a>
+	 <div class="clear separate"><hr /></div>
+</div>
+<div id="mod_5601793" class="mod_5601793 wm-module fullbackground  module-page2_video">
+	 <div class="entete"><div class="fullmod">
+		 <span>Video</span>
+	 </div></div>
+	 <div class="cel1">
+<div id="mod_5601793_zoneplayer" style="margin:0px; padding:0px;">
+				<div id="titre_video" class="titre" style="position:relative; margin-bottom:10px;width:100%;margin-right:2px;"><%=@video.titre%>				</div>
+		<div id="video_player" style="margin-bottom:15px; align: left;height:auto;">
+				<div id='video_5601793' class="center video-wrapper" style="float:left;margin-right : 15px;">
+<iframe class="wmvid" src="https://www.saintlaurentdumaroni.fr<%=playvideo_path(id: @video.myvideoid, id2: @video.playid)%>?embed=true&share=true&playlist=true&subscribe=true&fromWm=1&preload=none&" width="640" height="1123" frameborder="0" webkitAllowFullScreen allowFullScreen name="myiframevideo"></iframe>				</div>		<div id="detail_video_une">
+				<div class="lien" style="margin-bottom:5px;;">
+Durée&nbsp;:&nbsp;<span class="texte"><%=distance_of_time_in_words(Time.new(1,1,1,0,0,0,0).utc.change(month: 1,year:2022,day:1),@video.time.change(month: 1,year:2022,day:1))%></span>
+</div>
+				<div class="lien" style="margin-bottom:5px;;">
+Vues&nbsp;:&nbsp;<span class="texte"><%=@video.vue%></span></div>
+				<div id="video_div_buzz">
+						<img class="image" style="float:left;margin-right:3px;;" src="/_images/icones/buzz_video.png" alt="buzzImg" />
+						<select onchange="window.open(document.getElementById('video_select_buzz').value);" id="video_select_buzz" class="button" style="float:left;margin-right:3px;;width:96px;">
+								<option value="">Sélectionnez</option>
+								<option value="/send/60302441/">Email</option>
+								<option value="http://meneame.net/submit.php?url=<%=u(@video.article.try(:myurl))%>">Meneame</option>
+								<option value="http://digg.com/submit?phase=2&amp;url=<%=u(@video.article.try(:myurl))%>&amp;title=%23AMF+%3A+103e+%C3%A9dition+du+Congr%C3%A8s+des+maires+et+des+pr%C3%A9sidents+d%E2%80%99intercommunalit%C3%A9+de+France+du+16+au+18+novembre+2021">Digg</option>
+								<option value="http://www.google.com/bookmarks/mark?op=edit&amp;bkmk=<%=u(@video.article.try(:myurl))%>">Google</option>
+								<option value="http://www.linkedin.com/shareArticle?mini=true&amp;url=<%=u(@video.article.try(:myurl))%>&amp;title=%23AMF+%3A+103e+%C3%A9dition+du+Congr%C3%A8s+des+maires+et+des+pr%C3%A9sidents+d%E2%80%99intercommunalit%C3%A9+de+France+du+16+au+18+novembre+2021&amp;source=&amp;summary=">LinkedIn</option>
+								<option value="http://pinterest.com/pin/create/button/?url=<%=u(@video.article.try(:myurl))%>&amp;description=%23AMF+%3A+103e+%C3%A9dition+du+Congr%C3%A8s+des+maires+et+des+pr%C3%A9sidents+d%E2%80%99intercommunalit%C3%A9+de+France+du+16+au+18+novembre+2021">Pinterest</option>
+								<option value="http://reddit.com/submit?url=<%=u(@video.article.try(:myurl))%>&amp;title=%23AMF+%3A+103e+%C3%A9dition+du+Congr%C3%A8s+des+maires+et+des+pr%C3%A9sidents+d%E2%80%99intercommunalit%C3%A9+de+France+du+16+au+18+novembre+2021">Reddit</option>
+								<option value="http://www.tapemoi.com/submit.php?lien=<%=u(@video.article.try(:myurl))%>">Tape-moi</option>
+								<option value="http://twitter.com/intent/tweet?text=<%=u(@video.article.try(:myurl))%>">Twitter</option>
+								<option value="http://www.viadeo.com/shareit/share/?url=<%=u(@video.article.try(:myurl))%>">Viadeo</option>
+						</select>
+</div>
+						 <div class="clear"></div>
+</div>
+						 <div class="clear"></div>
+		</div>						 <div class="clear"></div>
+		<div class="texte infos-video" style="margin-top:0px; width:600px">				
+<p>
+<%=@video.description%></p>		</div></div>
+<div style="margin:0px 0px 15px 0px;">&nbsp;</div>
+<div class="titre">Autres vidéos</div>
+		<div id="mod_5601793_zone_navigation" class="zone_navigation inner_tabs" style="width:100%;position:relative; height:335px;">
+		<div id="mod_5601793_zone_navigation" class="zone_navigation" style="margin:0;padding:0;width:100%;height:335px;position:relative;">
+		<div class="zone_navigation_inner" style="margin:0;padding:0;height:335px;_height:335px">
+	 	 <%=render partial: "myvideo",collection: @videos, as: :video%>
+
+<div class="clear"></div></div>		 <div class="navi_contenair" style="margin: 0 auto;">
+		 <div class="lien" style="text-align : center;">
+			 <a class="lien" href="/videos/all/">Voir toutes les vidéos</a>
+			 <span> | </span>
+			 <a href="javascript:void(0)" rel="nofollow" onclick="getVideoPage('mod_' + 5601793 + '_zone_navigation' , 'preaction=mymodule&amp;java=false&amp;ajax=true&amp;nav=next&amp;ajax_subaction=get_page&amp;id_mep=7&amp;tri=recent&amp;id_param=5601793&amp;start=11'); return false;">Suivant »</a>
+		 </div>
+		 </div>
+		 </div>
+						 <div class="clear"></div>
+</div>
+				 <div style="height:30px">&nbsp;</div>
+</div>
+</div>
+<div class="ecart_colfull"><hr /></div>
+<div class="homecrump center">
+	 <div class="clear separate"><hr /></div>
+	 <a href="/"><img src="/photo/bt_home.png?v=1349942074" class="image" alt="" title=""  /></a>
+</div>
+</div>
+</div>

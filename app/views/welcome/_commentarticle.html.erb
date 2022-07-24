@@ -1,0 +1,16 @@
+
+
+				 <div class="message"><br></div>
+				 <div class="message" id="com_<%=comment.id%>">
+				 <div class="postedby" style="position:static;">
+					 <span class="infos" style="font-size:1.3em"><%=comment_counter+1%>.</span>Posté par 
+					 <span class="infos"><%=comment.name%>
+</span>
+					 <span> <%=l(comment.created_at, format: :commentdate)%> </span>
+				 </div>
+					 <div class="content-comment encadre">
+						 <%=comment.content%>
+					 </div>
+					 <div class="clear"></div>
+				 </div>
+				 

@@ -1,0 +1,96 @@
+<div class="z_colonne main-colonne" id="z_col2">
+<div class="z_col_median z_col2_inner z_col_fullheight">
+<div id="breads" class="breadcrump breadcrumbs">
+	 <a href="https://www.saintlaurentdumaroni.fr/">Accueil</a>
+	 <span class="sepbread">&nbsp;&gt;&nbsp;</span>
+	 <a href="/agenda/">Agenda</a>
+	 <span class="sepbread">&nbsp;&gt;&nbsp;</span>
+<%=render "rubriqueagenda",rubrique: @event.agendacat%>
+	 <div class="clear separate"><hr /></div>
+</div>
+<div id="mod_5601838" class="mod_5601838 wm-module fullbackground  module-page2_agenda">
+	 <div class="entete"><div class="fullmod">
+		 <span>Agenda</span>
+	 </div></div>
+	 <div class="cel1 event">
+		 <div class="titre bloc"><span style="font-size: +1.5em"><%=strip_tags(@event.titre)%></span></div>
+		 <div class="infos link-map"><a class="liens" href="/gmap/?eve=598536"><img src="/_images/icones/icn_agenda_map.png" alt="" /> Voir la carte</a></div>
+		 <div class="delimiter" style="height:450px;overflow:hidden;padding: 5px">
+			 <div id="pic_5601838" class="photoevent" style="float: right; width: 627px;">
+<a href="" onclick="$(overlay).toggle();$(exposeMask).toggle();return false;" rel="<%=@event.photo%>" style="display: block; height:450px;  background: url(<%=@event.photo%>?v=1530548998) right top no-repeat; background-size: cover;"></a>
+</div>
+<div id="map_5601838" class="map" style="margin-right: 627px;height:450px;"></div>
+		 </div>
+		 <div class="description bloc"><b>Infos pratiques</b></div>
+		 <div class="date bloc">
+<%if @event.begindate != @event.enddate%>
+du <%=l(@event.begindate, format: :begindate)%> au <%=l(@event.enddate, format: :begindate)%>, <%=l(@event.begintime, format: :begintime)%>&nbsp;<%if @event.endtime%>-&nbsp;<%=l(@event.endtime, format: :begintime)%>	<%end%>		 <a class="liens" id="pointeribox1" href="javascript:void(0)" rel="/index.php?action=agenda&amp;preaction=ibox_agenda&amp;eve=598536&amp;width=300"><img src="/_adminV5/css/images/calendar.png" alt='' /></a>
+<%else%>
+le <%=l(@event.begindate, format: :begindate)%>, <%=l(@event.begintime, format: :begintime)%>&nbsp;<%if @event.endtime%>-&nbsp;<%=l(@event.endtime, format: :begintime)%><%end%>
+			 <a class="liens" id="pointeribox1" href="javascript:void(0)" rel="/index.php?action=agenda&amp;preaction=ibox_agenda&amp;eve=598536&amp;width=300"><img src="/_adminV5/css/images/calendar.png" alt='' /></a>
+
+<%end%>		 
+</div>
+		 <div class="infos bloc">
+						<div class="infos"><%=@event.adresse%></div>
+						<div class="infos"><%=@event.ville%></div>
+		 </div>
+		 <div class="moreinfos">
+			 <div class="infos"><%=@event.tel%></div>
+		 </div>
+		 <div class="moreinfos">
+		 </div>
+	 </div>
+	 <div class="cel1">
+		 <div class="description"><b>Description</b></div>
+		 <div class="description">
+<%=@event.description%>
+                    </div>
+		 <div class="share">
+<iframe class="sharing" allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/tweet_button.html?url=http%3A%2F%2Fxfru.it%2FCoG5fS&amp;counturl=<%=request.path%>?text=<%=@event.titre%>&amp;count=horizontal" style="float:left; width:115px; height:20px;"></iframe>
+<iframe class="sharing" src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.saintlaurentdumaroni.fr%2Fagenda%2FMUSIK-MARONI_ae598536.html&amp;layout=button_count&amp;show_faces=false&amp;width=100&amp;action=like&amp;colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="float:left; border:none; overflow:hidden; width:105px; height:20px;"></iframe>
+<div class="clear"></div>
+		 </div>
+	 </div>
+	 <div class="share center">
+		 <a class="liens" href="/agenda/Culture_ac15038.html">Culture</a>
+	 </div>
+</div>
+<div id="ecart_after_5601838" class="ecart_col2"><hr /></div>
+<div class="homecrump center">
+	 <div class="clear separate"><hr /></div>
+	 <a href="https://www.saintlaurentdumaroni.fr/"><img src="/photo/bt_home.png?v=1349942074" class="image" alt="" title=""  /></a>
+	 <a rel="nofollow" href="/agenda/send/<%=@event.eventnb%>/"><img src="/photo/bt_mail.png?v=1349942074" class="image" alt="" title=""  /></a>
+	 <a href="/agenda/MUSIK-MARONI_ae598536.html?print=1" rel="nofollow" onclick="window.open(this.href,'_blank', 'width=600, height=800, scrollbars=yes, menubar=yes, resizable=yes');return false;"><img src="/photo/bt_print.png?v=1349942074" class="image" alt="" title=""  /></a>
+</div>
+</div>
+</div>
+
+<%=content_for :mapgoogle do%>
+<script>
+var mapWidth = $('#map_5601838').width(); var picWidth = $('#pic_5601838').width(); $('#map_5601838').css('width', mapWidth + 'px');initialize('map_5601838', '5.495732,-54.032534', 17, 'G_NORMAL_MAP', '2');
+$('#map_5601838 *').live('click', function(e) { $('#map_5601838').trigger('mouseout'); window.open('/gmap/?eve=598743'); e.preventDefault(); e.stopPropagation(); return false;});
+
+$('#map_5601838').hover(
+        function(e) { 
+                if($('#pic_5601838').width() != 0) {
+                        $('#pic_5601838').animate({'width': 0}, {'duration': 500, queue: false});
+                        $(this).animate({'width': $(this).parent().width()+'px', 'margin-right': 0}, {'duration':500, 'queue': false, 'complete': function() { initialize('map_5601838', '5.495732,-54.032534', 17, 'G_NORMAL_MAP', '2'); }} );  
+                        }
+        }, function(e) {
+                if(!$(e.target).parents('#map_5601838').length) { 
+                        $('#pic_5601838').animate({'width': picWidth+'px'}, {'duration': 500, queue: false});
+                        $(this).animate({'width': mapWidth+'px', 'margin-right': 622+5+'px'}, {'duration':500, 'queue': false, 'complete': function() { initialize('map_5601838', '5.495732,-54.032534', 17, 'G_NORMAL_MAP', '2'); }}); 	
+                } else {
+                        $(this).trigger('mouseout');
+                }
+        });
+</script>
+<%end%>
+
+<%=content_for :overlay do%>
+<div class="overlay" id="overlay" style="visibility: visible; z-index: 1000; width: 400px; height: 250px; background-image: url(&quot;/_images/icones/ibox_loading.png&quot;); background-repeat: no-repeat; background-position: center center; top: 15px; left: 288px; position: fixed; display: none;"><span id="ibox_close_perso" class="close" style="display: none;"></span><img id="ibox_close" class="close" src="/_images/icones/ibox_close.png" style="display: none;"><div class="contentWrap" style="visibility: visible;"><img src="<%=@event.photo%>" alt="" width="144" height="205" onclick="hideIbox()"></div></div>
+<div id="overlay-opacity"></div>
+<a rel="#overlay"></a>
+<div   onclick="$(overlay).toggle();$(exposeMask).toggle();return false;" id="exposeMask" style="position: absolute; top: 0px; left: 0px; width: 1090px; height: 1441px; display: none; opacity: 0; z-index: 9998; background-color: rgb(0, 0, 0);"></div>
+<%end%>

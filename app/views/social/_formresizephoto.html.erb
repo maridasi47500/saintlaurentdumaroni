@@ -1,0 +1,106 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+<link rel="stylesheet" href="/var/style/style_1.css" type="text/css" />
+<link rel="stylesheet" href="/var/style/style.24606308.css" type="text/css" />
+<script type="text/javascript" src="/_admin/javascript/compress_wz_dragdrop.js"></script>
+<title></title>
+</head>
+<body class="iframe_ibox">
+	 <div id="mod_5601793" class="mod_5601793 ">
+	 <div class="cel1" style="padding:0">
+	 <div class="bloc_ibox" style="padding:0">
+<div id='theCrop' style='position:absolute;cursor:move;background-color:black;border:1px solid yellow;width: 180px; display:none;height: 180px;filter:alpha(opacity=20);-moz-opacity:.20;opacity:.20;background-image:url(/_images/1.png);'></div>
+<div class='encadre_photo'><img width="270" height="214" src='https://www.megazap.fr/photo/prof_personne-original-<%=current_user.id%>.jpg?nocache=032203'  name='theImage' style='margin:0;padding:0' alt='' /></div>
+<input type='hidden' name='do_crop' id='do_crop' value='0' />
+<input type='hidden' name='crop_sx' id='crop_sx' value='' />
+<input type='hidden' name='crop_sy' id='crop_sy' value='' />
+<input type='hidden' name='crop_ex' id='crop_ex' value='' />
+<input type='hidden' name='crop_ey' id='crop_ey' value='' />
+		 <div style="padding-top:4px;text-align:right"><input type="button" class="button2" value="Cliquer ici pour recadrer la photo" onclick="my_Submit()"/></div>
+	 </div>
+	 </div>
+	 </div>
+<script id="script_after" type="text/javascript">
+	
+		SET_DHTML("theCrop"+MAXOFFLEFT+0+MAXOFFRIGHT+270+MAXOFFTOP+0+MAXOFFBOTTOM+214+RESIZABLE+MAXWIDTH+270+MAXHEIGHT+214+MINHEIGHT+25+MINWIDTH+25,"theImage"+NO_DRAG);
+
+		if (1)	my_InitCrop();
+		
+	function my_InitCrop()
+	{
+		dd.elements.theCrop.show();
+		dd.elements.theCrop.moveTo(dd.elements.theImage.x, dd.elements.theImage.y);
+		dd.elements.theCrop.setZ(dd.elements.theImage.z+1);
+		dd.elements.theImage.addChild("theCrop");
+		dd.elements.theCrop.defx = dd.elements.theImage.x;
+
+		if (document.getElementById('do_crop'))	document.getElementById('do_crop').value = 1;
+		
+		if (1 > 0){
+			// Forcer la proportionnalit�
+			dd.elements.theCrop.scalable  = 1;
+			dd.elements.theCrop.resizable = 0;
+		}
+		else{
+			dd.elements.theCrop.scalable  = 0;
+			dd.elements.theCrop.resizable = 1;
+		}
+	}
+
+	function my_DragFunc()
+	{
+		dd.elements.theCrop.maxoffr = dd.elements.theImage.w - dd.elements.theCrop.w;
+		dd.elements.theCrop.maxoffb = dd.elements.theImage.h - dd.elements.theCrop.h;
+		dd.elements.theCrop.maxw    = 270;
+		dd.elements.theCrop.maxh    = 214;
+	}
+
+	function my_ResizeFunc()
+	{
+		dd.elements.theCrop.maxw = (dd.elements.theImage.w + dd.elements.theImage.x) - dd.elements.theCrop.x;
+		dd.elements.theCrop.maxh = (dd.elements.theImage.h + dd.elements.theImage.y) - dd.elements.theCrop.y;
+	}
+	
+	function my_Submit()
+	{
+		var chemin = '/mymodule/24606308/?ajax=true&java=false&iboxaction=photo&crop=1&iframe=1' + '&sx=' +
+			(dd.elements.theCrop.x - dd.elements.theImage.x) + '&sy=' + 
+			(dd.elements.theCrop.y - dd.elements.theImage.y) + '&ex=' +
+			((dd.elements.theCrop.x - dd.elements.theImage.x) + dd.elements.theCrop.w) + '&ey=' +
+			((dd.elements.theCrop.y - dd.elements.theImage.y) + dd.elements.theCrop.h);
+		
+		if (document.getElementById('m_ombre') != null) chemin+= '&m_ombre=' + document.getElementById('m_ombre').checked;
+		
+		self.location.href = chemin;
+	}
+	
+	function my_SubmitHidden()
+	{
+		if (document.getElementById('crop_sx'))	document.getElementById('crop_sx').value = (dd.elements.theCrop.x - dd.elements.theImage.x);
+		if (document.getElementById('crop_sy'))	document.getElementById('crop_sy').value = (dd.elements.theCrop.y - dd.elements.theImage.y);
+		if (document.getElementById('crop_ex'))	document.getElementById('crop_ex').value = (dd.elements.theCrop.x - dd.elements.theImage.x + dd.elements.theCrop.w);
+		if (document.getElementById('crop_ey'))	document.getElementById('crop_ey').value = (dd.elements.theCrop.y - dd.elements.theImage.y + dd.elements.theCrop.h);
+	}
+	
+	function my_SetResizingType(proportional)
+	{
+		
+		if (proportional)
+		{			
+			dd.elements.theCrop.scalable  = 1;
+			dd.elements.theCrop.resizable = 0;
+		
+		}
+		else
+		{
+			dd.elements.theCrop.scalable  = 0;
+			dd.elements.theCrop.resizable = 1;
+		}
+	}
+	
+</script>
+</body>
+</html>

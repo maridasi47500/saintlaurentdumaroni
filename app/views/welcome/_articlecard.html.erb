@@ -1,0 +1,26 @@
+<td class="cel1" style="<%=cycle("border-left:none;","")%>width:33%">
+                                 <div class="shadow photo" style="padding: 0">
+                                         <a href="<%=article.myurl%>">
+                                                 <img src="<%=article.photo%>" width="215px" height="134px" alt="<%=article.titre%>" title="<%=article.titre%>">
+                                         <img src="<%=article.photo%>" alt="" width="215px" height="134px" class="responsive" style="display:none">					 
+                                </a>
+                                 </div>
+                                 <div class="clear"></div>
+                         <h3 class="titre">
+                                 <a href="<%=article.myurl%>"><%=article.titre%></a>
+                         </h3>
+                         <div class="sous_titre" style="display:none"></div>
+                         <h4 class="date">
+                                 <a class="rubrique arub arub2" href="<%=article.artcat.try(:url)%>"><span class="nom_rub2"><%=article.artcat.try(:name)%></span></a><label><span class="sep1"> - </span><%=l(article.created_at.to_date)%></label>
+                         </h4>
+                         <div class="texte" style="margin-top:5px">
+<div class="lire_suite">
+                                 <a href="<%=article.myurl%>">
+                                         <%=strip_tags(article.description).truncate(150,separator: " ",omission:"...")%>
+                                 </a>
+&nbsp;				 
+                                         <a href="<%=article.myurl%>"><span class="texte_lire_suite">&gt;&gt; Lire la suite</span></a>
+                                 </div>
+                         </div>
+                         <div class="clear"></div>
+                 </td>

@@ -1,0 +1,38 @@
+<div class="entete retrait_entete_"><div class="fullmod">
+		 <a href="/agenda/">Agenda</a>
+	 </div></div>
+	 <div class="cel1">
+	 <div class="mois">
+			 <a class="arrow_left" href="javascript:void(0)" rel="nofollow" onclick="recharge('mod_23406954', '/mymodule/23406954/', '', 'java=false&amp;ajax=true&amp;mo=<%=prevmonth%>&amp;yr=<%=prevyear%>', true)">&nbsp;</a>
+			 <a href="/agenda/2022/4/"><%=l(date,format: :titrecalendrier)%></a>
+			 <a class="arrow_right" href="javascript:void(0)" rel="nofollow" onclick="recharge('mod_23406954', '/mymodule/23406954/', '', 'java=false&amp;ajax=true&amp;mo=<%=nextmonth%>&amp;yr=<%=nextyear%>', true)">&nbsp;</a>
+	 </div>
+	 <table cellspacing="0" cellpadding="0" class="calendrier">
+		 <tr>
+			 <th class="jour">L</th>
+			 <th class="jour">M</th>
+			 <th class="jour">M</th>
+			 <th class="jour">J</th>
+			 <th class="jour">V</th>
+			 <th class="jour">S</th>
+			 <th class="jour">D</th>
+		 </tr>
+                 <%semaines.each do |semaine|%>
+		 <tr>
+                 <%semaine.each do |jour|%>
+                        <%if jour%>
+			 <td <%if Event.lotsofevents(jour)%>class="evenement" title="<%=strip_tags(Event.firsteventname(jour))%>"<%else%>class="timeline"<%end%>>
+<a href="/agenda/<%=l(jour,format: :jourcalendrier)%>">
+<%=highlight(jour.day.to_s,(jour==Date.today ? jour.day.to_s : ''), highlighter: '<b>\1</b>')%>
+</a>
+</td>
+                                <%else%>
+			 <td>&nbsp;</td>
+			 
+                         <%end%>
+                         <%end%>
+		 </tr>
+                 <%end%>
+		 
+	 </table>
+	 </div>

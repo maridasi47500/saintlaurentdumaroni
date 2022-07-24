@@ -1,0 +1,14 @@
+	<div class="message"><br /></div>			 
+    <div class="message" id="com_<%=comment.id%>">
+				 <div class="postedby" style="position:static;">
+					 <span class="infos" style="font-size:1.3em"><%=comment_counter+1%>.</span>Posté par 
+					 <span class="infos"><%=comment.author.name%></span>
+					 <span> <%=l(comment.created_at, format: :commentdate)%> </span>
+				 </div>
+					 <div class="content-comment encadre" >
+						 <%=simple_format(comment.content)%> 
+						 <div class="url"><a class="liens" href="<%=comment.url%>" rel="nofollow" target="_blank"><b><%=comment.url%></b></a></div>
+					 </div>
+					 <div class="clear"></div>
+				 </div>
+				 

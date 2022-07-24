@@ -1,0 +1,31 @@
+<div class="z_colonne main-colonne" id="z_col2">
+<div class="z_col_median z_col2_inner z_col_fullheight">
+
+<!-- page2_galerie 5601812 -->
+<div id="mod_5601812" class="mod_5601812 wm-module fullbackground  module-page2_galerie">
+	 <div class="entete"><div class="fullmod">
+		 <span>Galerie</span>
+	 </div></div>
+			 <div class="cel1 nb-col-4 type-1">
+<%=render collection: @albums.each_slice(3), as: :albums, partial: "albumsdeck", spacer_template: "cleardiv" %>
+
+<div class="clear"></div>
+<div class="clear clearimportant"></div>
+			
+</div>
+        <div class="clear"></div>
+
+	 <%=render "forpagerphotos"%>
+
+<div id="ecart_after_5601812" class="ecart_col2"><hr /></div>
+<div class="homecrump center">
+	 <div class="clear separate"><hr /></div>
+	 <a href="https://www.saintlaurentdumaroni.fr/"><img src="https://www.saintlaurentdumaroni.fr/photo/bt_home.png?v=1349942074" class="image" alt="" title=""  /></a>
+</div>
+</div>
+</div>
+
+<%=content_for :mysheet do%>
+<link href="/style.5601812.css" rel="stylesheet" type="text/css">
+
+<%end%>

@@ -1,0 +1,21 @@
+<div class="cel1 forpager">
+		 <div class="pager">
+                    <%if (@albums.length / 30).round(-1, half: :up) > 6  %>
+                            <%(["1"]+("30".."120").step(30).to_a).each_with_index do |p,k|%>
+			 <a <%if (k == 0 && !params[:start]) || params[:start] == p%>class="sel"<%end%> href="/photos/<%if p.to_i > 1%>?start=<%=p%><%end%>"><%=(k+1)%></a>
+                         <%end%>
+                         <%if (params[:start].to_i+30) < (@albums.length / 30).round(-1, half: :down)%>
+			 <a href="/photos/?start=<%=(params[:start].to_i+30)%>">&raquo;</a>
+			 <span>...</span>
+                         <%end%>
+			 <a  href="/photos/?start=<%=(@albums.length / 30).round(-1, half: :down)%>">
+<%=@albums.length%>
+</a>
+                         
+                         <%else%>
+<%(["1"]+("30".."120").step(30).to_a).each_with_index do |p,k|%>
+			 <a <%if (k == 0 && !params[:start]) || params[:start] == p%>class="sel"<%end%> href="/photos/<%if p.to_i > 1%>?start=<%=p%><%end%>"><%=(k+1)%></a>
+                         <%end%>
+                         <%end%>
+		 </div>
+	 </div>

@@ -1,0 +1,7 @@
+<div class="col col-<%=album_counter%> clear-x2 clear-x3 clear-x4" style="float:left;width:264px;">
+<div style="margin:0 auto;width:150px;">
+<a class="not-responsive diapo" href="<%=album.myurl%>" style="background-image:url(<%=album.photos.first.try(:petiteimage)%>?v=1556643671)">&nbsp;</a>
+<a class="responsive diapo" href="<%=album.myurl%>" style="display:none; background-image:url(<%=album.photos.first.try(:iphone)%>?v=1556643672)"></a>
+<div class="titre margin_titre"><a href="<%=album.myurl%>"><%=album.titre%> (<%=album.photos.length%>)</a></div>
+</div>
+</div>

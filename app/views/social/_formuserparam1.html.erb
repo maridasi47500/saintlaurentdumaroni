@@ -1,0 +1,59 @@
+<%=form_with model: user, url: "/social/<%=current_user.id%>/param/", html:{class: "profile_form"} do |form|%>
+					 <input type="hidden" name="modifier_profil" value="oui" />
+					 <input type="hidden" name="fingerprint_modifier_5601793" id="fingerprint_modifier_5601793" value="0" />
+						<label>Visibilité du profil : </label>
+<div class="radiorow">
+	 <table cellpadding="0" cellspacing="0">
+		 <tr>
+			 <td>
+		 <%= form.radio_button "a_visibilite","prive", id:"a_visibilite_0", onfocus:"del_error('a_visibilite')" %>
+		 <label for="a_visibilite_0" class="champ" style="display:inline">Privé</label>
+		 <br/>
+			 </td>
+			 <td>
+		 <%=form.radio_button "a_visibilite","public", id: "a_visibilite_1", onfocus: "del_error('a_visibilite')" %>
+		 <label for="a_visibilite_1" class="champ" style="display:inline">Public</label>
+		 <br/>
+			 </td>
+		 </tr>
+	 </table>
+</div>
+<div class="break"></div>
+					<div class="radiorow">
+		 <%=form.check_box "a_abo_newsletter", id: "a_abo_newsletter", value: "oui"%> <label for="a_abo_newsletter" class="champ" style="display:inline">Je souhaite recevoir la newsletter</label><br/>
+		 <div id="error_a_abo_newsletter" class="error"></div>
+</div>
+<div class="break"></div>
+					<div id="div_a_prenom" style="">
+<label style="">Prénom * :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_prenom", class: "button", onfocus: "del_error(this.id)", id: "a_prenom"%>
+	 <div id="error_a_prenom" class="error"></div>
+</div>
+<div class="inforow"> </div>
+</div>
+<div class="break"></div>
+					<div id="div_a_nom" style="">
+<label style="">Nom * :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_nom", class: "button", onfocus:"del_error(this.id)", id: "a_nom"%>
+	 <div id="error_a_nom" class="error"></div>
+</div>
+<div class="inforow"> </div>
+</div>
+<div class="break"></div>
+					<div id="div_a_email" style="">
+<label style="">Email :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_email", class: "button", onfocus:"del_error(this.id)", id: "a_email"%>
+	 <div id="error_a_email" class="error"></div>
+</div>
+<div class="inforow"> </div>
+</div>
+<div class="break"></div>
+					 <div class="sep"></div>
+<div class="break"></div>
+					 <input type="button" value="Annuler" class="button2 left" onclick="document.getElementById('div_param_modifier').style.display='none';" />
+					 <input type="submit" value="Modifier" class="button2 right"/>
+					 <div class="clear"></div>
+				 <%end%>

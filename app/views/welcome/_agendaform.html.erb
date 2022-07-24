@@ -1,0 +1,8 @@
+<%=form_with scope: "",model: agendasearch, url: "/agenda/", html:{ id: "form_search_5601795"} do |form|%>
+			 <%=form.select "period",[["A venir", 0], ["Aujourd'hui",1],["Cette semaine",2],["Ce mois-ci",3],["Archives",4]], {},{class: "button form", onchange: "$(&#39;#form_search_5601795&#39;).submit()", style: "width: 20%"}%>
+				 
+			 <%=form.select "cat", ([["Toutes les catégories",0]]+Agendacat.all.collect{|x|[x.name,x.id]}), {},{class: "button form", onchange: "$(&#39;#form_search_5601795&#39;).submit()", style: "width: 28%"}%>
+			<%=form.text_field "keyword_safe", style: "width: 25%", class: "button form hiddeninput", id: "keyword_safe", onfocus: "$(this).hide(); $(&#39;#keyword&#39;).show(); $(&#39;#keyword&#39;).focus()"%>
+<%=form.text_field "keyword", style: "display:none;width: 25%", id: "keyword", class: "button form realinput", onblur: "if (this.value == &#39;&#39;) {$(this).hide(); $(&#39;#keyword_safe&#39;).show();}"%>
+			 <input type="submit" value="Rechercher" class="button2">
+		 <%end%>

@@ -1,0 +1,7 @@
+<div class="encapse_membre clear-x2 clear-x4" style="margin-top: 5px;width:25%;float:left;display:inline-block;">
+				 <div class="membre" style="height: 180px;">
+					 <div class="activite_bloc"><a style="overflow-wrap: break-word;" href="<%=mynote_path(id: comment.notes[0].id, category: "_b",title: comment.notes[0].titre, com: "", anchor: "com_#{comment.id}")%>" class="lien"><strong style=""><%=comment.notes[0].titre%></strong></a><br><br><a style="float:left;clear:both;" href="<%=mynote_path(id: comment.notes[0].id, category: "_b",title: comment.notes[0].titre, com: "", anchor: "com_#{comment.id}")%>"><%=comment.content%></a>
+					 <a style="display:inline-block;position:relative;float:left;clear:both;" class="opacity" href="<%=mynote_path(id: comment.notes[0].id, category: "_b",title: comment.notes[0].titre, com: "", anchor: "com_#{comment.id}")%>"><span> <%=l(comment.created_at, format: :mytime)%> | <%=comment.name%> </span><br><strong>Commentaire</strong></a>
+</div>
+				 </div>
+			 </div>

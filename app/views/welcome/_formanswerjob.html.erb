@@ -1,0 +1,34 @@
+<%=form_with scope:"", model: answer, url: myclassifiedjob(title: job.titre.parameterize, rubrique: "_jo", id: job.id),  html: {enctype: "multipart/form-data", id:"form_reply", onsubmit:"$('#fingerprint').value='525535';"} do |form|%>
+				 <div class="description">
+					 <input type="hidden" name="subaction" value="doproposition">
+					 <input type="hidden" name="fingerprint" id="fingerprint" value="0">
+				<label style="">Email * :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_email", class: (!answer.errors[:a_email].blank? ? "field_error" : "button"), onfocus: "del_error(this.id)", id: "a_email" %>
+	 <div id="error_a_email" class="error"><%=answer.errors.messages[:a_email][0]%></div>
+</div>
+<div class="break"></div>
+				<label style="">Téléphone :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_telephone", class: "button", onfocus: "del_error(this.id)", id: "a_telephone", style: "width:30%"%>
+	 <div id="error_a_telephone" class="error"></div>
+</div>
+<div class="break"></div>
+				<label style="">Message * :</label>
+<div class="inputrow" style="">
+	 <%=form.text_area "a_message", class:(!answer.errors[:a_message].blank? ? "field_error" : "button"), onfocus: "del_error(this.id)", id: "a_message", rows: "10"%>
+
+	 <div id="error_a_message" class="error"><%=answer.errors.messages[:a_message][0]%></div>
+</div>
+<div class="break"></div>
+				<div class="break"></div>
+	<label>CV (Extensions autorisées : *.pdf;*.doc)</label>
+				<div id="inputrowuploader_pj" class="inputrowuploader"><div id="div_uploader_pj" class="description">
+<%=form.file_field "upload_pj", class: "basic-uploader", id: "upload_pj", onchange: "",data: {myid: job.id}%>
+</div></div><div id="div_nom_pj" class="nom_fichier description" style="display:none"><img src="/_images/ext/icon_.gif" alt=""> <span></span> | <a href="javascript:void(0)" onclick="if (confirm('Voulez-vous supprimer ce fichier ?')) recharge('', '/mymodule/24606312/?id_annonce=<%=job.id%>&amp;java=false&amp;ajax=true', '', 'subaction=delcv');">Supprimer</a></div>
+<div class="break"></div>
+					 <input type="hidden" id="a_idup_pj" name="a_idup_pj" value="">
+					 <input type="hidden" id="a_name_pj" name="a_name_pj" value="">
+					 <div class="submit"><input type="submit" id="btn_submit" class="button2" value="Envoyer"></div>
+				 </div>
+			 <%end%>

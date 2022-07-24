@@ -1,0 +1,95 @@
+<div id="z_colfull">
+<div class="z_colfull_inner">
+<div id="breads" class="breadcrump breadcrumbs">
+	 <a href="https://www.megazap.fr/">Accueil</a>
+	 <span class="sepbread">&nbsp;&gt;&nbsp;</span>
+	 <a href="/forum/">Forum</a>
+	 <span class="sepbread">&nbsp;&gt;&nbsp;</span>
+<%=@room.titre%>
+	 <div class="clear separate"><hr /></div>
+</div>
+<div id="mod_24606323" class="mod_24606323 wm-module fullbackground  module-page2_forum">
+	 <div class="cel1">
+		 <div class="inner">
+			 <h3 class="titre_chambre"><%=@room.titre%></h3>
+			 <div class="clear"></div>
+			 <div class="encapse_pave">
+				 <br />
+				 <div class="pave_left">
+					 <div class="navi_left">
+						 <a class="navigation" href="<%=newforum_path(id: @room.id)%>"><img src="/_images/icones/bt_forum_5.png?v=1211889804" class="image" alt="" title=""  /> Nouveau sujet</a>
+					 </div>
+				 </div>
+			 </div>
+			 <div class="clear"></div>
+		 </div>
+	 </div>
+	 <div class="cel1">
+		 <div class="inner">
+			 <table class="tab_sujet" cellspacing="0">
+				 <tr>
+					 <td class="entetecol1"><div class="navi_left">Sujets</div></td>
+					 <td class="entetecol2"><div class="navi">Réponses</div></td>
+					 <td class="entetecol3"><div class="navi">Lectures</div></td>
+					 <td class="entetecol4"><div class="navi">Derniers posts</div></td>
+				 </tr>
+                                 <%@room.subjects.each do |subject|%>
+				 <tr class="bg_normal">
+					 <td class="col1">
+						 <h4 class="ctitre">
+							 <a href="<%=voirsujet_path(titre: subject.titre.gsub(' ','-'), id: subject.id)%>"><%=subject.titre%></a>
+						 </h4>
+						 <h5 class="description"> Ecrit par <%=subject.name%></h5>
+					 </td>
+					 <td class="col2">
+						 <div class="center"><span class="statistiques"><%=subject.reponses%></span></div>
+					 </td>
+					 <td class="col3">
+						 <div class="center"><span class="statistiques"><%=subject.lectures%></span></div>
+					 </td>
+					 <td class="col4">
+						 <div class="center">
+							 <span class="description"><%=subject.datedernierpost%></span>
+							 <br /><span class="description"><%=subject.usernamedernierpost%></span>
+						 </div>
+					 </td>
+				 </tr>
+                                 <%end%>
+				 
+			 </table>
+		 </div>
+	 </div>
+	 <div class="cel1">
+			 <script type="text/javascript">setTimeout(function() { addHandler(); }, 1000);</script>
+			 <form action="<%=voirchambre_path(title: @room.titre.gsub(' ','-'), id: @room.id)%>" method="get" id="mysearch">
+		 <div class="recherche">
+				 <div class="pave_left">
+					 <div class="navi_left">
+						 <input type="hidden" name="recherche" value="oui" />
+						 <input type="hidden" name="keyhidden" />
+								 <label>Rechercher : </label><input type="text" name="mot" id="forum_rech_24606323" size="35" class="button" /> 
+								 <script type="text/javascript">document.getElementById('forum_rech_24606323').autocomplete = 'off';</script>
+								 <input type="image" src="/_images/icones/ok_5.png?v=1213798463" alt="OK" title="OK" />					 </div>
+				 </div>
+	 <div class="clear"></div>
+		 </div>
+			 </form>
+	 </div>
+	 <div class="cel1">
+		 <div class="inner">
+			 <div class="pave_right">
+			 </div>
+			 <div class="clear"></div>
+		 </div>
+	 </div>
+	 <div class="cel1">
+				 <br class="navi" />
+		 <div class="navi">
+			 <a target="_blank" href="https://www.megazap.fr/xml/forum.rss?r=13277"><img class="image" alt="RSS" src="/_images/icones/rss.gif" /> </a>
+			 <a target="_blank" href="https://www.megazap.fr/xml/forum.xml?r=13277"><img class="image" alt="ATOM" src="/_images/icones/atom.gif" /></a>
+		 </div>
+	 </div>
+</div>
+<div class="ecart_colfull"><hr /></div>
+</div>
+</div>

@@ -1,0 +1,30 @@
+<div class="z_colonne main-colonne" id="z_col2">
+<div class="z_col_median z_col2_inner z_col_fullheight" style="height: 885px;">
+<div id="breads" class="breadcrump breadcrumbs">
+	 <a href="/">Accueil</a>
+	 <span class="sepbread">&nbsp;&gt;&nbsp;</span>
+	 <a href="/agenda/">Agenda</a>
+	 <div class="clear separate"><hr></div>
+</div>
+<div id="mod_5601838" class="mod_5601838 wm-module fullbackground  module-page2_agenda">
+	 <div class="entete"><div class="fullmod">
+		 <span>Agenda</span>
+	 </div></div>
+ <div class="cel1">
+	 <div class="delimiter">
+		 <%=render "agendaform",agendasearch: @search%>
+	 </div>
+<div class="description">
+<span class="count"><a href="/xml/agenda.rss" target="_blank"><img src="./agenda_files/rss_min.png" alt=""></a> <%=@events.length%> évènement(s)</span>
+<a class="submit soumettre" href="/agenda/submit/">Soumettre un événement</a><div class="clear"></div>
+</div>
+</div>
+<%=render collection: @events, partial: "agendaresult", as: :event%>
+</div>
+<div id="ecart_after_5601838" class="ecart_col2"><hr></div>
+<div class="homecrump center">
+	 <div class="clear separate"><hr></div>
+	 <a href="/"><img src="/agenda_files/bt_home.png" class="image" alt="" title=""></a>
+</div>
+</div>
+</div>

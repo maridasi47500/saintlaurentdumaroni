@@ -1,0 +1,24 @@
+	 <!-- page2_commentaire -->
+		 <a id="comments"></a>
+		 <div id="mod_24606320" class="param_commentaire mod_24606320 wm-module fullbackground ">
+			 <div class="cel1">
+                         <%if note.comments.length > 0%>
+	 <div class="message"><br /></div>
+
+<%=render collection: note.comments, as: :comment, partial: "commentnote"%>
+			 <div class="message"><br /></div>
+                         <%else%>
+	 <a id="last_comment"></a>
+                <%end%>
+			 <div id="div_form_comment">
+				 <a id="infoscom"></a>
+ <%if notice%>
+				 <div id="infos_fond_div" style=""><%=notice%></div>
+				 <%end%>
+				 <div id="title_new_comment" class="infos">Nouveau commentaire : </div>
+				 <%=render "formcommentnotesignedin1", note: note, comment: comment%>
+			 </div>
+		 </div>
+		 </div>
+ 
+	 </div>

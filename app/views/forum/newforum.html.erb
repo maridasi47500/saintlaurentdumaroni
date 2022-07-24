@@ -1,0 +1,193 @@
+<div id="z_colfull">
+<div class="z_colfull_inner">
+<div id="breads" class="breadcrump breadcrumbs">
+	 <a href="/">Accueil</a>
+	 <span class="sepbread">&nbsp;&gt;&nbsp;</span>
+	 <a href="/forum/">Forum</a>
+	 <span class="sepbread">&nbsp;&gt;&nbsp;</span>
+<a href="/forum/<%=@room.titre%>_s<%=@room.id%>.html"><b><%=@room.titre%></b></a>
+	 <span class="sepbread">&nbsp;&gt;&nbsp;</span>
+Nouveau sujet
+	 <div class="clear separate"><hr /></div>
+</div>
+<div id="mod_24606323" class="mod_24606323 wm-module fullbackground  module-page2_forum">
+	 <div class="cel1">
+		 <br />
+		 <div class="navigation"><img src="/_images/icones/bt_forum_5.png?v=1211889804" class="image" alt="" title=""  /> Nouveau sujet</div>
+	 </div>
+	 <div class="cel1">
+		 <div id="reponse">
+			 <%=render "formnewsubject", subject: @subject%>
+		 </div>
+	 </div>
+<script type='text/javascript'>var champsForm = new Array('n_sujet', 'n_message');var controlesForm = new Array('checkNonVide', 'checkNonVide');</script>
+
+<script type="text/javascript">
+
+var txt_obl="Champ obligatoire";
+var txt_inval="Champ invalide";
+
+var ind_js;
+for (ind_js=0;ind_js<champsForm.length;ind_js++)
+{
+ eval('var '+champsForm[ind_js]+';');
+ eval('var '+champsForm[ind_js]+'Etat;');
+}
+
+var volee;
+var commentaires=false;
+
+
+function de(n) { return document.getElementById(n); }
+
+String.prototype.trim = new Function("return this.replace(/\s/g,'')");
+String.prototype.isEmpty = new Function("var x = this; if (x.trim().length == 0) { return true; } else { return false; }");
+
+function testMail(val) {
+  var filter = /^[a-zA-Z0-9_\.\-]+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+[\s]*$/;
+  if (filter.test(val)) return true;
+  else return false;
+}
+
+function isRealDate(jour, mois, annee)
+{
+	var tmp=new Date();
+	tmp.setDate(jour);
+	tmp.setMonth(mois);
+	tmp.setFullYear(annee);
+	
+	if (jour!=tmp.getDate() || mois!=tmp.getMonth() || annee!=tmp.getFullYear()) return false;
+	else return true;
+}
+
+function cacheDom() {
+	for (ind_js=0;ind_js<champsForm.length;ind_js++)
+	{
+		eval(champsForm[ind_js]+' = de(\''+champsForm[ind_js]+'\');');
+		eval(champsForm[ind_js]+'Etat = de(\''+champsForm[ind_js]+'Etat\');');
+	}
+}
+
+function setSuccess(o) {
+	//o.innerHTML = "<img src='/_images/icones/success.gif' style='border:0;margin:0;padding:0;'>";
+  o.innerHTML = '';
+}
+
+function setError(o, m) {///home/cms/_images/icones/
+  o.innerHTML = "<img src='/_images/icones/error.gif' style='border:0;margin:0;padding:0;'>&nbsp;"+(m == null ? '' : m);
+  //o.innerHTML = (m == null ? '' : '* '+m);
+}
+
+function doActions() {
+	var bool_res=true;
+	
+	var volee_tmp=volee;
+	volee=true;
+	
+	for (ind_js=0;ind_js<champsForm.length;ind_js++)
+	{
+		bool_res = bool_res && eval(champsForm[ind_js]+'.onkeyup()');
+	}
+	
+	volee=volee_tmp;
+	
+	if(commentaires) document.getElementById('fingerprint').value='525535';
+	
+	return bool_res;
+}
+
+function init_js(id_form,onkey) {
+
+	var formulaire = de(id_form);
+	volee=onkey;
+  cacheDom();
+  
+  for (ind_js=0;ind_js<champsForm.length;ind_js++)
+	{
+		eval(champsForm[ind_js]+'.onkeyup = function () {if(!volee) return true; else return '+controlesForm[ind_js]+'('+champsForm[ind_js]+','+champsForm[ind_js]+'Etat);}');
+  }
+  
+  
+  formulaire.onsubmit = checkForm;
+}
+
+function checkForm() {
+  if (doActions()) return true;
+  else return false;
+}
+
+function checkNonVide(champs,champsEtat) {
+	if (champs.value.isEmpty()) {
+  	setError(champsEtat, txt_obl);
+    return false;
+  } else {
+	  setSuccess(champsEtat);
+    return true;
+ 	}
+}
+
+function checkMail(champs,champsEtat) {
+	if(champs.value.isEmpty()) {
+   setError(champsEtat, txt_obl);
+   return false;
+  }
+  
+  if (!testMail(champs.value)) {
+   setError(champsEtat, txt_inval);
+   return false;
+  } else {
+	  setSuccess(champsEtat);
+    return true;
+ 	}
+}
+
+function checkMailPlusieurs(champs, champsEtat)
+{
+	if(champs.value.isEmpty()) {
+   setError(champsEtat, txt_obl);
+   return false;
+  }
+  
+	var tmp;
+	var tableau=champs.value.split(';');
+	for(var ind=0;ind<tableau.length;ind++)
+	{
+		tmp=tableau[ind];
+		if(tmp!='')
+		{
+			if(!testMail(tmp)) {
+		   setError(champsEtat, txt_inval);
+		   return false;
+		  }
+		}
+ 	}
+ 	setSuccess(champsEtat);
+	return true;
+}
+
+function checkDate(champs, champsEtat)
+{
+	champs=champs.id;
+	
+	var jour=de(champs+'jour').value;
+	var mois=de(champs+'mois').value - 1;
+	var annee=de(champs+'annee').value;
+	
+	if (!isRealDate(jour, mois, annee)) {
+   setError(champsEtat, txt_inval);
+   return false;
+  } else {
+	  setSuccess(champsEtat);
+    return true;
+ 	}
+}
+
+
+</script>
+<script type='text/javascript'>commentaires = false;
+init_js('formulaire', false);
+</script>
+</div>
+<div class="ecart_colfull"><hr /></div>
+</div>
+</div>

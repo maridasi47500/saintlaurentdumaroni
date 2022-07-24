@@ -1,0 +1,162 @@
+<%=form_with scope:"", model: job, url: "/classifieds/submit/18793/", html: {enctype: "multipart/form-data", id: 'formulaire_submit'} do |form|%>
+	 <%=form.hidden_field :user_id %>
+
+					 <input type="hidden" name="id_soum" value="18793" />
+					 <input type="hidden" name="subaction" value="add" />
+					 <div class="champ">
+					 <input type="hidden" id="fingerprint" name="fingerprint" value="fingerprint" />
+					<div class="titre">Détaillez votre annonce</div>
+
+<div class="break"></div>
+				<label style="">Catégorie :</label>
+<div class="inputrow" style="">
+		 <select name="a_id_soum" id="a_id_soum" class="button" style="width:25%" onchange="document.location.href='/classifieds/submit/' + $(this).val()" >
+			<option value="18791" >Produit</option>
+			<option value="18793" selected='selected'>Emploi</option>
+		</select>
+</div>
+<div class="break"></div>
+				<label style="">Titre * :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_titre", class: (job.errors[:a_titre].blank? ? "button" : " field_error"), onfocus: "del_error(this.id)", id: "a_titre", maxlength: "250"%>
+	 <div id="error_a_titre" class="error"><%=job.errors.messages[:a_titre][0]%></div>
+</div>
+<div class="break"></div>
+				<div class="encapse" style="float:left;position:relative;width:33%;">
+<div id="div_a_46610" style="">
+<label style="">Salaire :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field 'a_46610', id:'a_46610', class:'button', size: '', onfocus: "del_error('a_46610')", style: "width: 60%"%> €	 <div id="error_a_46610" class="error"><%=job.errors.messages[:a_46610][0]%></div>
+</div>
+</div>
+</div>
+				<div class="encapse" style="float:left;position:relative;width:33%;">
+<div id="div_a_46613" style="">
+<label style="">Durée :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_46613", class: "button", onfocus: "del_error(this.id)", id: "a_46613", style: "width:90%" %>
+	 <div id="error_a_46613" class="error"></div>
+</div>
+</div>
+</div>
+				<div class="encapse" style="float:left;position:relative;width:33%;">
+<div id="div_a_46611" style="">
+<label style="">Type :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_46611", class:"button", onfocus:"del_error(this.id)", id:"a_46611", style:"width:90%"%>
+	 <div id="error_a_46611" class="error"></div>
+</div>
+</div>
+</div>
+				<div class="sep"></div>
+<div class="break"></div>
+				<div class="encapse" style="float:left;position:relative;width:33%;">
+<div id="div_a_46612" style="">
+<label style="">Entreprise :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_46612", class: "button", onfocus: "del_error(this.id)", id:"a_46612", style:"width:90%" %>
+	 <div id="error_a_46612" class="error"></div>
+</div>
+</div>
+</div>
+				<div class="encapse" style="float:left;position:relative;width:33%;">
+<div id="div_a_46614" style="">
+<label style="">Fonction :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_46614", class: "button", onfocus: "del_error(this.id)", id:"a_46614", style:"width:90%"%>
+	 <div id="error_a_46614" class="error"></div>
+</div>
+</div>
+</div>
+				<div class="break"></div>
+<div id="div_a_description" style="">
+<label style="">Description * :</label>
+<div class="inputrow" style="">
+<%=form.text_area "a_description", class: (job.errors[:a_description].blank? ? "button" : " field_error"), onfocus: "del_error(this.id)", id: "a_description", rows: "10"%>
+
+	 <div id="error_a_description" class="error"><%=job.errors.messages[:a_description][0]%></div>
+</div>
+</div>
+				<label style="">Adresse :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_lieu", class: "button", onfocus: "del_error(this.id)", id:"a_lieu", maxlength:"100" %>
+	 <div id="error_a_lieu" class="error"></div>
+</div>
+<div class="break"></div>
+				<div class="encapse" style="float:left;position:relative;width:120px">
+<label style="">Code Postal :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_cp", class: "button", onfocus: "del_error(this.id)", id: "a_cp",  style: "width:100px", maxlength: "10" %>
+	 <div id="error_a_cp" class="error"></div>
+</div>
+</div>
+				<div class="encapse" style="float:left;position:relative;width:220px">
+<label style="">Ville :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_ville", class: "button", onfocus: "del_error(this.id)", id: "a_ville", style: "width:200px" %>
+	 <div id="error_a_ville" class="error"></div>
+</div>
+</div>
+				<div class="encapse" style="float:left;position:relative;width:auto">
+<label style="">Pays :</label>
+<div class="inputrow">
+<%=form.select "a_pays", Country.order(:name).findbytwotypes('euro','RDM').collect{|h|[h.name,h.countryid, {class: h.mytype}]}, {},{id: "a_pays", class: "button", class: "button", style: "width:auto", autocomplete: "off"}%>
+
+	 
+</div>
+</div>
+				<div class="clear"></div>
+					<div class="titre">Ajoutez des photos</div>
+
+<div class="break"></div>
+				<div id="inputrowuploader_photo" class="inputrowuploader"><div id="div_uploader_photo" class="description">
+
+<%=form.file_field 'upload_photo', class: 'basic-uploader', id: 'upload_photo'%>
+</div></div><div class="thum">
+<img class="annonce-photo <%=!job.a_photo_1.blank? ? "ok" : ""%>" id="photo_1" src="<%=!job.a_photo_1.blank? ? job.a_photo_1 : "/_images/annonce-defaut.png"%>" alt="" />
+<div id="label_photo_1" class="description" style="<%=!job.a_photo_1.blank? ? "" : "display:none"%>"><a href="javascript:void(0)" onclick="myfuncdelete($(this).parent().parent().find('img.ok').attr('id'));">Supprimer</a></div>
+<%=form.hidden_field :a_photo_1, id: "a_photo_1"%>
+</div>
+<div class="thum">
+<img class="annonce-photo <%=!job.a_photo_2.blank? ? "ok" : ""%>" id="photo_2" src="<%=!job.a_photo_2.blank? ? job.a_photo_2 : "/_images/annonce-defaut.png"%>" alt="" />
+<div id="label_photo_2" class="description" style="<%=!job.a_photo_2.blank? ? "" : "display:none"%>"><a href="javascript:void(0)" onclick="myfuncdelete($(this).parent().parent().find('img.ok').attr('id'));">Supprimer</a></div>
+<%=form.hidden_field :a_photo_2, id: "a_photo_2"%>
+
+</div>
+<div class="thum">
+<img class="annonce-photo <%=!job.a_photo_3.blank? ? "ok" : ""%>" id="photo_3" src="<%=!job.a_photo_3.blank? ? job.a_photo_3 : "/_images/annonce-defaut.png"%>" alt="" />
+<div id="label_photo_3" class="description" style="<%=!job.a_photo_3.blank? ? "" : "display:none"%>"><a href="javascript:void(0)" onclick="myfuncdelete($(this).parent().parent().find('img.ok').attr('id'));">Supprimer</a></div>
+<%=form.hidden_field :a_photo_3, id: "a_photo_3"%>
+
+</div>
+<div class="clear"></div>
+<div class="break"></div>
+					 <%=form.hidden_field "a_idup_photo",id:"a_idup_photo" %>
+					<div class="titre">Vos coordonnées</div>
+
+<div class="break"></div>
+				<label style="">Email * :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_email", class: (job.errors[:a_email].blank? ? "button" : " field_error"), onfocus: "del_error(this.id)", id: "a_email",readonly: "readonly", style: "width:50%"%>
+	 <div id="error_a_email" class="error"><%=job.errors.messages[:a_email][0]%></div>
+</div>
+<div class="break"></div>
+				<div id="div_a_telephone" style="">
+<label style="">Téléphone :</label>
+<div class="inputrow" style="float:left;width:35%">
+	 <%=form.text_field "a_telephone", class: "button", onfocus: "del_error(this.id)", id: "a_telephone", style: "width:90%" %>
+	 <div id="error_a_telephone" class="error"></div>
+</div>
+<div class="inforow">A remplir si vous souhaitez qu'il soit affiché dans l'annonce</div>
+</div>
+<div class="break"></div>
+<div class="clear"></div>
+					 <div class="left submit">
+						 <input name="annul" type="button" value="Revenir aux annonces" class="button2" onclick="document.location.href='/classifieds/Emploi_pc18793.html'" />
+					 </div>
+					 <div class="right submit">
+						 <input type="submit" value="Envoyer" class="button2" />
+					 </div>
+					 <div class="clear"></div>
+					 </div>
+		 <%end%>

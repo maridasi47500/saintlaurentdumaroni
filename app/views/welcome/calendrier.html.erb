@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<title></title>
+<meta name="robots" content="noindex" /></head>
+<body>
+	 	 <%=render "moncalendrier", date: date,prevmonth: prevmonth, prevyear: prevyear, nextmonth: nextmonth, nextyear: nextyear,semaines: semaines%>
+
+<script id="script_after" type="text/javascript">
+/*<![CDATA[*//*---->*/
+
+    //Events Section
+    $(document).on('click', '#mod_23406954 .eventDate', function(e) {
+        var items = $('.expandableEvent');
+        var li = $(e.currentTarget).parent();
+      
+        //Backdoors Expandable Mode 
+        items.not(li).removeClass('selected').addClass('notSelected').find('.evenement').slideUp();
+        li.toggleClass('selected').toggleClass('notSelected').find('.evenement').toggle('slide');
+        
+    });
+    
+
+/*--*//*]]>*/
+</script>
+</body>
+</html>

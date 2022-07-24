@@ -1,0 +1,95 @@
+<div id="z_colfull">
+<div class="z_colfull_inner">
+<div id="breads" class="breadcrump breadcrumbs">
+	 <a href="/">Accueil</a>
+	 <span class="sepbread">&nbsp;&gt;&nbsp;</span>
+	 <a href="/forum/">Forum</a>
+	 <div class="clear separate"><hr /></div>
+</div>
+<div id="mod_24606323" class="mod_24606323 wm-module fullbackground  module-page2_forum">
+<%if @rooms.length > 0 %>
+    <%if @sujets.length > 0%>
+    <div class="cel1">
+		 <h2 class="titre_chambre">Les 5 derniers messages</h2><br />
+		 <table class="tab_sujet" cellspacing="0">
+			 <tr>
+				 <td class="entetecol1"><div class="navi_left">Sujets</div></td>
+				 <td class="entetecol2"><div class="navi">Réponses</div></td>
+				 <td class="entetecol3"><div class="navi">Lectures</div></td>
+				 <td class="entetecol4"><div class="navi">Derniers posts</div></td>
+			 </tr>
+                         <%@sujets.each do |subject|%>
+			 <tr class="bg_normal">
+				 <td class="col1">
+					 <h4 class="ctitre">
+						 <a href="/forum/<%=subject.titre.gsub(' ','-')%>_m<%=subject.id%>.html"><%=subject.titre%></a>
+					 </h4>
+					 <h5 class="description">Ecrit par <%=subject.user.pseudo%></h5>
+				 </td>
+				 <td class="col2">
+					 <div class="center"><span class="statistiques"><%=subject.reponses%></span></div>
+				 </td>
+				 <td class="col3">
+					 <div class="center"><span class="statistiques"><%=subject.lectures%></span></div>
+				 </td>
+				 <td class="col4">
+					 <div class="center">
+						 <span class="description"><%=subject.datedernierpost.to_date == Date.today ? "Aujourd'hui - " : ""%><%=l(subject.datedernierpost.to_time, format: (subject.datedernierpost.to_date == Date.today ? :mytime : (subject.datedernierpost.to_date.year == Date.today.year ? :madate : :mydatelastyear)))%></span>
+						 <br /><span class="description">(<%=subject.usernamedernierpost%>)</span>
+					 </div>
+				 </td>
+			 </tr>
+                         <%end%>
+			 
+		 </table>
+	 </div>
+         <%end%>
+	 <br />
+	 <div class="cel1">
+		 <h2 class="titre_chambre">Les forums</h2><br />
+		 <table class="tab_chambre" cellspacing="0">
+			 <tr>
+				 <td class="entetecol1"><div class="navi_left">Chambre</div></td>
+				 <td class="entetecol2"><div class="navi">Sujets</div></td>
+				 <td class="entetecol3"><div class="navi">Derniers posts</div></td>
+			 </tr>
+                         <%@rooms.each do |room|%>
+			 <tr class="bg_normal">
+				 <td class="col1">
+					 <h3 class="ctitre">
+						 <a href="/forum/<%=room.titre.gsub(' ','-')%>_s<%=room.id%>.html"><%=room.titre%></a>
+					 </h3>
+					 <div class="description"><%=room.description%></div>
+				 </td>
+				 <td class="col2">
+					 <div class="center"><span class="statistiques"><%=room.sujets%></span></div>
+				 </td>
+				 <td class="col3">
+					 <div class="center"><span class="description"><%if room.datedernierpost%><%=room.datedernierpost.to_date == Date.today ? "Aujourd'hui - " : ""%><%=l(room.datedernierpost.to_time, format: (room.datedernierpost.to_date == Date.today ? :mytime : (room.datedernierpost.to_date.year == Date.today.year ? :madate : :mydatelastyear)))%><%end%></span></div>
+				 </td>
+			 </tr>
+			 <%end%>
+		 </table>
+	 </div>
+<div class="cel1">
+				 <br class="navi" />
+		 <div class="navi">
+			 <a target="_blank" href="/xml/forum.rss"><img class="image" alt="RSS" src="/_images/icones/rss.gif" /> </a>
+			 <a target="_blank" href="/xml/forum.xml"><img class="image" alt="ATOM" src="/_images/icones/atom.gif" /></a>
+		 </div>
+	 </div>
+         <%else%>
+<div class="cel1">
+		 <h2 class="titre_chambre">Les forums</h2><br>
+		 <table class="tab_chambre" cellspacing="0">
+			 <tbody><tr>
+				 <td class="entetecol1"><div class="navi">Il n'y a aucune chambre active dans le forum.</div></td>
+			 </tr>
+		 </tbody></table>
+	 </div>
+         <%end%>
+	 
+</div>
+<div class="ecart_colfull"><hr /></div>
+</div>
+</div>

@@ -1,0 +1,16 @@
+		 <div id="entete_liste">
+		 <br />
+		 <div class="entete_liste" style="float:left">
+			 <div class="access" style="padding-top:5px">Dans la même rubrique :</div>
+		 </div>
+		 <div class="titre_liste pager" style="float:right; padding:0 0 10px 0">
+			 <a class="sel" rel="nofollow" href="javascript:void(0)" onclick="recharge('entete_liste', '/mymodule/5601801/', '', 'start=<%=@prev%>&amp;numero=<%=@article.id%>&amp;java=false&amp;ajax=true&amp;show=liste_articles&amp;mod_size=3')">&lt;</a>
+			 <a href="javascript:void(0)" rel="nofollow" onclick="recharge('entete_liste', '/mymodule/5601801/', '', 'start=<%=@next%>&amp;numero=<%=@article.id%>&amp;java=false&amp;ajax=true&amp;show=liste_articles&amp;mod_size=3')">&gt;</a>
+		 </div>
+		 <div class="break" style="padding-bottom: 10px"></div>
+			 <table class="same_rub inner" cellpadding="0" cellspacing="0"><tr style="margin:0 auto">
+		 
+		 
+		 <%=render partial: "similararticles", collection: @articles, as: :article%>
+			 </tr></table>
+		 </div>

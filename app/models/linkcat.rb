@@ -1,0 +1,2 @@
+class Linkcat < ApplicationRecord
+end

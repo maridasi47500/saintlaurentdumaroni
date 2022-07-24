@@ -1,0 +1,18 @@
+<%if classeur.pjs.length > 0%>
+<div class="classeur">
+				 <%=link_to classeur.name, classeur.url%>
+		</div>
+				 <div class="delimiter_desc description" ></div>
+				<%=render partial:'mapj', collection: classeur.mypjs, as: :pj %>
+                                <%if lotofpjs?%>
+				<div class="lien" style="text-align: right; margin-top: 10px; margin-bottom: 10px"><a href="<%=classeur.url%>">Voir tous les fichiers (<%=classeur.nbpjs%>)</a></div>
+                                <%end%>
+<%else%>				
+
+		
+<div class="classeur">
+				 <%=link_to classeur.title, classeur.url%>
+		</div>
+				 <div class="delimiter_desc description" ></div>
+	 <div class="delimiter description">Aucun fichier dans ce classeur<br/><br/></div><br/>
+<%end%>				

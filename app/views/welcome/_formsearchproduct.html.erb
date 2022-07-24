@@ -1,0 +1,19 @@
+<%=form_with model: product, url: "/classifieds/Produit_pc18791.html", html: { id: "form_filter", method: "get", onsubmit: "$('.hiddeninput').remove();$('.realinput').show();"} do |form|%>
+			 <input type="hidden" name="search" value="1">
+			<%=form.text_field "keyword_safe", style: "width:40%", class: "button hiddeninput", id: "keyword_safe", onfocus: "$(this).hide(); $('#keyword').show(); $('#keyword').focus()", value: "Mots-clés"%>
+<%=form.text_field "keyword", style: "display:none;width:40%", id: "keyword", class: "button realinput", onblur: "if (this.value == '') {$(this).hide(); $('#keyword_safe').show();}" %>
+	 <%=form.select :mylocation, options_for_select([[ "Toutes les catégories", "/classifieds/"], [ "Emploi", "/classifieds/Emploi_pc18793.html"], [ "Produit", "/classifieds/Produit_pc18791.html"]], request.path),{}, {class: "button", style: "width: 30%", onchange: "window.location.href=$(this).val()"}%>
+
+			 <input type="submit" value="Rechercher" class="button2">
+		 <div class="margin">
+		 <%=form.select "pa_specs_min_0", ((200..500).step(50).to_a+[750]+(1000..10000).step(500).to_a+(11000..15000).step(1000).to_a+[17500]+(20000..50000).step(5000).to_a+(60000..100000).step(10000).to_a+(100000..250000).step(25000).to_a+[["-1","Plus de 250 000"]]), {include_blank: "Prix min"},  {class: "button", style: "width: 25%", onchange: "$('#form_filter').submit()"}%>
+		 </div>
+		 <div class="margin">
+		 		 <%=form.select "pa_specs_max_0", ((200..500).step(50).to_a+[750]+(1000..10000).step(500).to_a+(11000..15000).step(1000).to_a+[17500]+(20000..50000).step(5000).to_a+(60000..100000).step(10000).to_a+(100000..250000).step(25000).to_a+[["-1","Plus de 250 000"]]), {include_blank: "Prix max"},  {class: "button", style: "width: 25%", onchange: "$('#form_filter').submit()"}%>
+
+		 </div>
+		 <div class="margin">
+			<%=form.text_field "cp_safe", style: "width:100px", class: "button hiddeninput", id:"cp_safe", onfocus: "$(this).hide(); $('#cp').show(); $('#cp').focus()", value: "Code Postal"%>
+<%=form.text_field "cp", style: "display:none;width:100px", id: "cp", class: "button realinput", onblur: "if (this.value == '') {$(this).hide(); $('#cp_safe').show();}" %>
+		 </div>
+		 <%end%>

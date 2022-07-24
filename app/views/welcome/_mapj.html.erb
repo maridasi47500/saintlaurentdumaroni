@@ -1,0 +1,12 @@
+<div class="delimiter">
+					<div style="float: left" class="photo"><a href="<%=pj.url%>"><img src="/myfiles/<%=pj.photo%>" alt=""/></a></div>
+					<div style="margin-left:85px">
+						 <div class="titre_fichier"><a href="<%=pj.url%>"><%=pj.name%></a></div>
+						 <div><a class="description" href="<%=pj.url%>"></a>
+						</div><br/>
+						<div class="information">
+							<a href="<%=pj.url%>"><img src="/_images/ext/icon_pdf.gif" class="image" alt="" /></a>
+ Taille : <%=number_to_human_size(pj.filesize)%> | Vues : 2055 | Publié le : <%=l(pj.created)%>						</div>
+					</div>
+					<div style="clear: both"></div>
+				</div>

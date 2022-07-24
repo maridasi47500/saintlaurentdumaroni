@@ -1,0 +1,9 @@
+<div class="encapse_membre clear-x2 clear-x4" style="display:inline-block;margin-top: 5px;width:25%;float:left;">
+				 <div class="membre" style="height: 180px;">
+					 <div class="activite_bloc"><a style="float:left;clear:both;overflow-wrap: break-word;" href="<%=myarticle_path(id: comment.articles[0].id, article: "_a",titre: comment.articles[0].titre, com: "", anchor: "com_#{comment.id}")%>" class="lien"><strong><%=comment.articles[0].titre%></strong></a><br><br><a style="float:left;clear:both;" href="<%=myarticle_path(id: comment.articles[0].id, article: "_a",titre: comment.articles[0].titre, com: "", anchor: "com_#{comment.id}")%>">
+<%=comment.content%>
+</a>
+					 <a style="display:inline-block;position:relative;float:left;clear:both;" class="opacity" href="<%=myarticle_path(id: comment.articles[0].id, article: "_a",titre: comment.articles[0].titre, com: "", anchor: "com_#{comment.id}")%>"><span> <%=l(comment.created_at, format: :mytime)%> | <%=comment.name%> </span><br><strong>Commentaire</strong></a>
+                                </div>
+				 </div>
+			 </div>

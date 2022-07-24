@@ -1,0 +1,43 @@
+<%=form_with scope:"",model:email, url: send_path(email.article.artnb),html: {id: 'formulaire_submit'} do |form|%>
+				 <div class="champ">
+					 <%=form.hidden_field "id_soum"%>
+					 <input type="hidden" name="subaction" value="add" />
+					 <input type="hidden" id="fingerprint" name="fingerprint" value="fingerprint" />
+				<label style="">Email du destinataire * :</label>
+<div class="inputrow" style="padding-bottom:0;width:260px">
+	 <%=form.text_field "a_ami", class: (email.myerror(:a_ami) ? "field_error" : "button"), onfocus: "del_error(this.id)", id: "a_ami", style: "width:240px" %>
+	 <div id="error_a_ami" class="error"><%= email.myerrormessage(:a_ami)%></div>
+
+</div>
+<div class="inforow">(Séparez les adresses par un point-virgule)</div>
+<div class="break"></div>
+				<div class="sep"></div>
+<div class="break"></div>
+				<label style="">Votre nom * :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_nom", class: (email.myerror(:a_nom) ? "field_error" : "button"), onfocus: "del_error(this.id)", id: "a_nom",style: "width:240px"%>
+	 <div id="error_a_nom" class="error"><%= email.myerrormessage(:a_nom)%></div>
+</div>
+<div class="break"></div>
+				<label style="">Votre email * :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_email", class: (email.myerror(:a_email) ? "field_error" : "button"), onfocus: "del_error(this.id)", id: "a_email", style: "width:240px" %>
+	 <div id="error_a_email" class="error"><%= email.myerrormessage(:a_email)%></div>
+</div>
+<div class="break"></div>
+				<label style="">Message :</label>
+<div class="inputrow" style="">
+	 <%=form.text_area "a_message", class: (email.myerror(:a_message) ? "field_error" : "button"), onfocus: "del_error(this.id)", id: "a_message", rows: "8"%>
+
+	 <div id="error_a_message" class="error"><%= email.myerrormessage(:a_message)%></div>
+</div>
+<div class="break"></div>
+					 <div class="left submit">
+						 <input name="annul" type="button" value="Retourner à l'article" class="button2" onclick="document.location.href='<%=@article.myurl%>'" />
+					 </div>
+					 <div class="right submit">
+						 <input type="submit" value="Envoyer" class="button2" />
+					 </div>
+					 <div class="clear"></div>
+				 </div>
+		 <%end%>

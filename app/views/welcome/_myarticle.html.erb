@@ -1,0 +1,27 @@
+		 <div class="pave_<%=alignme%>">
+				 <div class="rub_<%=alignme%>" style="">
+					 <div>
+				 <div>
+				 <div class="photo_<%=alignme%> photo shadow">
+					 <a href="<%=article.myurl%>">
+						 <img src="/assets/<%=article.photo%>" alt="<%=article.titre%>" title="<%=article.titre%>">
+					 <img src="/souscat_files/45229711-36621154(1).jpg" alt="<%=article.titre%>" class="responsive" style="display:none">					 </a>
+				 </div>
+				 </div>
+					 <h3 class="titre_article">
+						 <a href="<%=article.myurl%>"><%=article.titre%></a>
+						 <span class="date_article"><%=l(article.created_at.to_date)%></span>
+					 </h3>
+				 </div>
+					 <div class="resume_article">
+						 <%=strip_tags(article.description).truncate(151, separator: " ", omission: "...")%>
+					 </div>
+				 <div class="clear"></div>
+			 <div class="lire_suite">
+				 <a href="<%=article.myurl%>">
+					 <img src="/assets/<%=article.photo%>" alt="Lire la suite" title="Lire la suite">
+				 </a>
+			 </div>
+				 </div>
+				 <div class="clear"></div>
+			 </div>

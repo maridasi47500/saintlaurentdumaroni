@@ -1,0 +1,24 @@
+<div class="item">
+
+				 <div class="avatar photo" style="margin-left:21px"><a href="/social/<%=classified.user_id%>/"><img src="<%if classified.user.image%>/userfiles/<%=classified.user.image%>?v=<%else%>/_images/social/inconnu_o.jpg<%end%>" width="48" height="48" alt="<%=classified.user.pseudo%>" title="<%=classified.user.pseudo%>"></a></div>
+				 <div class="legende" style="margin-left:21px">
+					 <div class="auteur_date">
+						 <span class="auteur_date"> <%=l(classified.created_at, format: :mytime)%> | <a class="lien" href="/social/<%=classified.user_id%>/"><%=classified.user.pseudo%></a> a soumis l'annonce </span>
+						 <a class="lien" href="/classifieds/<%=classified.titre.gsub(' ','-')%>_pa<%=classified.id%>.html"><%=classified.titre%></a>
+							 <div class="sep2"></div>
+							 <div class="auteur_date">
+								 <a href="javascript:void(0)" onclick="view_full(this, 'fullactivity_1');"><img src="/_images/icones/annonce.gif" alt="" class="left" style="margin-right:5px"><span>Plus de détails</span></a>
+								 | 
+			 <%if user_signed_in? && !classified.user.followers.include?(current_user)%>
+<a href="javascript:void(0)" rel="nofollow" onclick="recharge_async('mod_24606308', '/mymodule/24606308/', 'ajax=true&amp;java=false&amp;subaction=&amp;start=0&amp;recharge_all=1&amp;follow=<%=classified.user_id%>&amp;REQUEST_URI=%2Fsocial%2Fwall%2Fclassifieds%2F')">Suivre</a>
+                                                 <%elsif user_signed_in?%>
+<a href="javascript:void(0)" rel="nofollow" onclick="recharge_async('mod_24606308', '/mymodule/24606308/', 'ajax=true&amp;java=false&amp;subaction=&amp;start=0&amp;recharge_all=1&amp;unfollow=<%=classified.user_id%>&amp;REQUEST_URI=%2Fsocial%2Fwall%2Fclassifieds%2F')">Ne plus suivre</a>
+					 
+                                                 <%end%>
+				 | <a href="/social/compose/?send_to=<%=classified.user_id%>">Contacter</a>
+							 </div>
+						 <div id="fullactivity_<%=classified_counter%>" class="texte fullactivity" style="display: none;"><%=simple_format(classified.description)%></div>
+					 </div>
+				 </div>
+				 <div class="clear"></div>
+			 </div>

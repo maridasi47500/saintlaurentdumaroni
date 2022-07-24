@@ -1,0 +1,18 @@
+		<div class="zone_navigation_inner" style="margin:0;padding:0;height:335px;_height:335px">
+	<%=render partial: "myvideoboxes",collection: @videos,as: :video%> 
+<div class="clear"></div></div>		 <div class="navi_contenair" style="margin: 0 auto;">
+		 <div class="lien" style="text-align : center;">
+<%if @prev%>
+			 <a href="javascript:void(0)" rel="nofollow" onclick="getVideoPage('mod_' + 5601793 + '_zone_navigation' , 'preaction=mymodule&amp;java=false&amp;ajax=true&amp;ajax_subaction=get_page&amp;nav=prev&amp;id_mep=7&amp;tri=recent&amp;id_param=5601793&amp;start=<%=@prev%>&amp;first_video_date=2019-05-14+15%3A48%3A00&amp;last_video_date=2015-05-18+08%3A55%3A00&amp;id='); return false;">« Précédent</a>
+			 <span> | </span>
+<%end%>
+			 <a class="lien" href="/videos/all/">Voir toutes les vidéos</a>
+<%if @next%>
+			 <span> | </span>
+			 <a href="javascript:void(0)" rel="nofollow" onclick="getVideoPage('mod_' + 5601793 + '_zone_navigation' , 'preaction=mymodule&amp;java=false&amp;ajax=true&amp;nav=next&amp;ajax_subaction=get_page&amp;id_mep=7&amp;tri=recent&amp;id_param=5601793&amp;start=<%=@next%>&amp;first_video_date=2019-05-14+15%3A48%3A00&amp;last_video_date=2015-05-18+08%3A55%3A00&amp;id='); return false;">Suivant »</a>
+<%end%>
+		 </div>
+		 </div>
+<script id="script_after" type="text/javascript">
+</script>
+

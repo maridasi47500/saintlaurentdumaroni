@@ -1,0 +1,36 @@
+<%=content_for :mysheet do%>
+<link rel="stylesheet" href="/style.5601799.css" type="text/css">
+
+<%end%>
+<div class="z_colonne main-colonne" id="z_col2">
+<div class="z_col_median z_col2_inner z_col_fullheight" style="height: 937px;">
+<div id="breads" class="breadcrump_rub breadcrumbs_rub">
+<%=render partial: "breadrubrique", collection: [@rubrique.rubrique3,@rubrique.rubrique2,@rubrique.rubrique1,@rubrique].select{|g|g}, as: :rubrique,spacer_template: "breadbetween"%>
+
+	 <div class="clear separate"><hr></div>
+</div>
+<div id="mod_5601799" class="page2_rubrique type_2 type-3 mod_5601799 wm-module fullbackground ">
+	 <div class="celrubrique cel1">
+		 <div class="rubrique">
+			<span><%=@rubrique.name%></span>
+		 </div>
+	 </div>
+	    <%=render partial: "articlerubriques", collection: @myarticles, as: :articles%>
+
+    <%=render "breveforpager", list: @myarticles, myurl: @rubrique.url%>
+
+	 
+    <%@rubrique.rubriquefilles.each do |rubrique|%>
+    <div class="cel1">
+		 <h3 class="rubrique_fille">
+			 <a href="<%=rubrique.url%>"><%=rubrique.name%></a>
+		 </h3>
+	 </div>
+    <%=render partial: "articlerubriques", collection: rubrique.myarticles(params[:start]), as: :articles%>
+    <%=render "breveforpager", list: rubrique.myarticles(params[:start]), myurl: rubrique.url%>
+    <%end%>
+	 
+</div>
+<div id="ecart_after_5601799" class="ecart_col2"><hr></div>
+</div>
+</div>

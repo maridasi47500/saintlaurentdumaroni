@@ -1,0 +1,90 @@
+<style>
+.selected{
+font-weight:900;
+</style>
+<div id="z_colfull">
+<div class="z_colfull_inner">
+<div id="breads" class="breadcrump breadcrumbs">
+	 <a href="https://www.megazap.fr/">Accueil</a>
+	 <span class="sepbread">&nbsp;&gt;&nbsp;</span>
+	 <a href="/social/">Réseau social</a>
+	 <span class="sepbread">&nbsp;&gt;&nbsp;</span>
+	 <a href="/social/list/">Membres</a>
+	 <div class="clear separate"><hr /></div>
+</div>
+ <div id="mod_5601793" class="mod_5601793 wm-module fullbackground  module-page2_social">
+	 <div class="cel1" style="position:static">
+			 <div class="tabs">
+				 <ul>
+					 <li id="li_wall"><a href="/social/">Activités</a></li>
+					 <li id="li_membre" class="selected"><a href="/social/list/">Membres</a></li>
+					 <li id="li_profil">
+<%if user_signed_in?%>
+<a href="/social/<%=current_user.id%>/">Mon profil</a>
+<%else%>
+<a href="javascript:void(0)" onclick="showIbox('/index.php?preaction=ajax&amp;action=restriction&amp;iboxaction=login&amp;CUSTOM=profil')">Mon profil</a>
+<%end%>
+</li>
+					 <li class="li_search" style="float:right;margin:0;padding:0">
+						 <form action="/social/list/?order=" method="get" onsubmit="document.getElementById('snskey_safe_5601793').focus();this.removeChild(document.getElementById('snskey_safe_5601793'))">
+							 <input type="text" class="button search" style="" id="snskey_safe_5601793" name="snskey_safe_5601793" value="<%=params[:snskey]%>" onfocus="this.style.display='none'; document.getElementById('snskey_5601793').style.display='inline'; document.getElementById('snskey_5601793').focus()" />
+							 <input type="text" class="button search" style="display:none" id="snskey_5601793" name="snskey" value="<%=params[:snskey]%>" onblur="if (this.value == '') {this.style.display='none'; document.getElementById('snskey_safe_5601793').style.display='inline';}" />
+							 <input type="image" src="/_images/icones/ok_5.png?v=1213798463" alt="OK" title="OK" />
+						 </form>
+					 </li>
+				 </ul>
+				 <div class="clear"></div>
+			 </div>
+			 <div class="view-liste_membre">
+			 <div class="inner_tabs" >
+                                <%if @users.length > 0%>
+				 <div class="inner">
+				 <div class="bloc_bottom">
+                                 <div class="inner">
+				 <div class="bloc_bottom">
+			 <div class="titre relative"><a href="/social/list/">Membres du site</a></div>
+				 <div class="auteur_date"><%= @users.length%> Résultats pour votre recherche : <%=params[:snskey]%></div>
+				 </div>
+				 <div class="bloc">
+							 <%=render partial: "users", collection: @users, as: :users%>
+					 <div class="clear"></div>
+			
+	 
+				 
+				 <div class="clear"></div>
+					 <div class="clear"></div>
+					 <div class="right"></div>
+					 <div class="clear"></div>
+					 </div>
+				 </div
+                                 <%else%>
+<div class="inner">
+				 <div class="bloc_bottom">
+			 <div class="titre relative"><a href="/social/list/">Membres du site</a></div>
+				 <div class="auteur_date">0 Résultats pour votre recherche : <%=params[:snskey]%></div>
+				 </div>
+				 </div>
+                                 <%end%>
+			 </div>
+	 </div>
+</div>
+<div class="ecart_colfull"><hr /></div>
+</div>
+</div>
+
+<%=content_for :overlay do%>
+<div class="overlay" id="overlay" style="visibility: visible; z-index: 1000; width: 400px; height: 250px; background-image: url(&quot;/_images/icones/ibox_loading.png&quot;); background-repeat: no-repeat; background-position: center center; top: 15px; left: 288px; position: fixed; display: none;"><span id="ibox_close_perso" class="close" style="display: none;"></span><img id="ibox_close" class="close" src="/_images/icones/ibox_close.png" style="display: none;"><div class="contentWrap" style="visibility: visible;"><img src="" alt="" width="144" height="205" onclick="hideIbox()"></div></div>
+<div id="overlay-opacity"></div>
+<a rel="#overlay"></a>
+<div   onclick="$(overlay).toggle();$(exposeMask).toggle();return false;" id="exposeMask" style="position: absolute; top: 0px; left: 0px; width: 1090px; height: 1441px; display: none; opacity: 0; z-index: 9998; background-color: rgb(0, 0, 0);"></div>
+<%end%>
+
+<%=content_for :mapgoogle do%>
+<script src="/js/compress_jquery.ibox.js"></script>
+<script src="/js/jquery.tools-1.2.7.min.js?v=1383207878" type="text/javascript"></script>
+
+<%end%>
+<%=content_for :myglider do%>
+if ($('#my-glider5601812').length) var my_glider5601812 = $('#my-glider5601812 div.content').bxSlider({pager: false,controls: false});
+
+<%end%>

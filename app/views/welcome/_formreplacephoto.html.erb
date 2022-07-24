@@ -1,0 +1,31 @@
+<div class="body">
+<div id="z_col">
+<div id="z_col_inner">
+<div class="mod_24606308" id="mod_24606308">
+		 <div class="bloc_ibox">
+			 <div class="titre" style="margin-bottom:0">Photo</div>
+			 <div class="sep"></div>
+				 <div class="ssmenu">
+					 <a href="javascript:void(0)" rel="nofollow" onclick="show_plus('form_add_photo')">Remplacer la photo</a>
+					 <span>|</span>
+					 <a href="javascript:void(0)" rel="nofollow" onclick="recharge('profil_photo', '/mymodule/24606308/', '', 'ajax=true&amp;java=false&amp;show=photo&amp;del=1'); parent.hideIbox();">Supprimer la photo ?</a>
+				 </div>
+		 <div id="form_add_photo" style="margin-top:4px;display:none">
+		 <form action="/mymodule/24606308/" method="post" enctype="multipart/form-data" class="profile_form" onsubmit="this.target='iframe_save_24606308'">
+			 <input type="hidden" name="java" value="false">
+			 <input type="hidden" name="ajax" value="true">
+			 <input type="hidden" name="iboxaction" value="photo">
+			 <input type="file" size="30" class="button" name="a_photo">
+			 <input type="submit" class="button2" value="Envoyer">
+		 </form>
+		 </div>
+		 <br>
+				 <div class="menu item">Recadrez votre photo</div>
+				 <div class="item auteur_date" style="width:300px">Maintenez la touche SHIFT du clavier, puis cliquez sur la zone pour agrandir la selection</div>
+		 <iframe src="/mymodule/24606308/?ajax=true&amp;java=false&amp;iboxaction=photo&amp;iframe=1" style="width:300px;height:244px;border:none" scrolling="auto" frameborder="0"></iframe>
+		 </div>
+		 <iframe id="iframe_save_24606308" name="iframe_save_24606308" src="/mymodule/24606308/?ajax=true&amp;java=false&amp;iboxaction=photo&amp;void=1" style="display:none;width:0px;height:0px;border:0"></iframe>
+</div>
+</div>
+</div>
+</div>

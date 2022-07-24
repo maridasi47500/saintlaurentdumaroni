@@ -1,0 +1,80 @@
+<%=form_with model:article,scope:"", url: "/submit/",html: {enctype: "multipart/form-data", id: "formulaire_submit", name: "formulaire_submit"} do |form|%>
+<%=form.hidden_field :user_id%>				
+ <div class="champ">
+					 <input type="hidden" name="key" value="creablog">
+					 <input type="hidden" name="referer" value="/sitemap/">
+					 <input type="hidden" name="subaction" value="add">
+					 <input type="hidden" id="fingerprint" name="fingerprint" value="12356">
+				<label style="">Titre * :</label>
+<div class="inputrow" style="">
+	 <%= form.text_field "a_titre", class: "button", onfocus: "del_error(this.id)", id: "a_titre", maxlength: "250"%>
+	 <div id="error_a_titre" class="error"></div>
+</div>
+<div class="break"></div>
+				<label style="">Rubrique :</label>
+<div class="inputrow" style="">
+		 <%=form.select "a_id_rubrique", Artcat.catsform, {include_blank: "*Non définie"},{id: "a_id_rubrique", class: "button", style: "width:200px"}%>
+		</select>
+</div>
+<div class="break"></div>
+				<label style="">Chapeau :</label>
+<div class="inputrow" style="">
+	 <%=form.text_area "a_chapeau", class: "button", onfocus: "del_error(this.id)", id: "a_chapeau", rows: "4"%>
+	 <div id="error_a_chapeau" class="error"></div>
+</div>
+<div class="break"></div>
+				<label style="">Intertitre :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_intertitre", class: "button", onfocus: "del_error(this.id)", id: "a_intertitre"%>
+	 <div id="error_a_intertitre" class="error"></div>
+</div>
+<div class="break"></div>
+				<label style="">Texte <span style="margin-left:10px">(HTML</span><%=form.check_box :a_html, id: "a_html", value:"oui"%>) :</label>
+<div class="inputrow" style="">
+	 <%=form.text_area "a_texte", class: "button", onfocus: "del_error(this.id)", id: "a_texte", rows: "10"%>
+	 <div id="error_a_texte" class="error"></div>
+</div>
+<div class="break"></div>
+				<label style="">Photo :</label>
+<div class="inputrow" style="">
+	 <%=form.hidden_field "a_photo"%>
+	 <%=form.file_field "a_photo", class: "button", onfocus: "del_error(this.id)", id: "a_photo", style:"width:200px"%>
+	 <div id="error_a_photo" class="error"></div>
+</div>
+<div class="break"></div>
+				<div class="encapse" style="float:left;position:relative;width:250px">
+<label style="">Email * :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_email", class:"button", onfocus:"del_error(this.id)", id:"a_email", style: "width:200px"%>
+	 <div id="error_a_email" class="error"></div>
+</div>
+</div>
+				<div class="encapse" style="float:left;position:relative;width:200px;">
+<label style="">Auteur * :</label>
+<div class="inputrow" style="">
+	 <%=form.text_field "a_auteur", class: "button", onfocus: "del_error(this.id)", id: "a_auteur", style: "width:200px", maxlength: "60"%>
+	 <div id="error_a_auteur" class="error"></div>
+</div>
+</div>
+					 <input type="hidden" id="havefile" name="havefile" value="">
+					 <div class="clear"></div>
+					 <div class="left submit">
+						 <input name="annul" type="button" value="Retour" class="button2" onclick="document.location.href=&#39;/sitemap/&#39;">
+					 </div>
+					 <div class="right submit">
+						 <input id="btn_submit" type="submit" value="Soumettre" class="button2">
+					 </div>
+					 <div class="clear"></div>
+				 </div>
+		 <%end%>
+<%=content_for :mapgoogle do%>
+<script>
+window.onload=function(){
+<%article.errors.messages.to_a.select{|h,k|k.length > 0}.each do |y,m|%>
+$('#error_<%=y%>').html("<%=m[0]%>");
+$('#<%=y%>').attr('class','field_error');
+<%end%>
+}
+</script>
+<script src="/js/form.js"></script>
+<%end%>

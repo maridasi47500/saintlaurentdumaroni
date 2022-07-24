@@ -1,0 +1,17 @@
+<div class="section" style="float: none; list-style: none; position: absolute; width: 795px; z-index: 0; display: none;">
+	 <div style="background:url(<%=article.photo%>) top center / contain no-repeat;">
+		 <div class="pointer" onclick="document.location.href=&#39;<%=article.myurl%>&#39;" style="height:381px"></div>
+			 <table id="td_une5601838_3" class="fond size" style="width: 100%; height: 90px;" cellpadding="0" cellspacing="0"><tbody><tr><td>
+				 <div class="cellpadding">
+						 <div class="titre"><a href="<%=article.myurl%>"><%=article.titre%></a><a href="<%=article.myurl%>" class="date" style="margin-left: 5px"><%=l(article.created_at.to_date)%> </a></div>
+						 <div class="texte"><a href="<%=article.myurl%>"></a></div>
+				 </div>
+			 </td></tr><tr><td style="vertical-align:bottom">
+				 <div class="pager" style="text-align:right;padding-bottom:10px">
+<%(0..(mostrecentarts.length - 1)).each_with_index do |h,ii|%>
+				 <a <%if ii == article_counter%>class="sel"<%end%> href="javascript:void(0)" onclick="my_glider5601838.goToSlide(0); my_glider5601838.stopAuto(); my_glider5601838.startAuto();">&nbsp;</a>
+<%end%>
+				 </div>
+				 </td></tr></tbody></table>
+	 </div>
+</div>

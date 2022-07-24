@@ -1,0 +1,14 @@
+<div class="item">
+				 <div>
+					 <div class="auteur_date">
+							 <img src="/_images/icones/bulle_com.png" alt="" class="left">
+							 <div style="margin-left:21px">
+						 <span class="auteur_date"> <%=l(comment.created_at, format: :mytimecomment)%> | <%=comment.name%> a commenté l'article </span>
+						 <a class="lien" href="<%=mynote_path(id: comment.notes[0].id, category: "_b",title: comment.notes[0].titre, com: "", anchor: "com_#{comment.id}")%>"><%=comment.notes[0].titre%></a>
+								 <br><a href="javascript:void(0)" onclick="view_full(this, 'fullactivity_1')"><span>Plus de détails</span></a>
+							 </div>
+						 <div id="fullactivity_1" class="texte fullactivity" style="display:none">cool</div>
+					 </div>
+				 </div>
+				 <div class="clear"></div>
+			 </div>

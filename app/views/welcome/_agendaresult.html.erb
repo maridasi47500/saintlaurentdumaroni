@@ -1,0 +1,15 @@
+	<div class="cel1">
+		 <div class="photo shadow">
+			 <a href="<%=event.myurl%>"><img width="145px" height="90px" src="<%=event.photo%>" alt="<%=event.titre%>" title="<%=event.titre%>" /></a>
+		 </div>
+		 <div class="details mleft">
+			 <div class="date"><%=l(event.date)%></div>
+			 <h3 class="titre bloc">
+				 <a href="<%=event.myurl%>"><%=event.titre%></a>
+			 </h3>
+			 <div class="bloc">
+				 <a class="description" href="<%=event.myurl%>"><%=strip_tags(event.description).truncate(151,separator:" ",omission: "...")%></a>
+			 </div>
+		 </div>
+		 <div class="clear"></div>
+	 </div>

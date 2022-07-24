@@ -1,0 +1,29 @@
+<div id="div_follow_me_<%=user.myuserid%>" class="item left" style="float:left;width: 447px;margin-bottom:10px;">
+					 <div class="avatar photo" style="float:left;margin-right:5px">
+					 <a href="/social/<%=user.myuserid%>/">
+						 <img src="<%if user.image%>/userfiles/<%=user.image%>?v=<%else%>/_images/social/inconnu_o.jpg<%end%>" alt="<%=user.myuserid%>" width="80" height="80" />
+					 </a>
+					 </div>
+					 <div class="infos_membre" style="float:left;">
+						 <div style="margin-bottom: 5px">
+							 <a class="titre" href="/social/<%=user.myuserid%>/"><%=user.fullname%></a>
+						 </div>
+						 <div class="auteur_date">Homme, France (Métropolitaine)</div>
+					 <div class="ssmenu">
+						 <div id="follow_me_<%=user.myuserid%>">
+
+						 <%if user_signed_in? && !user.followers.include?(current_user)%>
+<%if user.followers.length > 0%><div class="auteur_date">Suivi(e) par <%=user.followers.length%> personne(s)</div><%end%>
+			 <a href="javascript:void(0)" rel="nofollow" onclick="recharge_async('follow_me_<%=user.myuserid%>', '/mymodule/5601793/', 'ajax=true&amp;java=false&amp;start=0&amp;follow=<%=user.myuserid%>')">Suivre</a>
+
+                                                 <%elsif user_signed_in?%>
+<%if user.followers.length > 0%><div class="auteur_date">Suivi(e) par <%=user.followers.length%> personne(s)</div><%end%>
+			 <a href="javascript:void(0)" rel="nofollow" onclick="recharge_async('follow_me_<%=user.myuserid%>', '/mymodule/5601793/', 'ajax=true&amp;java=false&amp;start=0&amp;unfollow=<%=user.myuserid%>')">Ne plus suivre</a>
+					 
+                                                 <%end%>
+				 | <a href="/social/compose/?send_to=<%=user.myuserid%>">Contacter</a>
+
+					 </div>
+					 </div>
+					 </div>
+				 </div>

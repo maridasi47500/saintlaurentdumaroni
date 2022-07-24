@@ -1,0 +1,8 @@
+<div class="encapse_membre clear-x2 clear-x3 clear-x4" style="margin-top: 5px;width:25%;float:left;">
+						 <div class="membre" style="float:left;">
+							 <a class="encapse_img" href="/social/<%=user.myuserid%>/" style="width:0">
+								 <img src="<%if user.image%>/userfiles/<%=user.image%>?v=<%else%>/_images/social/inconnu_o.jpg<%end%>" alt="<%=user.myuserid%>" width="180" height="180">
+							 </a>
+							 <a style="display:inline-block;position:relative;float:none;" class="opacity" href="/social/<%=user.myuserid%>/"><%=user.fullname%><br><span style="font-weight:normal">le <%=l(user.created_at, format: :memberat)%></span></a>
+						 </div>
+					 </div>
